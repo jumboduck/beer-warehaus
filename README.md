@@ -133,7 +133,19 @@ The creation of an account gives access to the following features:
 
 ## Technologies
 
+-   HTML
+-   CSS
+-   JavaScript / jQuery
+-   Python
+-   Django
+
 ## Tools Used
+
+-   Github
+-   [Untappd API](https://untappd.com/api/docs)
+-   VS Code
+-   Balsamiq
+-   Heroku
 
 ## Testing
 
