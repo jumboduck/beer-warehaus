@@ -46,6 +46,8 @@ Additionally the site provides a number of tools allowing the shop owner to easi
 
 ### Wireframes
 
+Following these user stories, wireframes were drawn to provide a starting point and guidance throughout the development process. The full desktop wireframes can be found [here](readme-files/beer-warehaus-desktop.pdf), and the mobile wireframes [here](readme-files/beer-warehaus-mobile.pdf).
+
 ### Data Structure
 
 ### Design
