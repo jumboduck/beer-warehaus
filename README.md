@@ -1,41 +1,75 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Beer WareHaus
 
-Welcome USER_NAME,
+Beer WareHaus is an online shop for a hypothetical beer import and distribution company in Norway. The purpose of the site is to provide a simple intuitive ways for managers of bars and restaurants to browse and purchase products they wish to serve.
+Additionally the site provides a number of tools allowing the shop owner to easily manage the products in the shop.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## UX
 
-## Gitpod Reminders
+### Project Goal
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User Stories
 
-`python3 -m http.server`
+#### User Stories for Customers
 
-A blue button should appear to click: *Make Public*,
+| **As a restaurant or bar manager I would like to** | **So that I can**                                 |
+| -------------------------------------------------- | ------------------------------------------------- |
+| browse products                                    | purchase what I need                              |
+| search products                                    | find something specific                           |
+| filter products by style                           | compare the offerings                             |
+| filter products by packaging (can, bottle, keg)    | choose serving style                              |
+| see offerings by a specific producer               | get an idea of the producer's offer               |
+| buy a product                                      | serve it to customers                             |
+| pay using a card                                   | pay immediately                                   |
+| receive an invoice                                 | pay at a later date and keep track of my payments |
+| create a profile                                   | make orders and have my information saved         |
+| update my profile information                      | be contacted by the importer                      |
+| see my shopping cart before paying                 | know the cost and content before the purchase     |
+| update my shopping cart                            | make decisions before the purchase                |
+| see details about a product                        | make an informed purchasing decision              |
+| view my order history                              | be reminded of previous purchases                 |
+| receive an email confirmation about my order       | have archived information about it                |
+| contact the importer                               | know about the status of an order                 |
+| know the newest arrivals                           | buy the freshest products                         |
+| see all discounted products                        | get the best deals                                |
+| repeat an order from my order history              | save some time on my regular orders               |
 
-Another blue button should appear to click: *Open Browser*.
+#### User Stories for Shop Administrators
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+| **As an administrator I would like to**     | **So that I can**                                |
+| ------------------------------------------- | ------------------------------------------------ |
+| Add/Update/Remove a product                 | Keep the store up to date                        |
+| Add/Update/Remove a brewery                 | keep users informed about the latest information |
+| Update contact information                  | Have users stay in touch with me                 |
+| Mark products as discounted                 | sell product that needs to move                  |
+| Receive orders from customers in my mailbox | fulfill the orders                               |
+| Mark a product as a new arrival             | entice customers with fresh products             |
 
-A blue button should appear to click: *Make Public*,
+### Wireframes
 
-Another blue button should appear to click: *Open Browser*.
+### Data Structure
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+### Design
 
-## Updates Since The Instructional Video
+## Features
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+### Existing Features
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed along with other common files.
+### Features Left to implement
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Technologies
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Tools Used
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Testing
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Deployment
 
---------
+### Local Deployment
 
-Happy coding!
+### Deployment to Heroku
+
+## Credits
+
+### Media
+
+### Acknowledgements
