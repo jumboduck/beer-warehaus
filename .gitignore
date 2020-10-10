@@ -1,4 +1,6 @@
 core.Microsoft*
 env.py
-__pycache__/
 *.py[cod]
+*.sqlite3
+__pycache__
+.gitignore
