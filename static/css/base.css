@@ -31,6 +31,10 @@ body {
     background-color: #1b1b1b;
 }
 
+.desktop-search-bar {
+    width: 300px;
+}
+
 .full-nav {
     padding: 0;
 }
