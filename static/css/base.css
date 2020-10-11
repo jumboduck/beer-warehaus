@@ -73,11 +73,15 @@ body {
     color: #ffc717;
 }
 
-footer {
+.footer {
     background: #1b1b1b;
     color: #fbfbf8;
     font-size: 0.7rem;
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Media Requests */
