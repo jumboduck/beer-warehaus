@@ -16,6 +16,7 @@
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -41,12 +42,12 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <header class="container-fluid site-header">
         <div class="row">
             <div class="col-12 col-md-2 my-auto py-1 py-md-0 text-center text-md-left">
                 <a href="{% url 'home' %}" class="logo nav-link main-logo-link">
-                    <h1 class="display-5 my-0 logo-font text-black">
-                        <img src="/media/beer-warehaus-logo.png" alt="Beer WareHaus">
+                    <h1 class="display-5 my-0">
+                        <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus" class="w-100">
                     </h1>
                 </a>
             </div>
@@ -92,7 +93,7 @@
             <!-- Main Navigation -->
 
             <div class="col-12 col-md-6 my-auto py-1 py-md-0  justify-content-end">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-dark">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
