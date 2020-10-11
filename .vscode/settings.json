@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "/Users/simoncastagna/.pyenv/versions/3.7.7/bin/python"
+    "python.pythonPath": "/Users/simoncastagna/.pyenv/versions/3.7.7/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
