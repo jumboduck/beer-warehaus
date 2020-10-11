@@ -17,8 +17,34 @@ body {
     font-weight: 300;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.navbar-bars:hover {
     color: #ffc717;
+}
+
+.navbar-bars {
+    color: #fbfbf8;
+}
+
+.search-bar {
+    background-color: #1b1b1b;
+}
+
+.full-nav {
+    padding: 0;
+}
+
+.btn-gold {
+    background-color: #ffc717;
+    color: #fbfbf8;
+}
+
+.mobile-top-header .nav-link {
+    padding: 0;
+}
+
+.mobile-top-header .nav-link p {
+    font-size: 0.8rem;
 }
 
 @media (min-width: 768px) {
