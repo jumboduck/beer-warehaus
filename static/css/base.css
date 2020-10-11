@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Slab:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto+Slab:wght@300;400&display=swap");
 
 body {
     background-color: #fbfbf8;
@@ -6,10 +6,14 @@ body {
     height: 100%;
 }
 
+/* SITE HEADER */
+
 .site-header {
     background-color: #1b1b1b;
     position: relative;
 }
+
+/* Navigation */
 
 .nav-link {
     color: #fbfbf8;
@@ -50,6 +54,22 @@ body {
 
 .mobile-top-header .nav-link p {
     font-size: 0.8rem;
+}
+
+.dropdown-menu {
+    background-color: #1b1b1b;
+    border: none;
+    border-radius: 0px;
+}
+
+.dropdown-item {
+    color: #fbfbf8;
+    font-weight: 300;
+}
+
+.dropdown-item:hover {
+    background-color: #1b1b1b;
+    color: #ffc717;
 }
 
 @media (min-width: 768px) {
