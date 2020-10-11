@@ -2,6 +2,7 @@
 
 body {
     background-color: #fbfbf8;
+    color: #1b1b1b;
     font-family: "Lato", sans-serif;
     height: 100%;
 }
@@ -32,7 +33,7 @@ body {
 }
 
 .search-bar {
-    background-color: #1b1b1b;
+    margin-top: -1px !important;
 }
 
 .desktop-search-bar {
@@ -71,6 +72,15 @@ body {
     background-color: #1b1b1b;
     color: #ffc717;
 }
+
+footer {
+    background: #1b1b1b;
+    color: #fbfbf8;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+/* Media Requests */
 
 @media (min-width: 768px) {
     .w-sm-75 {
