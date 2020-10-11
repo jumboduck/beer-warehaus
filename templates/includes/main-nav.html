@@ -1,0 +1,64 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav">
+        <li class="nav-item list-inline-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown list-inline-item">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Catalog
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">All Products</a>
+                <a class="dropdown-item" href="#">Hoppy Beers</a>
+                <a class="dropdown-item" href="#">Dark Beers</a>
+                <a class="dropdown-item" href="#">Sour Beers</a>
+                <a class="dropdown-item" href="#">Farmhouse Beers</a>
+                <a class="dropdown-item" href="#">Lagers</a>
+            </div>
+        </li>
+        <li class="nav-item list-inline-item">
+            <a class="nav-link" href="#">Producers</a>
+        </li>
+        <li class="nav-item list-inline-item">
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+    </ul>
+</div>
+
+<!-- User Links -->
+<div class="d-none d-lg-inline-block text-lg-right">
+    <ul class="list-inline list-unstyled text-center text-md-right my-0">
+        <li class="list-inline-item">
+            <a class="nav-link" href="#">
+                <div class="text-center">
+                    <div><i class="fas fa-search fa-lg"></i></div>
+                    <p class="my-0">Search</p>
+                </div>
+            </a>
+        </li>
+        <li class="list-inline-item dropdown">
+            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <div class="text-center">
+                    <div><i class="fas fa-user fa-lg"></i></div>
+                    <p class="my-0">Profile</p>
+                </div>
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                <a href="#" class="dropdown-item">Register</a>
+                <a href="#" class="dropdown-item">Login</a>
+            </div>
+        </li>
+        <li class="list-inline-item">
+            <a class="nav-link" href="#">
+                <div class="text-center">
+                    <div><i class="fas fa-shopping-cart fa-lg"></i></div>
+                    <p class="my-0">
+                        total cost
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

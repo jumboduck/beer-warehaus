@@ -1,3 +1,19 @@
 .site-header {
     background-color: #1b1b1b;
 }
+
+@media (min-width: 768px) {
+    .w-sm-75 {
+        width: 75% !important;
+    }
+
+    .w-sm-25 {
+        width: 25% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .w-md-100 {
+        width: 100% !important;
+    }
+}

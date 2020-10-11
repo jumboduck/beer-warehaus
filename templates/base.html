@@ -44,92 +44,31 @@
 <body>
     <header class="container-fluid site-header">
         <div class="row">
-            <div class="col-12 col-md-2 my-auto py-1 py-md-0 text-center text-md-left">
+            <!-- Logo -->
+            <div class="col-12 col-lg-2 my-auto py-1 py-md-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="logo nav-link main-logo-link">
                     <h1 class="display-5 my-0">
-                        <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus" class="w-100">
+                        <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus"
+                            class="w-50 w-sm-25 w-md-100">
                     </h1>
                 </a>
             </div>
 
-            <!-- User Navigation -->
-            <div class="col-12 col-md-4 order-md-3">
+            <!--Navigation -->
+            <div class="col-12 col-lg-10">
 
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item">
-                        <a class="nav-link" href="#">
-                            <div class="text-center">
-                                <div><i class="fas fa-search fa-lg"></i></div>
-                                <p class="my-0">Search</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">Profile</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            <a href="#" class="dropdown-item">Register</a>
-                            <a href="#" class="dropdown-item">Login</a>
-                        </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="nav-link" href="#">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                                <p class="my-0">
-                                    total cost
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                <!-- General Nav -->
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg navbar-dark w-100">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                            aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        {% include 'includes/mobile-top-header.html' %}
+                        {% include 'includes/main-nav.html' %}
+                    </nav>
+                </div>
             </div>
-
-            <!-- Main Navigation -->
-
-            <div class="col-12 col-md-6 my-auto py-1 py-md-0  justify-content-end">
-                <nav class="navbar navbar-expand-lg navbar-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <div class="d-flex justify-content-end w-100">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Catalog
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">All Products</a>
-                                        <a class="dropdown-item" href="#">Hoppy Beers</a>
-                                        <a class="dropdown-item" href="#">Dark Beers</a>
-                                        <a class="dropdown-item" href="#">Sour Beers</a>
-                                        <a class="dropdown-item" href="#">Farmhouse Beers</a>
-                                        <a class="dropdown-item" href="#">Lagers</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Producers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
     </header>
     {% if messages %}
     <div class="message-container"></div>
