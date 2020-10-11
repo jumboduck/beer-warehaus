@@ -1,5 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Slab:wght@300;400&display=swap");
+
+body {
+    background-color: #fbfbf8;
+    font-family: "Lato", sans-serif;
+}
+
 .site-header {
     background-color: #1b1b1b;
+    position: relative;
+}
+
+.nav-link {
+    color: #fbfbf8;
+    text-transform: uppercase;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+}
+
+.nav-link:hover {
+    color: #ffc717;
 }
 
 @media (min-width: 768px) {
@@ -15,5 +34,10 @@
 @media (min-width: 992px) {
     .w-md-100 {
         width: 100% !important;
+    }
+    .full-nav {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
     }
 }
