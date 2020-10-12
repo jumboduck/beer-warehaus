@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Homepage slideshow -->
+
 <div class="container-fluid w-100 p-0">
     <div id="home-carousel" class="carousel slide carousel-fade" data-ride="false" data-interval="6000"
         data-touch="true">
@@ -18,7 +21,8 @@
                 <img src="{{ MEDIA_URL }}cascade-vlad.jpg" class="d-block w-100" alt="Cascade Vlad the Imp Aler">
                 <div class="carousel-caption slide-caption">
                     <h2>Vlad the Imp Aler</h2>
-                    <p class="w-50 ml-auto d-none d-sm-block">Try this new product by Cascade Brewing company. Here's an
+                    <p class="w-50 ml-auto d-none d-sm-block">Try this new product by Cascade Brewing company.
+                        Here's an
                         extra long text
                         to see
                         what happens
@@ -30,7 +34,7 @@
                 <img src="{{ MEDIA_URL }}eclipse.jpg" class="d-block w-100" alt="Eclipse Barrel Aged Stout Selection">
                 <div class="carousel-caption slide-caption">
                     <h2>Eclipse Stouts</h2>
-                    <p class="h-100 w-50 ml-auto d-none d-sm-block">We have a selection of this award-winning stout
+                    <p class="w-50 ml-auto d-none d-sm-block">We have a selection of this award-winning stout
                         matured in
                         various barrels.</p>
                     <a href="#" class="btn btn-gold">View Product</a>
@@ -72,5 +76,102 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+</div>
+
+<!-- Newest Releases -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <h2>New Arrivals</h2>
+        </div>
+    </div>
+
+    <!-- New releases listing -->
+    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4">
+        <div class="col mb-4">
+            <div class="card listing-card">
+                <img src="{{ MEDIA_URL }}no-image.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">New Release #1</h5>
+                    <h6>Some Brewery</h6>
+                    <p class="card-text">
+                        <strong>Style</strong>: IPA<br />
+                        <strong>Rating:</strong> 4/5
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card listing-card">
+                <img src="{{ MEDIA_URL }}no-image.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">New Release #2</h5>
+                    <h6>Some Brewery</h6>
+                    <p class="card-text">
+                        <strong>Style</strong>: IPA<br />
+                        <strong>Rating:</strong> 4/5
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card listing-card">
+                <img src="{{ MEDIA_URL }}no-image.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">New Release #3</h5>
+                    <h6>Some Brewery</h6>
+                    <p class="card-text">
+                        <strong>Style</strong>: IPA<br />
+                        <strong>Rating:</strong> 4/5
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card listing-card">
+                <img src="{{ MEDIA_URL }}no-image.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">New Release #4</h5>
+                    <h6>Some Brewery</h6>
+                    <p class="card-text">
+                        <strong>Style</strong>: IPA<br />
+                        <strong>Rating:</strong> 4/5
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card listing-card">
+                <img src="{{ MEDIA_URL }}no-image.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">New Release #5</h5>
+                    <h6>Some Brewery</h6>
+                    <p class="card-text">
+                        <strong>Style</strong>: IPA<br />
+                        <strong>Rating:</strong> 4/5
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card listing-card">
+                <img src="{{ MEDIA_URL }}no-image.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">New Release #6</h5>
+                    <h6>Some Brewery</h6>
+                    <p class="card-text">
+                        <strong>Style</strong>: IPA<br />
+                        <strong>Rating:</strong> 4/5
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <a href="#" class="btn btn-gold  ml-auto mr-auto">View all products</a>
+    </div>
+
 </div>
 {% endblock%}

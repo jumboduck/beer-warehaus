@@ -162,5 +162,6 @@ The creation of an account gives access to the following features:
 ### Media
 
 -   Beer WareHaus logo from from [freepik.com](https://www.freepik.com/)
+-   Icon for "No photo available" image from [Flat Icons](https://www.flaticon.com/authors/flat-icons)
 
 ### Acknowledgements
