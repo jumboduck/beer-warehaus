@@ -11,48 +11,52 @@
 
 {% block content %}
 <div class="container-fluid w-100 p-0">
-    <div id="home-carousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#home-carousel" data-slide-to="1"></li>
-            <li data-target="#home-carousel" data-slide-to="2"></li>
-            <li data-target="#home-carousel" data-slide-to="3"></li>
-            <li data-target="#home-carousel" data-slide-to="4"></li>
-        </ol>
+    <div id="home-carousel" class="carousel slide carousel-fade" data-ride="false" data-interval="6000"
+        data-touch="true">
         <div class="carousel-inner w-100">
             <div class="carousel-item active">
                 <img src="{{ MEDIA_URL }}cascade-vlad.jpg" class="d-block w-100" alt="Cascade Vlad the Imp Aler">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Vlad the Imp Aler</h5>
-                    <p>Try this new product by Cascade Brewing company.</p>
+                <div class="carousel-caption slide-caption">
+                    <h2>Vlad the Imp Aler</h2>
+                    <p class="w-50 ml-auto d-none d-sm-block">Try this new product by Cascade Brewing company. Here's an
+                        extra long text
+                        to see
+                        what happens
+                        when we have an extra long text.</p>
+                    <a href="#" class="btn btn-gold">View Product</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ MEDIA_URL }}eclipse.jpg" class="d-block w-100" alt="Eclipse Barrel Aged Stout Selection">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Eclipse Stouts</h5>
-                    <p>We have a selection of this award-winning stout matured in various barrels.</p>
+                <div class="carousel-caption slide-caption">
+                    <h2>Eclipse Stouts</h2>
+                    <p class="w-50 ml-auto d-none d-sm-block">We have a selection of this award-winning stout matured in
+                        various barrels.</p>
+                    <a href="#" class="btn btn-gold">View Product</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ MEDIA_URL }}fuerst-wiacek.jpg" class="d-block w-100" alt="Fuerst Wiacek Beers">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>New Products from Fuerst Wiacek</h5>
+                <div class="carousel-caption slide-caption">
+                    <h2>New Products from Fuerst Wiacek</h2>
                     <p>Try our new beers from Fuerst Wiacek</p>
+                    <a href="#" class="btn btn-gold">View Product</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ MEDIA_URL }}generic.jpg" class="d-block w-100" alt="Beer Glasses">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>New Arrivals</h5>
+                <div class="carousel-caption slide-caption">
+                    <h2>New Arrivals</h2>
                     <p>We've got a large selection of new products. Check them out here.</p>
+                    <a href="#" class="btn btn-gold">View Product</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ MEDIA_URL }}other-half.jpg" class="d-block w-100" alt="Fuerst Wiacek Beers">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Fresh IPAs from Other Half</h5>
+                <div class="carousel-caption slide-caption">
+                    <h2>Fresh IPAs from Other Half</h2>
                     <p>Packaged less than a week ago, get them while they're fresh.</p>
+                    <a href="#" class="btn btn-gold">View Product</a>
                 </div>
             </div>
         </div>

@@ -44,11 +44,6 @@ body {
     padding: 0;
 }
 
-.btn-gold {
-    background-color: #ffc717;
-    color: #fbfbf8;
-}
-
 .mobile-top-header .nav-link {
     padding: 0;
 }
@@ -71,6 +66,35 @@ body {
 .dropdown-item:hover {
     background-color: #1b1b1b;
     color: #ffc717;
+}
+
+/* Carousel */
+
+.slide-caption {
+    background-color: rgba(27, 27, 27, 0.6);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align: right;
+    padding: 2rem 6rem;
+}
+
+}
+.carousel-control-next, .carousel-control-prev {
+    width: 5%;
+}
+
+/* Elements */
+
+.btn-gold {
+    background-color: #ffc717;
+    color: #fbfbf8;
+    border-radius: 0;
+}
+
+.btn-gold:hover {
+    color: #fbfbf8;
+    background-color: #e0ac00;
 }
 
 .footer {
