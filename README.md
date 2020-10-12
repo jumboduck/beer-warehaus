@@ -147,6 +147,7 @@ The creation of an account gives access to the following features:
 -   Balsamiq
 -   Heroku
 -   Adobe Photoshop
+-   [TinyJPG](https://tinyjpg.com/) used to compress all images
 
 ## Testing
 
