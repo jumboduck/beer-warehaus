@@ -138,14 +138,15 @@ The creation of an account gives access to the following features:
 -   JavaScript / jQuery
 -   Python
 -   Django
+-   [Untappd API](https://untappd.com/api/docs)
 
 ## Tools Used
 
 -   Github
--   [Untappd API](https://untappd.com/api/docs)
 -   VS Code
 -   Balsamiq
 -   Heroku
+-   Adobe Photoshop
 
 ## Testing
 
@@ -158,5 +159,7 @@ The creation of an account gives access to the following features:
 ## Credits
 
 ### Media
+
+-   Beer WareHaus logo from from [freepik.com](https://www.freepik.com/)
 
 ### Acknowledgements
