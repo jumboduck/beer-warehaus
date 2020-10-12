@@ -87,6 +87,7 @@ body {
 
 /* Media Requests */
 
+/*Small Screen Sizes*/
 @media (min-width: 768px) {
     .w-sm-75 {
         width: 75% !important;
@@ -97,6 +98,7 @@ body {
     }
 }
 
+/* Medium Screen Sizes*/
 @media (min-width: 992px) {
     .w-md-100 {
         width: 100% !important;
@@ -105,5 +107,10 @@ body {
         position: absolute;
         bottom: 0px;
         right: 0px;
+    }
+    .main-logo-link {
+        position: relative;
+        top: 35px;
+        z-index: 1000;
     }
 }
