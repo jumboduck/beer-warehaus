@@ -76,12 +76,13 @@ body {
     left: 0;
     bottom: 0;
     text-align: right;
-    padding: 2rem 6rem;
+    padding: 2rem 7rem;
 }
 
-}
-.carousel-control-next, .carousel-control-prev {
-    width: 5%;
+.carousel-control {
+    width: 8%;
+    font-size: 2.5rem;
+    bottom: 0px;
 }
 
 /* Elements */
@@ -111,20 +112,27 @@ body {
 
 /* Media Requests */
 
+/*Smallest Screen Sizes*/
+@media (max-width: 768px) {
+    .h-100 {
+        height: 100% !important;
+    }
+}
+
 /*Small Screen Sizes*/
 @media (min-width: 768px) {
-    .w-sm-75 {
+    .w-md-75 {
         width: 75% !important;
     }
 
-    .w-sm-25 {
+    .w-md-25 {
         width: 25% !important;
     }
 }
 
 /* Medium Screen Sizes*/
 @media (min-width: 992px) {
-    .w-md-100 {
+    .w-lg-100 {
         width: 100% !important;
     }
     .full-nav {
