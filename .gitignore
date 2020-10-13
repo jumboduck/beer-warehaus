@@ -1,7 +1,0 @@
-core.Microsoft*
-env.py
-*.py[cod]
-*.sqlite3
-__pycache__
-.gitignore
-.vscode
