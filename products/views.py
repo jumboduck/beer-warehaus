@@ -48,9 +48,12 @@ def add_untappd_producer(request):
         if 'brewery_id' in request.POST:
             brewery_id = request.POST['brewery_id']
             producer_info = UntappdHandler.get_producer_info(brewery_id)
-            print(producer_info['brewery_name'])
 
-            form = ProducerForm
+            form = ProducerForm({
+                'name': producer_info['brewery_name'],
+                'description': producer_info['brewery_description'],
+                'location': producer_info['country_name'],
+            })
             context = {
                 'form': form,
             }
