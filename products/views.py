@@ -53,6 +53,7 @@ def add_untappd_producer(request):
                 'name': producer_info['brewery_name'],
                 'description': producer_info['brewery_description'],
                 'location': producer_info['country_name'],
+                'image_url': producer_info['brewery_label_hd']
             })
             context = {
                 'form': form,
