@@ -153,4 +153,7 @@ body {
         top: 35px;
         z-index: 1000;
     }
+    body {
+        margin-top: -35px;
+    }
 }
