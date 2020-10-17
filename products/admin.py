@@ -4,10 +4,11 @@ from .models import Product, Producer, Style, Category
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
-        'producer',
         'name',
+        'producer',
+        'sku',
         'volume',
+        'price',
     )
 
     ordering = ('sku',)
