@@ -40,3 +40,25 @@ def find_untappd_producer(request):
             }
 
     return render(request, template, context)
+
+
+def add_untappd_producer(request):
+    template = 'products/add_producer.html'
+    if request.POST:
+        if 'brewery_id' in request.POST:
+            brewery_id = request.POST['brewery_id']
+            producer_info = UntappdHandler.get_producer_info(brewery_id)
+            print(producer_info['brewery_name'])
+
+            form = ProducerForm
+            context = {
+                'form': form,
+            }
+
+    else:
+        form = ProducerForm
+        context = {
+            'form': form,
+        }
+
+    return render(request, template, context)

@@ -39,26 +39,25 @@
         <div class="col-8">
             <h4>{{ producer.brewery.brewery_name }}</h4>
             <strong>{{ producer.brewery.country_name }}</strong>
-            <button class="btn-gold border-0 p-2">Select Producer</button>
+            <form method="POST" action="{% url 'add_untappd_producer'%}">
+                {% csrf_token %}
+                <input type="hidden" value="{{ producer.brewery.brewery_id }}" name="brewery_id">
+                <button class="btn-gold border-0 p-2" type="submit">Select Producer</button>
+            </form>
         </div>
     </div>
     {% endfor %}
     {% endif %}
 
-    <form action="{% url 'add_producer' %}" method="POST" id="add-producer-form" class="form mb-2"
+    <form action=" {% url 'add_producer' %}" method="POST" id="add-producer-form" class="form mb-2"
         enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}
-        <button class="btn-gold border-0" type="submit">Add Producer</button>
+        <button class=" btn-gold border-0" type="submit">Add Producer</button>
     </form>
 </div>
 {% endblock%}
 
 {% block postloadjs %}
-
-<script>
-    < script src = "{% static 'products/js/add_producer.js'%}" >
-</script>
-</script>
 
 {% endblock %}
