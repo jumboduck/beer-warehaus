@@ -10,7 +10,14 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
+    <h2 class="mt-3">Add a Producer</h2>
 
-<h2 class="mt-3">Add a Producer</h2>
-
+    <form action="{% url 'add_producer' %}" method="POST" id="add-producer-form" class="form mb-2"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button class="btn-gold" type="submit">Add Producer</button>
+    </form>
+</div>
 {% endblock%}
