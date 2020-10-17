@@ -18,7 +18,7 @@ class Category(models.Model):
 class Style(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, default='Other')
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, default='other')
 
     def __str__(self):
         return self.name
