@@ -15,7 +15,7 @@
             </form>
         </div>
         <div class="col col-md-6">
-            <form class="form" method="POST" action="{% url 'find_untappd_product' %}">
+            <form class="form" method="POST" action="{% url 'add_product' %}">
                 {% csrf_token %}
                 <div class="input-group w-100">
                     <input class="form-control border-1 rounded-0" type="text" name="product_search"
@@ -41,7 +41,7 @@
                     <strong>{{ product.brewery.brewery_name }}</strong><br />
                     <strong>Style:</strong> {{ product.beer.beer_style }}<br />
                     <strong>ABV:</strong> {{ product.beer.beer_abv }}
-                    <form method="POST" action="{% url 'add_untappd_product' %}">
+                    <form method="POST" action="{% url 'add_product' %}">
                         {% csrf_token %}
                         <input type="hidden" value="{{ product.beer.bid }}" name="beer_id">
                         <button class="btn-gold border-0 p-2" type="submit">Select Product</button>
@@ -51,7 +51,7 @@
             {% endfor %}
 
             {% else %}
-            No brewery found by that name.
+            No beer found with this name.
             {% endif %}
 
         </div>

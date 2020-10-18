@@ -5,8 +5,14 @@ from .models import Producer
 
 
 def add_producer(request):
+    """
+    Handles adding a new producer to the database
+    """
     if request.POST:
         if 'producer_search' in request.POST:
+            """
+            If producer search on untappd form has been submitted
+            """
             form = ProducerForm
             search_query = request.POST['producer_search']
             results = UntappdHandler.search_producer(search_query)
@@ -16,7 +22,10 @@ def add_producer(request):
                 'untappd_results': results
             }
 
-        if 'brewery_id' in request.POST:
+        elif 'brewery_id' in request.POST:
+            """
+            If producer search result has been selected
+            """
             brewery_id = request.POST['brewery_id']
             producer_info = UntappdHandler.get_producer_info(brewery_id)
 
@@ -36,6 +45,9 @@ def add_producer(request):
             }
 
         else:
+            """
+            Form submission to add new producer
+            """
             form = ProducerForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
@@ -52,57 +64,6 @@ def add_producer(request):
     return render(request, template, context)
 
 
-def find_untappd_producer(request):
-    form = ProducerForm
-    template = 'products/add_producer.html'
-    if request.POST:
-        if 'producer_search' in request.POST:
-            search_query = request.POST['producer_search']
-            results = UntappdHandler.search_producer(search_query)
-
-            context = {
-                'form': form,
-                'untappd_results': results
-            }
-
-    else:
-        context = {
-                'form': form,
-            }
-
-    return render(request, template, context)
-
-
-def add_untappd_producer(request):
-    template = 'products/add_producer.html'
-    if request.POST:
-        if 'brewery_id' in request.POST:
-            brewery_id = request.POST['brewery_id']
-            producer_info = UntappdHandler.get_producer_info(brewery_id)
-
-            if producer_info['brewery_label_hd']:
-                image_url = producer_info['brewery_label_hd']
-            else:
-                image_url = producer_info['brewery_label']
-
-            form = ProducerForm(initial={
-                'name': producer_info['brewery_name'],
-                'description': producer_info['brewery_description'],
-                'location': producer_info['country_name'],
-                'image_url': image_url,
-            })
-            context = {
-                'form': form,
-            }
-    else:
-        form = ProducerForm
-        context = {
-            'form': form,
-        }
-
-    return render(request, template, context)
-
-
 def producers(request):
     producers = Producer.objects.filter(highlight=True)
     context = {
@@ -114,48 +75,26 @@ def producers(request):
 
 
 def add_product(request):
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse(add_product))
-
-    else:
-        form = ProductForm
-
-    template = 'products/add_product.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
-
-
-def find_untappd_product(request):
-    form = ProductForm
-    template = 'products/add_product.html'
+    """
+    Handles adding a new product to the database
+    """
     if request.POST:
         if 'product_search' in request.POST:
+            """
+            If product search on untappd form has been submitted
+            """
             search_query = request.POST['product_search']
             results = UntappdHandler.search_beer(search_query)
-
+            form = ProductForm
             context = {
                 'form': form,
                 'untappd_results': results
             }
 
-    else:
-        context = {
-                'form': form,
-            }
-
-    return render(request, template, context)
-
-
-def add_untappd_product(request):
-    template = 'products/add_product.html'
-    if request.POST:
-        if 'beer_id' in request.POST:
+        elif 'beer_id' in request.POST:
+            """
+            If product search result has been selected
+            """
             beer_id = request.POST['beer_id']
             beer_info = UntappdHandler.get_beer_info(beer_id)
 
@@ -175,11 +114,22 @@ def add_untappd_product(request):
             context = {
                 'form': form,
             }
-            return render(request, template, context)
+
+        else:
+            """
+            Form submission to add a new product
+            """
+            form = ProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return redirect(reverse(add_product))
+
     else:
-        form = ProducerForm
+        form = ProductForm
         context = {
             'form': form,
         }
+
+    template = 'products/add_product.html'
 
     return render(request, template, context)
