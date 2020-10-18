@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-from .forms import ProducerForm
+from .forms import ProducerForm, ProductForm
 from .untappd_handler import UntappdHandler
 from .models import Producer
 
@@ -64,7 +64,6 @@ def add_untappd_producer(request):
             context = {
                 'form': form,
             }
-
     else:
         form = ProducerForm
         context = {
@@ -81,4 +80,43 @@ def producers(request):
     }
 
     template = ('products/producers.html')
+    return render(request, template, context)
+
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse(add_product))
+
+    else:
+        form = ProductForm
+
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def find_untappd_product(request):
+    form = ProductForm
+    template = 'products/add_product.html'
+    if request.POST:
+        if 'product_search' in request.POST:
+            search_query = request.POST['product_search']
+            results = UntappdHandler.search_beer(search_query)
+
+            context = {
+                'form': form,
+                'untappd_results': results
+            }
+
+    else:
+        context = {
+                'form': form,
+            }
+
     return render(request, template, context)
