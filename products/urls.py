@@ -9,5 +9,5 @@ urlpatterns = [
     path('producers/', views.producers, name='producers'),
     path('add_product/', views.add_product, name='add_product'),
     path('find_untappd_product/', views.find_untappd_product, name='find_untappd_product'),
-    # path('add_untappd_product/', views.add_untappd_product, name='add_untappd_product'),
+    path('add_untappd_product/', views.add_untappd_product, name='add_untappd_product'),
 ]

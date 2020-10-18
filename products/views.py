@@ -120,3 +120,35 @@ def find_untappd_product(request):
             }
 
     return render(request, template, context)
+
+
+def add_untappd_product(request):
+    template = 'products/add_product.html'
+    if request.POST:
+        if 'beer_id' in request.POST:
+            beer_id = request.POST['beer_id']
+            beer_info = UntappdHandler.get_beer_info(beer_id)
+
+            if beer_info['beer_label_hd']:
+                image_url = beer_info['beer_label_hd']
+            else:
+                image_url = beer_info['beer_label']
+
+            form = ProductForm({
+                'name': beer_info['beer_name'],
+                'producer': beer_info['brewery']['brewery_name'],
+                'description': beer_info['beer_description'],
+                'image_url': image_url,
+                'abv': round(beer_info['beer_abv'], 2),
+                'rating': round(beer_info['rating_score'], 2)
+            })
+            context = {
+                'form': form,
+            }
+    else:
+        form = ProducerForm
+        context = {
+            'form': form,
+        }
+
+    return render(request, template, context)

@@ -40,7 +40,7 @@ class UntappdHandler:
 
     def get_beer_info(id):
         # Build url from request
-        url = f'https://api.untappd.com/v4/beer/info{id}?client_id={settings.UNTAPPD_CLIENT_ID}&client_secret={settings.UNTAPPD_SECRET}'
+        url = f'https://api.untappd.com/v4/beer/info/{id}?client_id={settings.UNTAPPD_CLIENT_ID}&client_secret={settings.UNTAPPD_SECRET}'
         response = requests.get(url)
         beer_info = response.json()['response']['beer']
 

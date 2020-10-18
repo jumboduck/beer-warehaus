@@ -41,7 +41,7 @@
                     <strong>{{ product.brewery.brewery_name }}</strong><br />
                     <strong>Style:</strong> {{ product.beer.beer_style }}<br />
                     <strong>ABV:</strong> {{ product.beer.beer_abv }}
-                    <form method="POST" action="#">
+                    <form method="POST" action="{% url 'add_untappd_product' %}">
                         {% csrf_token %}
                         <input type="hidden" value="{{ product.beer.bid }}" name="beer_id">
                         <button class="btn-gold border-0 p-2" type="submit">Select Product</button>
