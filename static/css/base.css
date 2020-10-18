@@ -126,6 +126,7 @@ body {
     border-right: 1px solid #1b1b1b;
     border-top: 1px solid #1b1b1b;
     border-bottom: 1px solid #1b1b1b;
+    background-clip: border-box;
 }
 
 .btn-gold:hover {
