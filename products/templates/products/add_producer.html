@@ -47,9 +47,10 @@
                 </div>
             </div>
             {% endfor %}
+            {% endif %}
 
-            {% else %}
-            No brewery found by that name.
+            {% if untappd_results.length == 0 %}
+            <p>No brewery found by that name.</p>
             {% endif %}
 
         </div>

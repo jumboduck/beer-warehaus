@@ -5,7 +5,7 @@ from .models import Producer
 
 
 def add_producer(request):
-    if request.method == 'POST':
+    if request.POST:
         form = ProducerForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -55,7 +55,7 @@ def add_untappd_producer(request):
             else:
                 image_url = producer_info['brewery_label']
 
-            form = ProducerForm({
+            form = ProducerForm(initial={
                 'name': producer_info['brewery_name'],
                 'description': producer_info['brewery_description'],
                 'location': producer_info['country_name'],
@@ -134,7 +134,7 @@ def add_untappd_product(request):
             else:
                 image_url = beer_info['beer_label']
 
-            form = ProductForm({
+            form = ProductForm(initial={
                 'name': beer_info['beer_name'],
                 'producer': beer_info['brewery']['brewery_name'],
                 'description': beer_info['beer_description'],
@@ -145,6 +145,7 @@ def add_untappd_product(request):
             context = {
                 'form': form,
             }
+            return render(request, template, context)
     else:
         form = ProducerForm
         context = {

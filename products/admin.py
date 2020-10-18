@@ -28,7 +28,7 @@ class StyleAdmin(admin.ModelAdmin):
         'category',
     )
 
-    ordering = ('category', 'name')
+    ordering = ('name',)
 
 
 admin.site.register(Category, CategoryAdmin)
