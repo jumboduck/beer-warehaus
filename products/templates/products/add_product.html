@@ -6,7 +6,7 @@
 <div class="container">
     <h2 class="mt-3">Add a Product</h2>
     <div class="row">
-        <div class="col col-md-6">
+        <div class="col-12 col-lg-6 order-2 order-lg-1">
             <form action=" {% url 'add_product' %}" method="POST" id="add-product-form" class="form mb-2"
                 enctype="multipart/form-data">
                 {% csrf_token %}
@@ -14,7 +14,7 @@
                 <button class=" btn-gold border-0" type="submit">Add Product</button>
             </form>
         </div>
-        <div class="col col-md-6">
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
             <form class="form" method="POST" action="{% url 'add_product' %}">
                 {% csrf_token %}
                 <div class="input-group w-100">

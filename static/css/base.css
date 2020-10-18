@@ -86,11 +86,27 @@ body {
     bottom: 0px;
 }
 
+/* Untappd API */
+
+.untappd-result {
+    border: 1px solid #1b1b1b;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
 /* Product Listings */
 
 .listing-card {
     background-color: transparent;
     border: 0;
+}
+
+/* Forms */
+
+.dark-border {
+    border: 1px solid #1b1b1b !important;
+    border-radius: 0px;
 }
 
 /* Elements */
@@ -99,6 +115,17 @@ body {
     background-color: #ffc717;
     color: #1b1b1b;
     border-radius: 0;
+    border: 0;
+    padding: 0.5rem 0.8rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    height: 100%;
+}
+
+.btn-gold.btn-gold-appended {
+    border-right: 1px solid #1b1b1b;
+    border-top: 1px solid #1b1b1b;
+    border-bottom: 1px solid #1b1b1b;
 }
 
 .btn-gold:hover {

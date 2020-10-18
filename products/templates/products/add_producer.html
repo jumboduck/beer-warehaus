@@ -6,7 +6,7 @@
 <div class="container">
     <h2 class="mt-3">Add a Producer</h2>
     <div class="row">
-        <div class="col col-md-6">
+        <div class="col-12 col-md-6 order-2 order-md-1">
             <form action=" {% url 'add_producer' %}" method="POST" id="add-producer-form" class="form mb-2"
                 enctype="multipart/form-data">
                 {% csrf_token %}
@@ -14,14 +14,15 @@
                 <button class=" btn-gold border-0" type="submit">Add Producer</button>
             </form>
         </div>
-        <div class="col col-md-6">
+        <div class="col-12 col-md-6 order-1 order-md-2">
             <form class="form" method="POST" action="{% url 'add_producer' %}">
                 {% csrf_token %}
+                <label for="producer_search">Find a producer on Untappd</label>
                 <div class="input-group w-100">
-                    <input class="form-control border-1 rounded-0" type="text" name="producer_search"
+                    <input class="form-control dark-border" id="producer_search" type="text" name="producer_search"
                         placeholder="Search Producer on Untappd">
                     <div class="input-group-append">
-                        <button class="form-control form-control btn btn-gold border-0 rounded-0" type="submit">
+                        <button class="form-control form-control btn btn-gold btn-gold-appended" type="submit">
                             <span class="icon">
                                 <i class="fas fa-search"></i>
                             </span>
@@ -34,7 +35,7 @@
             {% if untappd_results %}
             <h3 class="mt-3">Results from Untappd</h3>
             {% for producer in untappd_results %}
-            <div class="row my-2">
+            <div class="row my-2 untappd-result">
                 <div class="col-2"><img src="{{ producer.brewery.brewery_label }}"
                         alt="{{ producer.brewery.brewery_name }} label" class="w-100"></div>
                 <div class="col-10">
@@ -43,7 +44,7 @@
                     <form method="POST" action="{% url 'add_producer'%}">
                         {% csrf_token %}
                         <input type="hidden" value="{{ producer.brewery.brewery_id }}" name="brewery_id">
-                        <button class="btn-gold border-0 p-2" type="submit">Select Producer</button>
+                        <button class="btn-gold border-0 p-2 mt-2" type="submit">Select Producer</button>
                     </form>
                 </div>
             </div>
