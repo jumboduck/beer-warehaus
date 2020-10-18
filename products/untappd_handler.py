@@ -37,3 +37,11 @@ class UntappdHandler:
 
         # Return the 10 first results
         return beer_list[:10]
+
+    def get_beer_info(id):
+        # Build url from request
+        url = f'https://api.untappd.com/v4/beer/info{id}?client_id={settings.UNTAPPD_CLIENT_ID}&client_secret={settings.UNTAPPD_SECRET}'
+        response = requests.get(url)
+        beer_info = response.json()['response']['beer']
+
+        return beer_info
