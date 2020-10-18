@@ -30,6 +30,7 @@
                 </div>
             </form>
 
+            {% if search %}
             {% if untappd_results %}
             <h3 class="mt-3">Results from Untappd</h3>
             {% for product in untappd_results %}
@@ -49,9 +50,9 @@
                 </div>
             </div>
             {% endfor %}
-
             {% else %}
             No beer found with this name.
+            {% endif %}
             {% endif %}
 
         </div>

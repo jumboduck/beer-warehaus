@@ -18,6 +18,7 @@ def add_producer(request):
             results = UntappdHandler.search_producer(search_query)
 
             context = {
+                'search': True,
                 'form': form,
                 'untappd_results': results
             }
@@ -87,6 +88,7 @@ def add_product(request):
             results = UntappdHandler.search_beer(search_query)
             form = ProductForm
             context = {
+                'search': True,
                 'form': form,
                 'untappd_results': results
             }
