@@ -49,11 +49,16 @@ def add_untappd_producer(request):
             brewery_id = request.POST['brewery_id']
             producer_info = UntappdHandler.get_producer_info(brewery_id)
 
+            if producer_info['brewery_label_hd']:
+                image_url = producer_info['brewery_label_hd']
+            else:
+                image_url = producer_info['brewery_label']
+
             form = ProducerForm({
                 'name': producer_info['brewery_name'],
                 'description': producer_info['brewery_description'],
                 'location': producer_info['country_name'],
-                'image_url': producer_info['brewery_label_hd']
+                'image_url': image_url,
             })
             context = {
                 'form': form,
