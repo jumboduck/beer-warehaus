@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from .forms import ProducerForm
 from .untappd_handler import UntappdHandler
+from .models import Producer
 
 
 def add_producer(request):
@@ -70,4 +71,14 @@ def add_untappd_producer(request):
             'form': form,
         }
 
+    return render(request, template, context)
+
+
+def producers(request):
+    producers = Producer.objects.filter(highlight=True)
+    context = {
+        'producers': producers,
+    }
+
+    template = ('products/producers.html')
     return render(request, template, context)

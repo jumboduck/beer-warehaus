@@ -1,8 +1,6 @@
 from django.db import models
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
-from io import BytesIO
-from PIL import Image
 
 import requests
 
@@ -44,6 +42,10 @@ class Producer(models.Model):
     def __str__(self):
         return self.name
 
+    """
+    Update to save method so that any image in the 'Image url' field
+    will be saved on the server as the image field.
+    """
     def save(self, *args, **kwargs):
         if self.image_url and not self.image:
             image_url = self.image_url
