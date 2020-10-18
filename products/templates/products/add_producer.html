@@ -11,7 +11,7 @@
                 enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button class=" btn-gold border-0" type="submit">Add Producer</button>
+                <button class=" btn-gold border-0" type="submit">Add Producer <i class="fas fa-beer ml-1"></i></button>
             </form>
         </div>
         <div class="col-12 col-md-6 order-1 order-md-2">
@@ -38,13 +38,17 @@
             <div class="row my-2 untappd-result">
                 <div class="col-2"><img src="{{ producer.brewery.brewery_label }}"
                         alt="{{ producer.brewery.brewery_name }} label" class="w-100"></div>
-                <div class="col-10">
+                <div class="col-8">
                     <h4 class="display-5">{{ producer.brewery.brewery_name }}</h4>
                     <strong>{{ producer.brewery.country_name }}</strong>
+                </div>
+                <div class="col-2">
                     <form method="POST" action="{% url 'add_producer'%}">
                         {% csrf_token %}
                         <input type="hidden" value="{{ producer.brewery.brewery_id }}" name="brewery_id">
-                        <button class="btn-gold border-0 p-2 mt-2" type="submit">Select Producer</button>
+                        <button class="btn-gold border-0 p-2 mt-2 w-100" type="submit">
+                            <i class="fas fa-plus"></i>
+                        </button>
                     </form>
                 </div>
             </div>
