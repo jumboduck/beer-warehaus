@@ -15,7 +15,7 @@
             </form>
         </div>
         <div class="col col-md-6">
-            <form class="form" method="POST" action="{% url 'find_untappd_producer' %}">
+            <form class="form" method="POST" action="{% url 'add_producer' %}">
                 {% csrf_token %}
                 <div class="input-group w-100">
                     <input class="form-control border-1 rounded-0" type="text" name="producer_search"
@@ -39,7 +39,7 @@
                 <div class="col-10">
                     <h4 class="display-5">{{ producer.brewery.brewery_name }}</h4>
                     <strong>{{ producer.brewery.country_name }}</strong>
-                    <form method="POST" action="{% url 'add_untappd_producer'%}">
+                    <form method="POST" action="{% url 'add_producer'%}">
                         {% csrf_token %}
                         <input type="hidden" value="{{ producer.brewery.brewery_id }}" name="brewery_id">
                         <button class="btn-gold border-0 p-2" type="submit">Select Producer</button>
