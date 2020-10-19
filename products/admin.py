@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Producer, Style, Category
+from .models import Product, Style, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -33,5 +33,4 @@ class StyleAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Style, StyleAdmin)
-admin.site.register(Producer)
 admin.site.register(Product, ProductAdmin)

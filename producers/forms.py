@@ -1,11 +1,11 @@
 from django import forms
-from .models import Product
+from .models import Producer
 
 
-class ProductForm(forms.ModelForm):
+class ProducerForm(forms.ModelForm):
 
     class Meta:
-        model = Product
+        model = Producer
         fields = '__all__'
         widgets = {'image_url': forms.HiddenInput()}
 
