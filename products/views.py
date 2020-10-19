@@ -43,6 +43,7 @@ def add_producer(request):
             })
             context = {
                 'form': form,
+                'image_url': image_url,
             }
 
         else:
@@ -115,6 +116,7 @@ def add_product(request):
             })
             context = {
                 'form': form,
+                'image_url': image_url,
             }
 
         else:

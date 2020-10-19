@@ -7,6 +7,7 @@ class ProducerForm(forms.ModelForm):
     class Meta:
         model = Producer
         fields = '__all__'
+        widgets = {'image_url': forms.HiddenInput()}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -20,6 +21,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
+        widgets = {'image_url': forms.HiddenInput()}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
