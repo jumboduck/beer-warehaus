@@ -38,16 +38,16 @@ class Product(models.Model):
         ('can', 'can'),
     ]
 
-    style = models.ForeignKey('Style', on_delete=models.CASCADE, default='other')
-    sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     producer = models.ForeignKey('producers.Producer', null=True, blank=True, on_delete=models.SET_NULL)
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    style = models.ForeignKey('Style', on_delete=models.CASCADE, default='other')
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
     abv = models.DecimalField(max_digits=6, decimal_places=2)
     packaging = models.CharField(max_length=10, choices=PACKAGING_TYPE, default='bottle')
     volume = models.CharField(max_length=10)
     units_per_order = models.IntegerField(default=24)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     new_product = models.BooleanField(default=False)
     in_stock = models.BooleanField(default=True)
