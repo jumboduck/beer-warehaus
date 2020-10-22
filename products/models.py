@@ -72,3 +72,10 @@ class Product(models.Model):
             img_temp.flush()
             self.image.save(f'{self.name}_{file_name}', File(img_temp))
         super(Product, self).save(*args, **kwargs)
+
+    """
+    Calculate the cost of an order
+    """
+    @property
+    def cost(self):
+        return self.price * self.units_per_order

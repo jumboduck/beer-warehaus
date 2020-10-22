@@ -11,10 +11,54 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col">
-            {{ products }}
+            <h2 class="text-center mt-3">Products</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 product-container">
+            <div class="row">
+                {% for product in products %}
+                <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="card h-100 border-0">
+                        {% if product.image %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image.png"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-0">
+                            <p class="mb-0"><strong>{{ product.name }}</strong></p>
+                            <p class="card-text text-muted">{{ product.producer }}</p>
+                        </div>
+                        <div class="card-footer pt-0 border-0 bg-white">
+                            {% if product.packaging == 'keg' %}
+                            <p class="m-0">{{ product.volume }} keg</p>
+                            {% else %}
+                            <p class="m-0">
+                                {{ product.volume }} x {{ product.units_per_order }} {{ product.packaging}}s
+                            </p>
+                            {% endif %}
+                            {% if product.rating %}
+                            <p class="m-0">Untappd Rating: {{ product.rating }} <i class="fas fa-star"></i></p>
+                            {% else %}
+                            <p class="m-0">No Rating</p>
+                            {% endif %}
+                            <p class="lead mb-0 font-weight-bold">
+                                NOK {{ product.cost }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row"></div>
         </div>
     </div>
 </div>
