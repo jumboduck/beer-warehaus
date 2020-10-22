@@ -1,6 +1,19 @@
 from django.shortcuts import render, redirect, reverse
+from .models import Product
 from .forms import ProductForm
 from .untappd_handler import UntappdHandler
+
+
+def all_products(request):
+    """
+    This view displays products and the logic to sort and order them.
+    """
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+
+    return render(request, 'products/products.html', context)
 
 
 def add_product(request):
