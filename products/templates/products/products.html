@@ -36,8 +36,6 @@
                         <div class="card-body pb-0">
                             <p class="mb-0"><strong>{{ product.name }}</strong></p>
                             <p class="card-text text-muted">{{ product.producer }}</p>
-                        </div>
-                        <div class="card-footer pt-0 border-0 bg-white">
                             {% if product.packaging == 'keg' %}
                             <p class="m-0">{{ product.volume }} keg</p>
                             {% else %}
@@ -46,13 +44,16 @@
                             </p>
                             {% endif %}
                             {% if product.rating %}
-                            <p class="m-0">Untappd Rating: {{ product.rating }} <i class="fas fa-star"></i></p>
+                            <p class="m-0"><i class="fab fa-untappd"></i> Rating: {{ product.rating }} / 5</p>
                             {% else %}
                             <p class="m-0">No Rating</p>
                             {% endif %}
                             <p class="lead mb-0 font-weight-bold">
                                 NOK {{ product.cost }}
                             </p>
+                        </div>
+                        <div class="card-footer pt-0 border-0 bg-white">
+                            <a href="#" class="btn-btn-gold">Add to cart</a>
                         </div>
                     </div>
                 </div>
