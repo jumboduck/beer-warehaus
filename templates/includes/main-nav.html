@@ -10,7 +10,7 @@
                 Catalog
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">All Products</a>
+                <a class="dropdown-item" href="{% url 'products'%}">All Products</a>
                 <a class="dropdown-item" href="#">Hoppy Beers</a>
                 <a class="dropdown-item" href="#">Dark Beers</a>
                 <a class="dropdown-item" href="#">Sour Beers</a>
@@ -19,7 +19,7 @@
             </div>
         </li>
         <li class="nav-item list-inline-item">
-            <a class="nav-link" href="#">Producers</a>
+            <a class="nav-link" href="{% url 'producers' %}">Producers</a>
         </li>
         <li class="nav-item list-inline-item">
             <a class="nav-link" href="#">Contact</a>
@@ -64,6 +64,8 @@
         <div class="dropdown-menu border-0" aria-labelledby="user-options">
             <a href="#" class="dropdown-item">Register</a>
             <a href="#" class="dropdown-item">Login</a>
+            <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
+            <a href="{% url 'add_producer' %}" class="dropdown-item">Add Producer</a>
         </div>
     </div>
     <div class="d-inline-block">

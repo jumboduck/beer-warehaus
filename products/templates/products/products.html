@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h2 class="text-center mt-3">Products</h2>
+            <h2 class="text-center mt-3 mb-4">Products</h2>
         </div>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@
                         {% endif %}
                         <div class="card-body pb-0">
                             <p class="mb-0"><strong>{{ product.name }}</strong></p>
-                            <p class="card-text text-muted">{{ product.producer }}</p>
+                            <p class="card-text text-muted mb-1">{{ product.producer }}</p>
                             {% if product.packaging == 'keg' %}
                             <p class="m-0">{{ product.volume }} keg</p>
                             {% else %}
@@ -48,12 +48,12 @@
                             {% else %}
                             <p class="m-0">No Rating</p>
                             {% endif %}
+
+                        </div>
+                        <div class="card-footer pt-0 border-0 bg-white">
                             <p class="lead mb-0 font-weight-bold">
                                 NOK {{ product.cost }}
                             </p>
-                        </div>
-                        <div class="card-footer pt-0 border-0 bg-white">
-                            <a href="#" class="btn-btn-gold">Add to cart</a>
                         </div>
                     </div>
                 </div>
