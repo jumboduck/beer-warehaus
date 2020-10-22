@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product
 from .forms import ProductForm
 from .untappd_handler import UntappdHandler
@@ -14,6 +14,18 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def product_detail(request, product_id):
+    """
+    This view displays the details of a specific product
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_detail.html', context)
 
 
 def add_product(request):

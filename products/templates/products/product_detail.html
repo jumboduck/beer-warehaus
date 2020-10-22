@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container">
+                {% if product.image %}
+                <a href="{{ product.image.url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 pt-3">
+            <h2 class="mb-0"><strong>{{ product.name }}</strong></h2>
+            <p class="text-muted mb-1">{{ product.producer }}</p>
+            <p class="m-0"><strong>Style:</strong>{{ product.style }}</p>
+            <p class="m-0"><strong>Abv:</strong> {{ product.abv }}%</p>
+            {% if product.packaging == 'keg' %}
+            <p class="m-0">{{ product.volume }} keg</p>
+            {% else %}
+            <p class="m-0">
+                {{ product.volume }} x {{ product.units_per_order }} {{ product.packaging}}s
+            </p>
+            {% endif %}
+            <p>{{ product.description }}</p>
+
+            {% if product.rating %}
+            <p class="m-0"><i class="fab fa-untappd"></i> Rating: {{ product.rating }} / 5</p>
+            {% else %}
+            <p class="m-0">No Rating</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock%}
