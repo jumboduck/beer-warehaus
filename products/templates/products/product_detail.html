@@ -27,7 +27,9 @@
         <div class="col-md-6 col-lg-4 pt-3">
             <h2 class="mb-0"><strong>{{ product.name }}</strong></h2>
             <p class="text-muted mb-1">{{ product.producer }}</p>
-            <p class="m-0"><strong>Style:</strong> {{ product.style.friendly_name }}</p>
+            <p class="m-0"><strong>Style:</strong>
+                <a href="{% url 'products'%}?style={{ product.style }}">{{ product.style.friendly_name }}</a>
+            </p>
             <p class="m-0"><strong>Abv:</strong> {{ product.abv }}%</p>
             {% if product.packaging == 'keg' %}
             <p class="m-0">{{ product.volume }} keg</p>

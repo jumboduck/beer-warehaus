@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Style
 from .forms import ProductForm
 from .untappd_handler import UntappdHandler
 
@@ -15,6 +15,7 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     category = None
+    style = None
     sort = None
     direction = None
 
@@ -36,7 +37,19 @@ def all_products(request):
         if 'category' in request.GET:
             category = request.GET['category']
             products = products.filter(style__category__name=category)
-            category = Category.objects.filter(name=category)
+            category = Category.objects.get(name=category)
+
+        if 'style' in request.GET:
+            style = request.GET['style']
+            products = products.filter(style__name=style)
+            style = Style.objects.get(name=style)
+
+        if 'packaging' in request.GET:
+            packaging = request.GET['packaging']
+            if packaging == 'keg':
+                products = products.filter(packaging=packaging)
+            if packaging == 'bottles/cans':
+                products = products.exclude(packaging='keg')
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -53,6 +66,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'category': category,
+        'style': style,
         'current_sorting': current_sorting
     }
 

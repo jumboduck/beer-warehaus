@@ -8,6 +8,14 @@ body {
     padding-bottom: 2rem;
 }
 
+a {
+    color: #ffc717;
+}
+
+a:hover {
+    color: #e0ac00;
+}
+
 /* SITE HEADER */
 
 .site-header {
