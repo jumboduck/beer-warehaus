@@ -18,6 +18,7 @@ def all_products(request):
     style = None
     sort = None
     direction = None
+    packaging = None
 
     if request.GET:
 
@@ -48,8 +49,10 @@ def all_products(request):
             packaging = request.GET['packaging']
             if packaging == 'keg':
                 products = products.filter(packaging=packaging)
-            if packaging == 'bottles/cans':
+            if packaging == 'bottle_can':
                 products = products.exclude(packaging='keg')
+            else:
+                packaging = None
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -67,7 +70,8 @@ def all_products(request):
         'search_term': query,
         'category': category,
         'style': style,
-        'current_sorting': current_sorting
+        'current_sorting': current_sorting,
+        'packaging': packaging,
     }
 
     return render(request, 'products/products.html', context)
