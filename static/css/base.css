@@ -166,7 +166,7 @@ a:hover {
     padding: 0.5rem 0.8rem;
     text-transform: uppercase;
     font-size: 0.8rem;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .btn-gold.btn-gold-appended {

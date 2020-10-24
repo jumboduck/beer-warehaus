@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'producers',
+    'cart',
 
     # Other
 
