@@ -48,8 +48,8 @@ def all_products(request):
         if 'packaging' in request.GET:
             packaging = request.GET['packaging']
             if packaging == 'keg':
-                products = products.filter(packaging=packaging)
-            if packaging == 'bottle_can':
+                products = products.filter(packaging='keg')
+            elif packaging == 'bottle_can':
                 products = products.exclude(packaging='keg')
             else:
                 packaging = None

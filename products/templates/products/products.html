@@ -159,40 +159,40 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
+    function updateUrl(selector, param) {
+        let currentUrl = new URL(window.location);
+        let selectedVal = selector.val();
+
+        if (Array.isArray(param)) {
+            if (selectedVal !== 'reset') {
+                for (let i = 0; i < param.length; i++) {
+                    let current_param = param[i]
+                    let current_value = selectedVal.split('_')[i];
+                    currentUrl.searchParams.set(current_param, current_value);
+
+                }
+            } else {
+                for (let i = 0; i < param.length; i++) {
+                    currentUrl.searchParams.delete(param[i]);
+
+                }
+            }
+
+        } else {
+            if (selectedVal !== 'reset') {
+                currentUrl.searchParams.set(param, selectedVal);
+            } else {
+                currentUrl.searchParams.delete(param);
+            }
+        }
+        window.location.replace(currentUrl);
+    }
+
     $('#sort-selector').change(function () {
-        let selector = $(this);
-        let currentUrl = new URL(window.location);
-
-        let selectedVal = selector.val();
-        if (selectedVal !== 'reset') {
-            let sort = selectedVal.split('_')[0];
-            let direction = selectedVal.split('_')[1];
-
-            currentUrl.searchParams.set('sort', sort);
-            currentUrl.searchParams.set('direction', direction);
-
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete('sort');
-            currentUrl.searchParams.delete('direction');
-
-            window.location.replace(currentUrl);
-        }
+        updateUrl($(this), ['sort', 'direction'])
     })
-
     $('#packaging-selector').change(function () {
-        let selector = $(this);
-        let currentUrl = new URL(window.location);
-        let selectedVal = selector.val();
-        if (selectedVal !== 'reset') {
-            currentUrl.searchParams.set('packaging', selectedVal);
-
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete('packaging');
-
-            window.location.replace(currentUrl);
-        }
+        updateUrl($(this), 'packaging')
     })
 </script>
 
