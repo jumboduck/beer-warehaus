@@ -11,11 +11,12 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{% url 'products'%}">All Products</a>
-                <a class="dropdown-item" href="#">Hoppy Beers</a>
-                <a class="dropdown-item" href="#">Dark Beers</a>
-                <a class="dropdown-item" href="#">Sour Beers</a>
-                <a class="dropdown-item" href="#">Farmhouse Beers</a>
-                <a class="dropdown-item" href="#">Lagers</a>
+                <a class="dropdown-item" href="{% url 'products'%}?category=hoppy">Hoppy Beers</a>
+                <a class="dropdown-item" href="{% url 'products'%}?category=dark">Dark Beers</a>
+                <a class="dropdown-item" href="{% url 'products'%}?category=sour">Sour Beers</a>
+                <a class="dropdown-item" href="{% url 'products'%}?category=belgian">Belgian Style Beers</a>
+                <a class="dropdown-item" href="{% url 'products'%}?category=light">Light Beers</a>
+                <a class="dropdown-item" href="{% url 'products'%}?category=other">Other</a>
             </div>
         </li>
         <li class="nav-item list-inline-item">

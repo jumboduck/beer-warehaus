@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
-from .models import Product
+from .models import Product, Category
 from .forms import ProductForm
 from .untappd_handler import UntappdHandler
 
@@ -13,8 +13,15 @@ def all_products(request):
     """
     products = Product.objects.all()
     query = None
+    category = None
 
     if request.GET:
+
+        if 'category' in request.GET:
+            category = request.GET['category']
+            products = products.filter(style__category__name=category)
+            category = Category.objects.filter(name=category)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -27,6 +34,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'category': category,
     }
 
     return render(request, 'products/products.html', context)
