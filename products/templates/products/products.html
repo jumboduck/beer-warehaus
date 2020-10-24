@@ -156,10 +156,23 @@
     </div>
 </div>
 
+<div class="btt-button rounded-0">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-angle-up mx-auto my-auto"></i>
+    </a>
+</div>
+
 {% endblock%}
 
 {% block postloadjs %}
 {{ block.super }}
+
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+
 <script type="text/javascript">
     function updateUrl(selector, param) {
         let currentUrl = new URL(window.location);

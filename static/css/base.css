@@ -127,6 +127,28 @@ a:hover {
     overflow: hidden;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    border: 0;
+    background: transparent;
+}
+
+.btt-link {
+    cursor: pointer;
+    color: #1b1b1b;
+    font-size: 3rem;
+}
+
+.btt-link:hover {
+    text-decoration: none;
+    color: #ffc717;
+    transform: scale(1.2);
+}
+
 /* Forms */
 
 .dark-border {
