@@ -24,7 +24,7 @@
                 <div class="carousel-caption slide-caption">
                     <h2>{{ slide.title }}</h2>
                     <p class="w-50 ml-auto d-none d-sm-block">{{ slide.description }}</p>
-                    <a href="{{ slide.cta_url }}" class="btn btn-gold">{{ slide.cta_txt }}</a>
+                    <a href="{{ slide.cta_link }}" class="btn btn-gold">{{ slide.cta_txt }}</a>
                 </div>
             </div>
             {% endfor %}
@@ -53,13 +53,13 @@
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                    <div class="card h-100 border-0">
+                    <div class="card h-100 border-0 overflow-hidden">
                         {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
+                        <a href="{% url 'product_detail' product.id %}" class="new-product">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
+                        <a href="{% url 'product_detail' product.id %}" class="new-product">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image.png"
                                 alt="{{ product.name }}">
                         </a>

@@ -110,6 +110,23 @@ a:hover {
     border: 0;
 }
 
+.new-product::after {
+    content: "\2605\2605\2605    NEW   \2605\2605\2605";
+    color: #1b1b1b;
+    font-size: 0.8rem;
+    background-color: #ffc717;
+    padding: 0.2rem 0;
+    text-align: center;
+    outline: 1px dashed #1b1b1b;
+    outline-offset: -5px;
+    width: 100%;
+    position: absolute;
+    top: 2rem;
+    left: -4.5rem;
+    transform: rotate(-45deg);
+    overflow: hidden;
+}
+
 /* Forms */
 
 .dark-border {
