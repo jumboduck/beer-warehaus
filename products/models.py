@@ -33,9 +33,9 @@ class Style(models.Model):
 
 class Product(models.Model):
     PACKAGING_TYPE = [
-        ('keg', 'keg'),
         ('bottle', 'bottle'),
         ('can', 'can'),
+        ('keg', 'keg'),
     ]
 
     name = models.CharField(max_length=254)
