@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
+
 from .models import Product
 from .forms import ProductForm
 from .untappd_handler import UntappdHandler
@@ -9,8 +12,21 @@ def all_products(request):
     This view displays products and the logic to sort and order them.
     """
     products = Product.objects.all()
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "No search criteria entered.")
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(style__friendly_name__icontains=query) | Q(producer__name__icontains=query)
+            products = products.filter(queries)
+
     context = {
         'products': products,
+        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)

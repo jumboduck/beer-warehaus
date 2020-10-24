@@ -36,6 +36,7 @@
                         <div class="card-body pb-0">
                             <p class="mb-0"><strong>{{ product.name }}</strong></p>
                             <p class="card-text text-muted mb-1">{{ product.producer }}</p>
+                            <p>{{ product.style.friendly_name }}</p>
                             {% if product.packaging == 'keg' %}
                             <p class="m-0">{{ product.volume }} keg</p>
                             {% else %}
