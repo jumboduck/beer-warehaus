@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -56,7 +57,7 @@
                             <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group">
+                                    <div class="input-group w-50">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-sm btn-gold"
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
@@ -85,7 +86,7 @@
 
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.cost }}</p>
+                            <p class="my-0">NOK {{ item.product.cost | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
                     {% endfor %}
