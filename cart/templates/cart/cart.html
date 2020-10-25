@@ -53,7 +53,7 @@
                             <p class="my-0">NOK {{ item.product.cost }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <form class="form update-form" method="POST" action="">
+                            <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group">
@@ -145,11 +145,9 @@
     $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
-        let size = $(this).data('size');
-        let url = `/cart/remove/${itemId}`;
+        let url = `/cart/remove/${itemId}/`;
         let data = {
             'csrfmiddlewaretoken': csrfToken,
-            'size': size
         };
 
         $.post(url, data)
