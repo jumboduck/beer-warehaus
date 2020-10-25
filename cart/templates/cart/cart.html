@@ -20,8 +20,70 @@
     <div class="row">
         <div class="col">
             {% if cart_items %}
-            <div class="table-responsive rounded">
-                {{ cart_items }}
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in cart_items %}
+                    <tr>
+                        <td class="p-3  w-25">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 text-muted">{{ item.product.producer }}</p>
+                            <p class="my-0 text-muted">
+                                {% if item.product.packaging == 'keg' %}
+                                {{ item.product.volume }} keg
+                                {% else %}
+                                {{ item.product.units_per_order }} x {{item.product.volume}}
+                                {{ item.product.packaging }}s
+                                {% endif %}</p>
+                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">NOK {{ item.product.cost }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0">{{ item.quantity }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.product.price }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Total: NOK {{ grand_total|floatformat:2 }}</strong></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'products' %}" class="btn btn-outline-gold rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Back to shop</span>
+                            </a>
+                            <a href="" class="btn btn-gold rounded-0 btn-lg">
+                                <span class="text-uppercase">Proceed to Payment</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+
+                </table>
             </div>
             {% else %}
             <p class="lead mb-5">Your cart is empty</p>
