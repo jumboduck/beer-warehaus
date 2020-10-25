@@ -182,7 +182,6 @@ a:hover {
 
 .btn-gold:hover {
     background-color: #e0ac00;
-    border: 1px solid #e0ac00;
 }
 
 .btn-outline-gold {
@@ -216,7 +215,7 @@ a:hover {
 
 .message-container {
     position: fixed;
-    top: 72px;
+    bottom: 30px;
     right: 15px;
     z-index: 5000;
 }
