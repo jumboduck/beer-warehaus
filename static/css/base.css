@@ -149,6 +149,11 @@ a:hover {
     transform: scale(1.2);
 }
 
+.update-link,
+.remove-link {
+    cursor: pointer;
+}
+
 /* Forms */
 
 .dark-border {
