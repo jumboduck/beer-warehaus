@@ -212,7 +212,24 @@ a:hover {
     z-index: 1000;
 }
 
-/* Media Requests */
+/* Bootstrap Toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 5000;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/* MEDIA REQUESTS */
 
 /* Smallest Screen Sizes */
 /* @media (max-width: 576px) {
