@@ -11,6 +11,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{% url 'products'%}">All Products</a>
+                <a class="dropdown-item" href="{% url 'products'%}?packaging=bottle_can">Bottles / Cans</a>
+                <a class="dropdown-item" href="{% url 'products'%}?packaging=keg">Draft Beer</a>
                 <a class="dropdown-item" href="{% url 'products'%}?category=hoppy">Hoppy Beers</a>
                 <a class="dropdown-item" href="{% url 'products'%}?category=dark">Dark Beers</a>
                 <a class="dropdown-item" href="{% url 'products'%}?category=sour">Sour Beers</a>
