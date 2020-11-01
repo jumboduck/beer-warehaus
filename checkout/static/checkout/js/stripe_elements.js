@@ -6,9 +6,9 @@
     https://stripe.com/docs/stripe-js
 */
 
-let stripe_public_key = $("#id_stripe_public_key").text().slice(1, -1);
-let client_secret = $("#id_client_secret").text().slice(1, -1);
-let stripe = Stripe(stripe_public_key);
+let stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
+let clientSecret = $("#id_client_secret").text().slice(1, -1);
+let stripe = Stripe(stripePublicKey);
 let elements = stripe.elements();
 let style = {
     base: {
@@ -30,7 +30,7 @@ card.mount("#card-element");
 
 // Handle realtime validation errors on the card element
 card.addEventListener("change", function (event) {
-    var errorDiv = document.getElementById("card-errors");
+    let errorDiv = document.getElementById("card-errors");
     if (event.error) {
         var html = `
             <span class="icon" role="alert">
@@ -45,7 +45,7 @@ card.addEventListener("change", function (event) {
 });
 
 // Handle form submit
-var form = document.getElementById("payment-form");
+let form = document.getElementById("payment-form");
 
 form.addEventListener("submit", function (ev) {
     ev.preventDefault();
@@ -54,15 +54,15 @@ form.addEventListener("submit", function (ev) {
     $("#payment-form").fadeToggle(100);
     $("#loading-overlay").fadeToggle(100);
 
-    var saveInfo = Boolean($("#id-save-info").attr("checked"));
+    let saveInfo = Boolean($("#id-save-info").attr("checked"));
     // From using {% csrf_token %} in the form
-    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    var postData = {
+    let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    let postData = {
         csrfmiddlewaretoken: csrfToken,
         client_secret: clientSecret,
         save_info: saveInfo,
     };
-    var url = "/checkout/cache_checkout_data/";
+    let url = "/checkout/cache_checkout_data/";
 
     $.post(url, postData)
         .done(function () {
@@ -98,12 +98,11 @@ form.addEventListener("submit", function (ev) {
                 })
                 .then(function (result) {
                     if (result.error) {
-                        var errorDiv = document.getElementById("card-errors");
-                        var html = `
-                    <span class="icon" role="alert">
-                    <i class="fas fa-times"></i>
-                    </span>
-                    <span>${result.error.message}</span>`;
+                        let errorDiv = document.getElementById("card-errors");
+                        let html = `<span class="icon" role="alert">
+                                    <i class="fas fa-times"></i>
+                                    </span>
+                                    <span>${result.error.message}</span>`;
                         $(errorDiv).html(html);
                         $("#payment-form").fadeToggle(100);
                         $("#loading-overlay").fadeToggle(100);
