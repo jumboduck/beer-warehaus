@@ -28,7 +28,7 @@
             <div class="order-confirmation-wrapper p-2 border">
                 <div class="row">
                     <div class="col">
-                        <p class="text-muted">Order Info:</p>
+                        <p class="text-muted mb-1">Order Info:</p>
                     </div>
                 </div>
                 <div class="row">
@@ -48,13 +48,13 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col">
-                        <p class="text-muted">Order Details:</p>
+                        <p class="text-muted  mb-1">Order Details:</p>
                     </div>
                 </div>
                 {% for item in order.lineitems.all %}
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col">
                         <p class="mb-0"><span class="font-weight-bold">{{ item.product.name }}</span><br />
                             {{ item.product.producer }}</p>
@@ -72,9 +72,9 @@
                 </div>
                 {% endfor %}
 
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col">
-                        <p class="text-muted">Delivering To:</p>
+                        <p class="text-muted mb-1">Delivering To:</p>
                     </div>
                 </div>
                 <div class="row">
