@@ -25,13 +25,90 @@
     </div>
     <div class="row">
         <div class="col col-lg-7">
-            <a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
-                <span class="icon mr-2">
-                    <i class="fas fa-gifts"></i>
-                </span>
+            <div class="order-confirmation-wrapper p-2 border">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-muted">Order Info:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="mb-0 font-weight-bold">Order Number</p>
+                    </div>
+                    <div class="col text-right">
+                        <p class="mb-0">{{ order.order_number }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="mb-0 font-weight-bold">Order Date</p>
+                    </div>
+                    <div class="col text-right">
+                        <p class="mb-0">{{ order.date }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="text-muted">Order Details:</p>
+                    </div>
+                </div>
+                {% for item in order.lineitems.all %}
+                <div class="row">
+                    <div class="col">
+                        <p class="mb-0"><span class="font-weight-bold">{{ item.product.name }}</span><br />
+                            {{ item.product.producer }}</p>
+                        <p class="mb-0 text-muted">
+                            {% if item.product.packaging == 'keg' %}
+                            {{ item.product.volume }} keg
+                            {% else %}
+                            {{ item.product.units_per_order }} x {{ item.product.volume }} {{ item.product.packaging}}s
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        <p class="mb-0">{{ item.quantity }} at {{ item.product.cost }} each</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="row">
+                    <div class="col">
+                        <p class="text-muted">Delivering To:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="mb-0 font-weight-bold">{{ order.company_name }}</p>
+                        <p class="mb-0">{{ order.delivery_address }}</p>
+                        <p class="mb-0">{{ order.postcode }}</p>
+                        <p class="mb-0">{{ order.city }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="text-muted">Billing Info:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-4">
+                        <p class="mb-0 font-weight-bold">Total</p>
+                    </div>
+                    <div class="col col-md-4 text-right">
+                        <p class="mb-0">{{ order.order_total }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'products' %}" class="btn btn-gold my-2">
                 <span class="text-uppercase">Return to shop</span>
             </a>
-
         </div>
     </div>
 </div>
