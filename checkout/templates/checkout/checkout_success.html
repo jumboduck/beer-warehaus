@@ -32,18 +32,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col col-md-4">
                         <p class="mb-0 font-weight-bold">Order Number</p>
                     </div>
-                    <div class="col text-right">
+                    <div class="col col-md-8 text-right">
                         <p class="mb-0">{{ order.order_number }}</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-4">
                         <p class="mb-0 font-weight-bold">Order Date</p>
                     </div>
-                    <div class="col text-right">
+                    <div class="col-md-8 text-right">
                         <p class="mb-0">{{ order.date }}</p>
                     </div>
                 </div>
@@ -92,11 +92,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col col-md-4">
+                    <div class="col-md-4">
                         <p class="mb-0 font-weight-bold">Total</p>
                     </div>
-                    <div class="col col-md-4 text-right">
-                        <p class="mb-0">{{ order.order_total }}</p>
+                    <div class="col-md-8 text-right">
+                        <p class="mb-0">NOK {{ order.order_total }}</p>
                     </div>
                 </div>
 
