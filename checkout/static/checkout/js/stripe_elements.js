@@ -59,7 +59,7 @@ form.addEventListener("submit", function (ev) {
     let postData = {
         csrfmiddlewaretoken: csrfToken,
         client_secret: clientSecret,
-        saveInfo: saveInfo,
+        save_info: saveInfo,
     };
 
     let url = "/checkout/cache_checkout_data/";
