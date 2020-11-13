@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'producers',
     'cart',
     'checkout',
+    'profiles',
 
     # Other
 
