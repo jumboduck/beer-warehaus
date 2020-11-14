@@ -32,7 +32,52 @@
         </div>
         <div class="col col-lg-6">
             <p class="text-muted">Order History</p>
-            {{ orders }}
+            <div class="order-history table-responsive"></div>
+            {% if orders %}
+            <table class="table-sm table table-borderless">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td>{{ order.date }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for item in order.lineitems.all %}
+                                <li class="small">
+                                    <p class="m-0">{{ item.product.name }}</p>
+                                    <p class="m-0 text-muted">{{ item.product.producer }}</span></p>
+                                    <p class="m-0">
+                                        {% if item.product.packaging == 'keg' %}
+                                        {{ item.product.volume }} keg x {{ item.quantity }}
+                                        {% else %}
+                                        {{ item.product.units_per_order }} x {{ item.product.volume }}
+                                        {{ item.product.packaging }}s x {{ item.quantity }}
+                                        {% endif %}
+                                    </p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>NOK {{ order.order_total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            No orders yet.
+            {% endif %}
         </div>
     </div>
 </div>

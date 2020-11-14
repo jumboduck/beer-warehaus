@@ -106,9 +106,15 @@
     </div>
     <div class="row">
         <div class="col">
+            {% if from_profile %}
+            <a href="{% url 'profile' %}" class="btn btn-gold my-2">
+                <span class="text-uppercase">Return to profile</span>
+            </a>
+            {% else %}
             <a href="{% url 'products' %}" class="btn btn-gold my-2">
                 <span class="text-uppercase">Return to shop</span>
             </a>
+            {% endif %}
         </div>
     </div>
 </div>

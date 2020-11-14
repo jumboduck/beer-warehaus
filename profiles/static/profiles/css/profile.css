@@ -5,3 +5,8 @@
 .profile-form-input {
     color: #1b1b1b;
 }
+
+.order-history {
+    max-height: 400px;
+    overflow-y: auto;
+}
