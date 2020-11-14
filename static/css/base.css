@@ -45,6 +45,10 @@ a:hover {
     margin-top: -1px !important;
 }
 
+.search-bar input::placeholder {
+    color: #aab7c4;
+}
+
 .desktop-search-bar {
     width: 300px;
 }
@@ -182,6 +186,7 @@ a:hover {
 
 .btn-gold:hover {
     background-color: #e0ac00;
+    border: 1px solid #e0ac00;
 }
 
 .btn-outline-gold {
@@ -226,6 +231,26 @@ a:hover {
 
 .toast-capper {
     height: 2px;
+}
+
+/* Allauth form styling */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color: #6c757d;
+}
+
+.allauth-form-inner-content input {
+    border: 1px solid #1b1b1b !important;
+    border-radius: 0px;
+}
+
+.allauth-form-inner-content label:not([for="id_remember"]) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
 }
 
 /* MEDIA REQUESTS */

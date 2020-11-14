@@ -30,8 +30,17 @@
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        <a href="#" class="dropdown-item">Register</a>
-        <a href="#" class="dropdown-item">Login</a>
+        {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+        <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
+        <a href="{% url 'add_producer' %}" class="dropdown-item">Add Producer</a>
+        {% endif %}
+        <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+        <a href="{% url 'account_logout'%}" class="dropdown-item">Logout</a>
+        {% else %}
+        <a href="{% url 'account_signup'%}" class="dropdown-item">Register</a>
+        <a href="{% url 'account_login'%}" class="dropdown-item">Login</a>
+        {% endif %}
     </div>
 </div>
 <div class="d-inline-block">
