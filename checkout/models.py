@@ -63,3 +63,7 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+    @property
+    def total_units(self):
+        return self.quantity * self.product.units_per_order
