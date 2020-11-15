@@ -100,12 +100,18 @@ def add_product(request):
             """
             search_query = request.POST['product_search']
             results = UntappdHandler.search_beer(search_query)
-            form = ProductForm
-            context = {
-                'search': True,
-                'form': form,
-                'untappd_results': results
-            }
+
+            if type(results) == str:
+                # If UntappdHandler returns a string, this means there was an error
+                messages.error(request, results)
+
+            else:
+                form = ProductForm
+                context = {
+                    'search': True,
+                    'form': form,
+                    'untappd_results': results
+                }
 
         elif 'beer_id' in request.POST:
             """
@@ -114,23 +120,27 @@ def add_product(request):
             beer_id = request.POST['beer_id']
             beer_info = UntappdHandler.get_beer_info(beer_id)
 
-            if beer_info['beer_label_hd']:
-                image_url = beer_info['beer_label_hd']
+            if type(beer_info) == str:
+                # If UntappdHandler returns a string, this means there was an error
+                messages.error(request, beer_info)
             else:
-                image_url = beer_info['beer_label']
+                if beer_info['beer_label_hd']:
+                    image_url = beer_info['beer_label_hd']
+                else:
+                    image_url = beer_info['beer_label']
 
-            form = ProductForm(initial={
-                'name': beer_info['beer_name'],
-                'producer': beer_info['brewery']['brewery_name'],
-                'description': beer_info['beer_description'],
-                'image_url': image_url,
-                'abv': round(beer_info['beer_abv'], 2),
-                'rating': round(beer_info['rating_score'], 2)
-            })
-            context = {
-                'form': form,
-                'image_url': image_url,
-            }
+                form = ProductForm(initial={
+                    'name': beer_info['beer_name'],
+                    'producer': beer_info['brewery']['brewery_name'],
+                    'description': beer_info['beer_description'],
+                    'image_url': image_url,
+                    'abv': round(beer_info['beer_abv'], 2),
+                    'rating': round(beer_info['rating_score'], 2)
+                })
+                context = {
+                    'form': form,
+                    'image_url': image_url,
+                }
 
         else:
             """
@@ -146,10 +156,10 @@ def add_product(request):
 
     else:
         form = ProductForm
+        context = {
+            'form': form,
+        }
 
-    context = {
-        'form': form,
-    }
     template = 'products/add_product.html'
 
     return render(request, template, context)
