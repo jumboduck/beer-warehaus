@@ -56,9 +56,9 @@
                             <ul class="list-unstyled">
                                 {% for item in order.lineitems.all %}
                                 <li class="small">
-                                    <p class="m-0">{{ item.product.name }}</p>
+                                    <p class="m-0 font-weight-bold">{{ item.product.name }}</p>
                                     <p class="m-0 text-muted">{{ item.product.producer }}</span></p>
-                                    <p class="m-0">
+                                    <p class="m-0 mb-1">
                                         {% if item.product.packaging == 'keg' %}
                                         {{ item.product.volume }} keg x {{ item.quantity }}
                                         {% else %}

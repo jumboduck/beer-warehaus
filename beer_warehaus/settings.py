@@ -36,7 +36,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     'localhost',
-    'a0c3bb89ed42.ngrok.io',
+    '1dd85a0d4352.ngrok.io',
 ]
 
 
