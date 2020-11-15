@@ -1,14 +1,14 @@
-Order for {{ order.company_name }}
-
-This is a confirmation for your order at Beer WareHaus. Your order information is below:
+{{ order.company_name }} has made the following order:
 
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
+
 
 Items:
 
 {% for item in order.lineitems.all %}
 {{ item.product.name }} by {{ item.product.producer }}
+SKU {{ item.product.sku }}
 {% if item.product.packaging == 'keg' %}
 {{ item.product.volume }} keg x {{ item.quantity }}
 {% else %}
@@ -19,14 +19,15 @@ __________
 
 Total: NOK {{ order.order_total }}
 
-The order will be delivered at the following address:
+
+Contact Information:
+
+Email: {{ order.email }}
+Phone: {{ order.phone_number }}
+
+
+Delivery address:
 
 {{ order.company_name }}
 {{ order.delivery_address }}
 {{ order.postcode }} {{ order.city }}
-
-If you have any questions, contact us at {{ contact_email }}
-
-Thank you for your order,
-
-The team at Beer WareHaus

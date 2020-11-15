@@ -8,5 +8,5 @@
 
 .order-history {
     max-height: 400px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
