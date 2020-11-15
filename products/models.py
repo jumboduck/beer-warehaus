@@ -74,7 +74,7 @@ class Product(models.Model):
         super(Product, self).save(*args, **kwargs)
 
     """
-    Calculate the cost of an order
+    Calculate the cost of one crate of an product
     """
     @property
     def cost(self):

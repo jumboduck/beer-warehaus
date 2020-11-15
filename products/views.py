@@ -139,14 +139,17 @@ def add_product(request):
             form = ProductForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
+                messages.success(request, "New product added!")
                 return redirect(reverse(add_product))
+            else:
+                messages.error(request, "An error occurred while updating your profile. Please ensure the form is valid.")
 
     else:
         form = ProductForm
-        context = {
-            'form': form,
-        }
 
+    context = {
+        'form': form,
+    }
     template = 'products/add_product.html'
 
     return render(request, template, context)
