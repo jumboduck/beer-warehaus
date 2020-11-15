@@ -91,7 +91,8 @@ def product_detail(request, product_id):
 
 def add_product(request):
     """
-    Handles adding a new product to the database
+    # Handles adding a new product to the database manually or
+    # by searching for it on untappd
     """
     if request.POST:
         if 'product_search' in request.POST:
@@ -161,5 +162,31 @@ def add_product(request):
         }
 
     template = 'products/add_product.html'
+
+    return render(request, template, context)
+
+
+def edit_product(request, product_id):
+    """
+    # Edits a product in the store
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated the product.')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'There was an error updating the product. Please ensure the form is valid.')
+
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing "{product.name}"".')
+    context = {
+            'form': form,
+            'product': product,
+        }
+    template = 'products/edit_product.html'
 
     return render(request, template, context)
