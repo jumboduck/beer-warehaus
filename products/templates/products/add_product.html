@@ -11,12 +11,21 @@
                 enctype="multipart/form-data">
                 <!-- The following form adds a product to the store -->
                 {% csrf_token %}
-                {{ form | crispy }}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
                 {% if image_url %}
                 <div class="row">
-                    <img class="w-50 mb-2" src="{{ image_url }}" />
+                    <p class="mb-1">Currently Selected:</p>
+                    <p class="mt-0">
+                        <img class="w-50 mb-2" src="{{ image_url }}" />
+                    </p>
                 </div>
                 {% endif %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
                 <button class=" btn-gold border-0" type="submit">Add Product <i class="fas fa-beer ml-1"></i></button>
             </form>
         </div>
