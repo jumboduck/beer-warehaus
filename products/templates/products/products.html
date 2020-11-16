@@ -143,9 +143,20 @@
 
                         </div>
                         <div class="card-footer pt-0 border-0 bg-white">
+                            {% if product.packaging == 'keg' %}
+                            <p class="text-muted mb-0 mt-2">Price:</p>
+                            {% else %}
+                            <p class="text-muted mb-0 mt-2">Price per unit:</p>
+                            {% endif %}
                             <p class="lead mb-0 font-weight-bold">
-                                NOK {{ product.cost }}
+                                NOK {{ product.price }}
                             </p>
+                            {% if request.user.is_superuser %}
+                            <small class="ml-3">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ from .untappd_handler import UntappdHandler
 
 def all_products(request):
     """
-    This view displays products and the logic to sort and order them.
+    # This view displays products and the logic to sort and order them.
     """
     products = Product.objects.all()
     query = None
@@ -79,7 +79,7 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """
-    This view displays the details of a specific product
+    # This view displays the details of a specific product
     """
     product = get_object_or_404(Product, pk=product_id)
     context = {
@@ -97,7 +97,7 @@ def add_product(request):
     if request.POST:
         if 'product_search' in request.POST:
             """
-            If product search on untappd form has been submitted
+            # If product search on untappd form has been submitted
             """
             search_query = request.POST['product_search']
             results = UntappdHandler.search_beer(search_query)
@@ -116,7 +116,7 @@ def add_product(request):
 
         elif 'beer_id' in request.POST:
             """
-            If product search result has been selected
+            # If product search result has been selected
             """
             beer_id = request.POST['beer_id']
             beer_info = UntappdHandler.get_beer_info(beer_id)
@@ -145,15 +145,19 @@ def add_product(request):
 
         else:
             """
-            Form submission to add a new product
+            # Form submission to add a new product
             """
             form = ProductForm(request.POST, request.FILES)
             if form.is_valid():
-                form.save()
+                product = form.save()
                 messages.success(request, "New product added!")
-                return redirect(reverse(add_product))
+                return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(request, "An error occurred while updating your profile. Please ensure the form is valid.")
+
+                context = {
+                    'form': form,
+                }
 
     else:
         form = ProductForm
@@ -190,3 +194,13 @@ def edit_product(request, product_id):
     template = 'products/edit_product.html'
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """
+    # Delete a product from the store
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Successfully removed product from the shop.')
+    return redirect(reverse('products'))

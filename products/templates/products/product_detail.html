@@ -46,12 +46,29 @@
             <p class="m-0">No Rating</p>
             {% endif %}
 
+            {% if product.packaging == 'keg' %}
+            <p class="text-muted mb-0 mt-2">Price:</p>
+            {% else %}
+            <p class="text-muted mb-0 mt-2">Price per unit:</p>
+            {% endif %}
+            <p class="lead mb-0 font-weight-bold">
+                NOK {{ product.price }}
+            </p>
+
+            {% if request.user.is_superuser %}
+            <small class="ml-3">
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+            </small>
+            {% endif %}
+
             <!-- Choose quantity and add to cart -->
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col-12">
-                        <p class="mt-3"><strong>Quantity:</strong></p>
+                        <p class="mt-3"><strong>Quantity {% if product.packaging != 'keg' %}(in
+                                crates){% endif %}:</strong></p>
                         <div class="form-group w-50">
                             <div class="input-group">
                                 <div class="input-group-prepend">

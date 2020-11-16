@@ -6,6 +6,10 @@ import requests
 
 
 class Category(models.Model):
+    """
+    # This models the broad categories for styles of beers found
+    # on the shop
+    """
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -20,6 +24,10 @@ class Category(models.Model):
 
 
 class Style(models.Model):
+    """
+    # Styles are subcategories of the main categories, and is what the user
+    # will see in the product descriptions
+    """
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, default='other')
@@ -32,6 +40,9 @@ class Style(models.Model):
 
 
 class Product(models.Model):
+    """
+    # The model for the products in the store
+    """
     PACKAGING_TYPE = [
         ('bottle', 'bottle'),
         ('can', 'can'),
@@ -58,8 +69,8 @@ class Product(models.Model):
         return self.name
 
     """
-    Update to save method so that any image in the 'Image url' field
-    will be saved on the server as the image field.
+    # Update to save method so that any image in the 'Image url' field
+    # will be saved on the server as the image field.
     """
     def save(self, *args, **kwargs):
         if self.image_url and not self.image:
@@ -74,7 +85,7 @@ class Product(models.Model):
         super(Product, self).save(*args, **kwargs)
 
     """
-    Calculate the cost of one crate of an product
+    # Calculate the cost of one crate of a product
     """
     @property
     def cost(self):
