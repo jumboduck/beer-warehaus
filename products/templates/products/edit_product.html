@@ -11,11 +11,6 @@
                 <!-- The following form edits the currently selected product -->
                 {% csrf_token %}
                 {{ form | crispy }}
-                {% if image_url %}
-                <div class="row">
-                    <img class="w-50 mb-2" src="{{ image_url }}" />
-                </div>
-                {% endif %}
                 <button class=" btn-gold border-0" type="submit">Edit Product <i class="fas fa-beer ml-1"></i></button>
             </form>
         </div>
