@@ -10,7 +10,7 @@ class ProductForm(forms.ModelForm):
         fields = '__all__'
         widgets = {'image_url': forms.HiddenInput()}
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput(button_text='Change image'))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
