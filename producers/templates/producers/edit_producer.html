@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-3">Edit Product</h2>
+    <div class="row">
+        <div class="col-12 col-md-6 order-2 order-md-1">
+            <form action=" {% url 'edit_producer' producer.id %}" method="POST" id="edit-producer-form"
+                class="form mb-2" enctype="multipart/form-data">
+                <!-- The following form edits the currently selected product -->
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+                <button class=" btn-gold border-0" type="submit">Update Producer <i
+                        class="fas fa-beer ml-1"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+    $('#new-image').change(function () {
+        let file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to ${file.name}`);
+    })
+</script>
+
+{% endblock %}
