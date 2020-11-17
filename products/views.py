@@ -13,7 +13,7 @@ def all_products(request):
     """
     # This view displays products and the logic to sort and order them.
     """
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('name')
     query = None
     category = None
     style = None

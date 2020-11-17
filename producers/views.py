@@ -89,7 +89,7 @@ def edit_producer(request, producer_id):
     if request.method == 'POST':
         form = ProducerForm(request.POST, request.FILES, instance=producer)
 
-        # Ensure form is valid before updating the db
+        # Ensure form is valid before updating the database
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated producer information.')
