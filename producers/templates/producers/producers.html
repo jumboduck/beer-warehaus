@@ -23,7 +23,7 @@
                 <div class="card-body text-center">
                     <p class="card-title">{{ producer.name }}</p>
                     <p class="text-muted">{{ producer.location }}</p>
-                    <a href="#" class="btn btn-gold mx-auto">Learn More</a>
+                    <a href="{% url 'producer_detail' producer.id %}" class="btn btn-gold mx-auto">Learn More</a>
                 </div>
             </div>
         </div>

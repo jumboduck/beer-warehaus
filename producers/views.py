@@ -21,7 +21,6 @@ def producer_detail(request, producer_id):
     return render(request, 'producers/producer_detail.html', context)
 
 
-
 @login_required
 def add_producer(request):
     """
@@ -109,9 +108,10 @@ def edit_producer(request, producer_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated producer information.')
-            return redirect(reverse('producers'))
+            return redirect(reverse('producer_detail', args=[producer.id]))
         else:
-            messages.error(request, 'There was an error updating this producer. Please ensure the form is valid.')
+            messages.error(request, 'There was an error updating this producer. \
+                Please ensure the form is valid.')
 
     else:
         form = ProducerForm(instance=producer)
