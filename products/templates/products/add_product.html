@@ -26,7 +26,9 @@
                 {{ field }}
                 {% endif %}
                 {% endfor %}
-                <button class=" btn-gold border-0" type="submit">Add Product <i class="fas fa-beer ml-1"></i></button>
+                <a href="{% url 'products' %}" class="d-button btn btn-outline-gold"><i class="fas fa-angle-left"></i>
+                    Back</a>
+                <button class="btn btn-gold" type="submit">Add Product <i class="fas fa-beer ml-1"></i></button>
             </form>
         </div>
         <div class="col-12 col-md-6 order-1 order-md-2 mb-3">
