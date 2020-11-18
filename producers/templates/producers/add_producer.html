@@ -15,8 +15,8 @@
                 {{ field | as_crispy_field }}
                 {% else %}
                 {% if image_url %}
-                <div>
-                    <p class="mb-1">Currently Selected:</p>
+                <div id="untappd-image">
+                    <p class="mb-1">Image from Untappd:</p>
                     <p class="mt-0">
                         <img class="w-50 mb-2" src="{{ image_url }}" />
                     </p>
@@ -28,7 +28,7 @@
                 <button class=" btn-gold border-0" type="submit">Add Producer <i class="fas fa-beer ml-1"></i></button>
             </form>
         </div>
-        <div class="col-12 col-md-6 order-1 order-md-2">
+        <div class="col-12 col-md-6 order-1 order-md-2 mb-3">
             <form class="form" method="POST" action="{% url 'add_producer' %}">
                 {% csrf_token %}
                 <label for="producer_search">Find a producer on Untappd</label>
@@ -83,8 +83,23 @@
 
 
 </div>
-{% endblock%}
+{% endblock %}
 
+<!-- The following ensures the functionality of the image selector -->
 {% block postloadjs %}
+{{ block.super }}
 
+<script type="text/javascript">
+    $('#new-image').change(function () {
+        let file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to ${file.name}`);
+    })
+
+    // If an image is displayed from untappd, change the text of the button
+    $(document).ready(function () {
+        if ($('#untappd-image').length != 0) {
+            $('#new-image-text').text('Choose another image');
+        }
+    })
+</script>
 {% endblock %}
