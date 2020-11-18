@@ -20,13 +20,10 @@
             <div class="card listing-card">
                 <img src="{% if producer.image %}{{ producer.image.url }}{% else %}{{ MEDIA_URL }}no-image.png{% endif %}"
                     class="card-img-top" alt="{{ producer.name }} logo">
-                <div class="card-body">
-                    <h3 class="card-title text-center">{{ producer.name }}</h3>
-                    <h4 class="text-center">{{ producer.location }}</h4>
-                    <p class="card-text">
-                        {{ producer.description }}
-                    </p>
-                    <a href="#" class="btn-gold">View their products</a>
+                <div class="card-body text-center">
+                    <p class="card-title">{{ producer.name }}</p>
+                    <p class="text-muted">{{ producer.location }}</p>
+                    <a href="#" class="btn btn-gold mx-auto">Learn More</a>
                 </div>
             </div>
         </div>

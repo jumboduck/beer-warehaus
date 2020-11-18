@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-3"></div>
+        <div class="col-10 col-md-6">
+
+            <div class="row">
+                <div class="col mt-4">
+                    {% if producer.image %}
+                    <a href="{{ producer.image.url }}" target="_blank">
+                        <img class="mx-auto d-block mb-2 img-fluid" src="{{ producer.image.url }}"
+                            alt="{{ producer.name }}">
+                    </a>
+                    {% else %}
+                    <img class="mx-auto d-block" src="{{ MEDIA_URL }}no-image.png" alt="{{ producer.name }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center w-75 w-md-50">
+                    <h2><strong>{{ producer.name }}</strong></h2>
+
+                    <p class="mx-auto text-justify">{{ producer.description }}</p>
+
+                    {% if request.user.is_superuser %}
+                    <div class="my-3">
+                        <small>
+                            <a href="#">Edit</a> |
+                            <a class="text-danger" href="#">Delete</a>
+                        </small></div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h3>Our Offering:</h3>
+                    {% for product in products %}
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="col-8">
+                            <h4>{{ product.name }}</h4>
+                            <p class="m-0">Style: {{ product.style.friendly_name }}</p>
+                            <p class="m-0">ABV: {{ product.abv }}%</p>
+                            <a class="mt-2 text-small btn btn-outline-gold"
+                                href="{% url 'product_detail' product.id %}">see
+                                product</a>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col col-md-3"></div>
+    </div>
+</div>
+
+{% endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}

@@ -3,7 +3,23 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Producer
 from .forms import ProducerForm
+from products.models import Product
 from products.untappd_handler import UntappdHandler
+
+
+def producer_detail(request, producer_id):
+    """
+    # Displays the details and products of a specific producer
+    """
+    producer = get_object_or_404(Producer, pk=producer_id)
+    products = Product.objects.filter(producer=producer)
+    context = {
+        'producer': producer,
+        'products': products,
+    }
+
+    return render(request, 'producers/producer_detail.html', context)
+
 
 
 @login_required
