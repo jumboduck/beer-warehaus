@@ -221,3 +221,36 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Successfully removed product from the shop.')
     return redirect(reverse('products'))
+
+
+@login_required
+def manage_products(request):
+    """
+    # Manage products in the store
+    """
+    if not request.user.is_superuser:
+        # If user is not an admin, redirect to home page
+        messages.error(request, "Only store owners can access this page.")
+        return redirect(reverse('home'))
+
+    query = None
+
+    products = Product.objects.all().order_by('producer', 'name')
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "No search criteria entered.")
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(style__friendly_name__icontains=query) | Q(producer__name__icontains=query)
+            products = products.filter(queries)
+            print(products)
+
+    context = {
+        'products': products,
+        'search_term': query,
+    }
+
+    return render(request, 'products/manage_products.html', context)

@@ -301,6 +301,7 @@ a:hover {
 .btn-danger-custom:hover {
     background-color: #a71d2a;
     border: 1px solid #a71d2a;
+    color: #ffffff;
 }
 
 .footer {
