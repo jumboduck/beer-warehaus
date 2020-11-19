@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1 product-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2-page-title">
+                        Producer Management
+                    </h2>
+                </div>
+            </div>
+            <div class="row mb-4 mt-3">
+                <div class="col">
+                    <form class="form" method="GET" action="{% url 'manage_producers' %}">
+                        <div class="input-group search-border w-75">
+                            <input class="form-control dark-border" id="producer-search" type="text" name="q"
+                                placeholder="Find Producer" required>
+                            <div class="input-group-append">
+                                <button class="form-control btn btn-gold btn-gold-appended h-100" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div>
+                                <a href="{% url 'add_producer' %}" class="ml-3 btn btn-gold">
+                                    Add a producer
+                                </a>
+                                <a href="{% url 'manage_producers' %}" class="ml-2 btn btn-danger-custom">
+                                    Reset Search
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+
+            {% for producer in producers %}
+            <div class="row">
+                <div class="col-3">
+                    <img src="{{ producer.image.url }}" class="img-fluid" alt="{{ producer.name }}">
+                </div>
+                <div class="col-4">
+                    <p class="h5 mb-1">{{ producer.name }}</p>
+                    <p class="text-muted mb-0">{{ producer.location }}</p>
+                    {% if producer.highlight %}
+                    <p class="mt-2 mb-0 text-info"><i class="fas fa-exclamation mr-2"></i> FEATURED PRODUCER</p>
+                    {% endif %}
+                    <a class="btn btn-gold w-50 my-2" href="{% url 'edit_producer' producer.id %}">
+                        <i class="fas fa-pencil-alt mr-2"></i> Edit
+                    </a>
+                    <a class="btn btn-danger-custom w-50" href="#" data-target="#" data-toggle="modal">
+                        <i class="fas fa-trash-alt mr-2"></i> Delete
+                    </a>
+                </div>
+                <div class="col-5">
+                    <p class="font-weight-bold mb-0">Description:</p>
+                    <p class="text-muted">{{ producer.description|truncatewords:50 }}</p>
+                </div>
+
+                <!-- Modal window for product deletion -->
+
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="btt-button rounded-0">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-angle-up mx-auto my-auto"></i>
+    </a>
+</div>
+
+{% endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}

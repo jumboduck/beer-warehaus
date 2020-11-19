@@ -57,15 +57,15 @@
                     </a>
                 </div>
                 <div class="col-2"><img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}"></div>
-                <div class="col-4">
-                    <h3>{{ product.name }}</h3>
+                <div class="col-3">
+                    <p class="h5 mb-1">{{ product.name }}</p>
                     <p class="text-muted mb-0">{{ product.producer }}</p>
                     <p class="mb-0">ABV: {{ product.abv }}</p>
                     <p class="mb-0">Style: {{ product.style.friendly_name }}</p>
                     <p class="mb-0">Packaging: {{ product.volume }} {{ product.packaging }}</p>
 
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <p class="font-weight-bold mb-0">Description:</p>
                     <p class="text-muted">{{ product.description|truncatewords:40 }}</p>
                 </div>
@@ -107,10 +107,6 @@
         </div>
     </div>
 </div>
-<div class="row"></div>
-</div>
-</div>
-</div>
 
 <div class="btt-button rounded-0">
     <a class="btt-link d-flex h-100">
@@ -122,50 +118,4 @@
 
 {% block postloadjs %}
 {{ block.super }}
-
-<script type="text/javascript">
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
-
-<script type="text/javascript">
-    function updateUrl(selector, param) {
-        let currentUrl = new URL(window.location);
-        let selectedVal = selector.val();
-
-        if (Array.isArray(param)) {
-            if (selectedVal !== 'reset') {
-                for (let i = 0; i < param.length; i++) {
-                    let current_param = param[i]
-                    let current_value = selectedVal.split('_')[i];
-                    currentUrl.searchParams.set(current_param, current_value);
-
-                }
-            } else {
-                for (let i = 0; i < param.length; i++) {
-                    currentUrl.searchParams.delete(param[i]);
-
-                }
-            }
-
-        } else {
-            if (selectedVal !== 'reset') {
-                currentUrl.searchParams.set(param, selectedVal);
-            } else {
-                currentUrl.searchParams.delete(param);
-            }
-        }
-        window.location.replace(currentUrl);
-    }
-
-    $('#sort-selector').change(function () {
-        updateUrl($(this), ['sort', 'direction'])
-    })
-
-    $('#packaging-selector').change(function () {
-        updateUrl($(this), 'packaging')
-    })
-</script>
-
 {% endblock %}

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+
 from .models import Producer
 from .forms import ProducerForm
 from products.models import Product
@@ -142,3 +144,35 @@ def producers(request):
 
     template = ('producers/producers.html')
     return render(request, template, context)
+
+
+@login_required
+def manage_producers(request):
+    """
+    # Manage producers
+    """
+    if not request.user.is_superuser:
+        # If user is not an admin, redirect to home page
+        messages.error(request, "Only store owners can access this page.")
+        return redirect(reverse('home'))
+
+    query = None
+
+    producers = Producer.objects.all().order_by('highlight', 'name')
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "No search criteria entered.")
+                return redirect(reverse('producers'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(location__icontains=query)
+            producers = producers.filter(queries)
+
+    context = {
+        'producers': producers,
+        'search_term': query,
+    }
+
+    return render(request, 'producers/manage_producers.html', context)

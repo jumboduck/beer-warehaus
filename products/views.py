@@ -246,7 +246,6 @@ def manage_products(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(style__friendly_name__icontains=query) | Q(producer__name__icontains=query)
             products = products.filter(queries)
-            print(products)
 
     context = {
         'products': products,
