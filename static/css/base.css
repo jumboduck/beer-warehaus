@@ -251,6 +251,12 @@ a:hover {
 
 /* Elements */
 
+.h2-page-title {
+    border-bottom: 1px solid #1b1b1b;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
 .btn-gold {
     background-color: #ffc717;
     border: 1px solid #ffc717;

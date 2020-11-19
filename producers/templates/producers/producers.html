@@ -4,31 +4,32 @@
 
 {% block content %}
 <!-- Highlighted Producers -->
-<div class="container mt-4">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <h2>Producers</h2>
-            <p>Here are some of the producers we proudly collaborate with.</p>
-        </div>
-    </div>
-
-    <!-- New releases listing -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-
-        {% for producer in producers %}
-        <div class="col mb-4">
-            <div class="card listing-card">
-                <img src="{% if producer.image %}{{ producer.image.url }}{% else %}{{ MEDIA_URL }}no-image.png{% endif %}"
-                    class="card-img-top" alt="{{ producer.name }} logo">
-                <div class="card-body text-center">
-                    <p class="card-title">{{ producer.name }}</p>
-                    <p class="text-muted">{{ producer.location }}</p>
-                    <a href="{% url 'producer_detail' producer.id %}" class="btn btn-gold mx-auto">Learn More</a>
+        <div class="col-10 offset-1 product-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2-page-title">Producers</h2>
+                    <p>Here are some of the producers we proudly collaborate with.</p>
                 </div>
             </div>
-        </div>
-        {% endfor %}
 
+            <!-- New releases listing -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 mt-2">
+
+                {% for producer in producers %}
+                <div class="col mb-4 text-center">
+                    <img src="{% if producer.image %}{{ producer.image.url }}{% else %}{{ MEDIA_URL }}no-image.png{% endif %}"
+                        class="img-fluid w-75 mb-2" alt="{{ producer.name }} logo">
+                    <p class="card-title">{{ producer.name }}</p>
+                    <p class="text-muted">{{ producer.location }}</p>
+                    <a href="{% url 'producer_detail' producer.id %}" class="btn btn-gold mx-auto">Learn
+                        More</a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
     </div>
 
 </div>

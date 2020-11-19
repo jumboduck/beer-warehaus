@@ -1,35 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h2 class="text-center mt-3 mb-2">
-                {% if category %}
-                {{ category.friendly_name }}
-                {% elif style %}
-                {{ style.friendly_name }}s
-                {% elif search_term %}
-                Results for "{{ search_term }}"
-                {% else %}
-                Products
-                {% endif %}
-            </h2>
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="col-10 offset-1 product-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2-page-title">
+                        {% if category %}
+                        {{ category.friendly_name }}
+                        {% elif style %}
+                        {{ style.friendly_name }}s
+                        {% elif search_term %}
+                        Results for "{{ search_term }}"
+                        {% else %}
+                        Products
+                        {% endif %}
+                    </h2>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-6 my-auto order-md-last">
                     <div class="row">
@@ -94,9 +87,9 @@
                 </div>
 
                 <div class="col-12 col-md-6 order-md-first">
-                    <p class="text-muted mt-3 text-center text-md-left">
+                    <p class="text-muted my-0 text-center text-md-left">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
-                        <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
+                        <a href="{% url 'products' %}">All Products</a> |
                         {% endif %}
                         {{ products|length }} Products{% if search_term %} found for
                         <strong>"{{ search_term }}"</strong>{% endif %}
@@ -104,7 +97,7 @@
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row mt-3">
                 {% for product in products %}
                 <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
                     <div class="card h-100 border-0 overflow-hidden">
