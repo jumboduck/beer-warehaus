@@ -83,8 +83,8 @@ def add_producer(request):
             """
             form = ProducerForm(request.POST, request.FILES)
             if form.is_valid():
-                form.save()
-                return redirect(reverse(add_producer))
+                producer = form.save()
+                return redirect(reverse('producer_detail', args=[producer.id]))
 
     else:
         form = ProducerForm
@@ -133,9 +133,25 @@ def edit_producer(request, producer_id):
     return render(request, template, context)
 
 
+@login_required
+def delete_producer(request, producer_id):
+    """
+    # Remove a producer from the store
+    """
+    if not request.user.is_superuser:
+        # If user is not an admin, redirect to home page
+        messages.error(request, "Only store owners can access this page.")
+        return redirect(reverse('home'))
+
+    producer = get_object_or_404(Producer, pk=producer_id)
+    producer.delete()
+    messages.success(request, 'Successfully removed producer from the shop.')
+    return redirect(reverse('producers'))
+
+
 def producers(request):
     """
-    # View highlighted producers page
+    # View featured producers page
     """
     producers = Producer.objects.filter(highlight=True)
     context = {
