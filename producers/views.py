@@ -40,11 +40,17 @@ def add_producer(request):
             search_query = request.POST['producer_search']
             results = UntappdHandler.search_producer(search_query)
 
-            context = {
-                'search': True,
-                'form': form,
-                'untappd_results': results
-            }
+            if type(results) == str:
+                # If UntappdHandler returns a string, this means there was an error
+                messages.error(request, f'Error from Untappd:{results}')
+                return redirect(reverse('add_producer'))
+
+            else:
+                context = {
+                    'search': True,
+                    'form': form,
+                    'untappd_results': results
+                }
 
         elif 'brewery_id' in request.POST:
             """
