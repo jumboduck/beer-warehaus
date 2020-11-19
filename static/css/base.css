@@ -288,6 +288,21 @@ a:hover {
     border: 1px solid #e0ac00;
 }
 
+.btn-danger-custom {
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    color: #ffffff;
+    border-radius: 0;
+    padding: 0.5rem 0.8rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.btn-danger-custom:hover {
+    background-color: #a71d2a;
+    border: 1px solid #a71d2a;
+}
+
 .footer {
     background: #1b1b1b;
     color: #fbfbf8;
