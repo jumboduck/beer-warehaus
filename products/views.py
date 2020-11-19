@@ -109,7 +109,8 @@ def add_product(request):
 
             if type(results) == str:
                 # If UntappdHandler returns a string, this means there was an error
-                messages.error(request, results)
+                messages.error(request, f'Error from Untappd:{results}')
+                return redirect(reverse('add_product'))
 
             else:
                 form = ProductForm
