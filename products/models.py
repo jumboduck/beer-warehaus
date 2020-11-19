@@ -50,7 +50,7 @@ class Product(models.Model):
     ]
 
     name = models.CharField(max_length=254)
-    producer = models.ForeignKey('producers.Producer', null=True, blank=True, on_delete=models.SET_NULL)
+    producer = models.ForeignKey('producers.Producer', null=False, blank=False, on_delete=models.CASCADE, default=1)
     sku = models.CharField(max_length=254, null=True, blank=True)
     style = models.ForeignKey('Style', on_delete=models.CASCADE, default='other')
     description = models.TextField()
