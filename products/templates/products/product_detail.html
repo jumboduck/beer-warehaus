@@ -54,18 +54,23 @@
             <p class="lead mb-0 font-weight-bold">
                 NOK {{ product.price }}
             </p>
-
+            <p class="text-muted ">
+                <small>
+                    Price per crate of {{ product.units_per_order }} {{ product.packaging }}s:<br />
+                    NOK {{ product.cost }}
+                </small>
+            </p>
             <!-- Product management for admin -->
             {% if request.user.is_superuser %}
-            <small class="ml-3">
+            <div class="ml-3">
                 <a href="{% url 'edit_product' product.id %}">Edit</a> |
                 <a class="text-danger" href="#delete-product-{{ product.id }}"
                     data-target="#delete-product-{{ product.id }}" data-toggle="modal">Delete</a>
-            </small>
+            </div>
             <!-- Modal window to confirm deletion of product -->
             <div class="modal" id="delete-product-{{ product.id }}" tabindex="-1" role="dialog"
                 aria-labelledby="delete-{{ product.name }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content rounded-0">
                         <div class="modal-header">
                             <h5 class="modal-title font-weight-bold text-uppercase" id="delete-{{ product.name }}">
@@ -76,7 +81,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>{{ product.name }} by {{ product.producer }} will be removed from the store. This action
+                            <p>"{{ product.name }}" by {{ product.producer }} will be removed from the store. This
+                                action
                                 cannot be reversed.</p>
                             <p class="font-weight-bold">Are you sure you want to do this?</p>
                         </div>
@@ -97,8 +103,9 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col-12">
-                        <p class="mt-3"><strong>Quantity {% if product.packaging != 'keg' %}(in
-                                crates){% endif %}:</strong></p>
+                        <p class="mt-3">
+                            <strong>{% if product.packaging != 'keg' %}Number of
+                                Crates{% else %}Quantity{% endif %}:</strong></p>
                         <div class="form-group w-50">
                             <div class="input-group">
                                 <div class="input-group-prepend">
