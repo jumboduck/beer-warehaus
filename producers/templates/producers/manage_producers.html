@@ -16,9 +16,12 @@
         <div class="col-10 offset-1 product-container">
             <div class="row">
                 <div class="col">
-                    <h2 class="h2-page-title">
+                    <h2 class="h2-page-title d-inline-block">
                         Producer Management
                     </h2>
+                    <a href="{% url 'add_producer' %}" class="ml-3 btn btn-gold">
+                        <i class="fas fa-plus-circle mr-2"></i> New Producer
+                    </a>
                 </div>
             </div>
             <div class="row mb-4 mt-3">
@@ -35,9 +38,6 @@
                                 </button>
                             </div>
                             <div>
-                                <a href="{% url 'add_producer' %}" class="ml-3 btn btn-gold">
-                                    Add a producer
-                                </a>
                                 <a href="{% url 'manage_producers' %}" class="ml-2 btn btn-danger-custom">
                                     Reset Search
                                 </a>
@@ -59,7 +59,7 @@
                     {% if producer.highlight %}
                     <p class="mt-2 mb-0 text-info"><i class="fas fa-exclamation mr-2"></i> FEATURED PRODUCER</p>
                     {% endif %}
-                    <a class="btn btn-gold w-50 my-2" href="{% url 'edit_producer' producer.id %}">
+                    <a class="btn btn-outline-gold w-50 my-2" href="{% url 'edit_producer' producer.id %}">
                         <i class="fas fa-pencil-alt mr-2"></i> Edit
                     </a>
                     <a class="btn btn-danger-custom w-50" href="#delete-producer-{{ producer.id }}"

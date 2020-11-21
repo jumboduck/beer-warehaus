@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 <div class="container-fluid">
@@ -16,12 +8,15 @@
         <div class="col-10 offset-1 product-container">
             <div class="row mb-2">
                 <div class="col">
-                    <h2 class="h2-page-title">
+                    <h2 class="h2-page-title d-inline-block">
                         Slideshow Management
+
                     </h2>
+                    <a href="{% url 'add_slide' %}" class="ml-3 btn btn-gold">
+                        <i class="fas fa-plus-circle mr-2"></i> New slide
+                    </a>
                 </div>
             </div>
-
             {% for slide in slides %}
             <div class="row">
                 <div class="col-3">
@@ -32,7 +27,7 @@
                     <p class="mb-1">{{ slide.description }}</p>
                     <div class="row mt-2">
                         <div class="col">
-                            <a class="btn btn-gold" href="{% url 'edit_slide' slide.id %}">
+                            <a class="btn btn-outline-gold" href="{% url 'edit_slide' slide.id %}">
                                 <i class="fas fa-pencil-alt mr-2"></i> Edit
                             </a>
                             <a class="btn btn-danger-custom" href="#delete-slide-{{ slide.id }}"

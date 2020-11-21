@@ -16,9 +16,13 @@
         <div class="col-10 offset-1 product-container">
             <div class="row">
                 <div class="col">
-                    <h2 class="h2-page-title">
+                    <h2 class="h2-page-title d-inline-block">
                         Product Management
                     </h2>
+                    <a href="{% url 'add_product' %}" class="ml-3 btn btn-gold">
+                        <i class="fas fa-plus-circle mr-2"></i>New Product
+                    </a>
+
                 </div>
             </div>
             <div class="row mb-4 mt-3">
@@ -35,8 +39,6 @@
                                 </button>
                             </div>
                             <div>
-                                <a href="{% url 'add_product' %}" class="ml-3 btn btn-gold">Add a
-                                    product</a>
                                 <a href="{% url 'manage_products' %}" class="ml-2 btn btn-danger-custom">Reset
                                     Search</a></div>
                         </div>
@@ -48,7 +50,7 @@
             {% for product in products %}
             <div class="row">
                 <div class="col-2">
-                    <a class="btn btn-gold w-75 mb-2" href="{% url 'edit_product' product.id %}">
+                    <a class="btn btn-outline-gold w-75 mb-2" href="{% url 'edit_product' product.id %}">
                         <i class="fas fa-pencil-alt mr-2"></i> Edit
                     </a>
                     <a class="btn btn-danger-custom w-75" href="#delete-product-{{ product.id }}"
