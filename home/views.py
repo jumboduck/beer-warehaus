@@ -70,3 +70,53 @@ def edit_slide(request, slide_id):
     template = 'home/edit_slide.html'
 
     return render(request, template, context)
+
+
+@login_required
+def delete_slide(request, slide_id):
+    """
+    # Remove a slide from the homepage carousel
+    """
+    if not request.user.is_superuser:
+        # If user is not an admin, redirect to home page
+        messages.error(request, "Only store owners can access this page.")
+        return redirect(reverse('home'))
+
+    slide = get_object_or_404(Slide, pk=slide_id)
+    slide.delete()
+    messages.success(request, 'Successfully removed slide from the homepage.')
+    return redirect(reverse('home'))
+
+
+@login_required
+def add_slide(request):
+    """
+    # Handles adding a new slide to the homepage
+    """
+    if not request.user.is_superuser:
+        # If user is not an admin, redirect to home page
+        messages.error(request, "Only store owners can access this page.")
+        return redirect(reverse('home'))
+
+    if request.POST:
+        """
+        # Form submission to add new producer
+        """
+        form = SlideForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added new slide to homepage.')
+            return redirect(reverse('manage_slides'))
+
+        else:
+            messages.error(request, 'There was an error saving the slide. Please ensure the form is valid.')
+
+    else:
+        form = SlideForm
+        context = {
+                'form': form,
+            }
+
+    template = 'home/add_slide.html'
+
+    return render(request, template, context)

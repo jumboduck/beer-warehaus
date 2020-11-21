@@ -67,6 +67,7 @@
         <div class="dropdown-menu border-0" aria-labelledby="user-options">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
+            <a href="{% url 'manage_slides' %}" class="dropdown-item">Manage Home Carousel</a>
             <a href="{% url 'manage_products' %}" class="dropdown-item">Manage Products</a>
             <a href="{% url 'manage_producers' %}" class="dropdown-item">Manage Producers</a>
             {% endif %}

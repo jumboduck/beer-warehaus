@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1 product-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2-page-title">Add New Slide</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 order-2 order-md-1">
+                    <form action=" {% url 'add_slide'%}" method="POST" id="add-slide-form" class="form mb-2"
+                        enctype="multipart/form-data">
+                        <!-- The following form edits the currently selected slide -->
+                        {% csrf_token %}
+                        {% for field in form %}
+                        {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                        {% else %}
+                        {{ field }}
+                        {% endif %}
+                        {% endfor %}
+                        <a href="{% url 'manage_slides' %}" class="btn btn-outline-gold">
+                            <i class="fas fa-angle-left"></i> Back
+                        </a>
+                        <button class="btn btn-gold" type="submit">
+                            Add Slide <i class="fas fa-beer ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#new-image').change(function () {
+        let file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to ${file.name}`);
+    })
+
+    // Change text of image button
+    $(document).ready(function () {
+        if ($('#widget-image').length == 0) {
+            $('#new-image-text').text('Choose Image');
+        }
+    })
+</script>
+{% endblock %}
