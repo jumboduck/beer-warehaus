@@ -362,11 +362,11 @@ a:hover {
 /* MEDIA REQUESTS */
 
 /* Smallest Screen Sizes */
-/* @media (max-width: 576px) {
-    .slide-caption {
-        height: 100%;
+@media (max-width: 576px) {
+    .top-nav-text {
+        font-size: 80%;
     }
-} */
+}
 
 /* Medium Screen Sizes */
 @media (min-width: 768px) {
