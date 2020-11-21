@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 <!-- Homepage slideshow -->
@@ -44,12 +36,12 @@
 <!-- Newest Releases -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <h2 class="text-center mt-3 mb-4">New Products</h2>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-10 offset-1 product-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2-page-title">New Products</h2>
+                </div>
+            </div>
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
