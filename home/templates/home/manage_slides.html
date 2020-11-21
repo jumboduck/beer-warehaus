@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-10 offset-1 product-container">
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col">
                     <h2 class="h2-page-title">
                         Slideshow Management
@@ -29,14 +29,12 @@
                 </div>
                 <div class="col-9">
                     <p class="h5 mb-1">{{ slide.title }}</p>
-                    <p class="mb-0">{{ slide.description }}</p>
+                    <p class="mb-1">{{ slide.description }}</p>
                     <div class="row mt-2">
-                        <div class="col col-lg-3">
-                            <a class="btn btn-gold" href="#">
+                        <div class="col">
+                            <a class="btn btn-gold" href="{% url 'edit_slide' slide.id %}">
                                 <i class="fas fa-pencil-alt mr-2"></i> Edit
                             </a>
-                        </div>
-                        <div class="col col-lg-3">
                             <a class="btn btn-danger-custom" href="#delete-slide-{{ slide.id }}"
                                 data-target="#delete-slide-{{ slide.id }}" data-toggle="modal">
                                 <i class="fas fa-trash-alt mr-2"></i> Delete
