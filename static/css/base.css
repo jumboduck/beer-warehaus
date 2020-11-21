@@ -366,6 +366,14 @@ a:hover {
     .top-nav-text {
         font-size: 80%;
     }
+
+    .slideshow-title {
+        font-size: 1.5rem;
+    }
+
+    .slide-caption {
+        padding: 2rem 2.2rem;
+    }
 }
 
 /* Medium Screen Sizes */

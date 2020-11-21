@@ -6,7 +6,7 @@
 <!-- Homepage slideshow -->
 
 <div class="container-fluid w-100 p-0">
-    <div id="home-carousel" class="carousel slide carousel-fade" data-interval="6000" data-ride="carousel"
+    <div id="home-carousel" class="carousel slide carousel-fade" data-interval="false" data-ride="carousel"
         data-touch="true">
         <div class="carousel-inner w-100">
 
@@ -14,7 +14,7 @@
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
                 <img src="{{ slide.image.url }}" class="d-block w-100" alt="{{ slide.title }}">
                 <div class="carousel-caption slide-caption">
-                    <h2>{{ slide.title }}</h2>
+                    <h2 class="slideshow-title">{{ slide.title }}</h2>
                     <p class="w-50 ml-auto d-none d-sm-block">{{ slide.description }}</p>
                     <a href="{{ slide.cta_link }}" class="btn btn-gold">{{ slide.cta_txt }}</a>
                 </div>
