@@ -13,4 +13,14 @@ def index(request):
         'products': products,
     }
 
-    return render(request, "home/index.html", context)
+    return render(request, 'home/index.html', context)
+
+
+def manage_slides(request):
+    slides = Slide.objects.all()
+
+    context = {
+        'slides': slides,
+    }
+
+    return render(request, 'home/manage_slides.html', context)

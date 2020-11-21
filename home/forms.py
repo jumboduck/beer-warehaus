@@ -1,15 +1,14 @@
 from django import forms
-from .models import Producer
+from .models import Slide
 
 from products.widgets import CustomClearableFileInput
 
 
-class ProducerForm(forms.ModelForm):
+class SlideForm(forms.ModelForm):
 
     class Meta:
-        model = Producer
+        model = Slide
         fields = '__all__'
-        widgets = {'image_url': forms.HiddenInput()}
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
