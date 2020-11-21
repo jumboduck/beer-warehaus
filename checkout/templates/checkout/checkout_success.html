@@ -5,116 +5,109 @@
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <h2 class="mt-4">Thank you!</h2>
-            <hr>
-            <p>Your order information is below. A confirmation email will be sent to {{ order.email }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-lg-7">
-            <div class="order-confirmation-wrapper p-2 border">
-                <div class="row">
-                    <div class="col">
-                        <p class="text-muted mb-1">Order Info:</p>
-                    </div>
+        <div class="col-10 offset-1 product-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="h2-page-title">Thank you!</h2>
+                    <p>Your order information is below. A confirmation email will be sent to {{ order.email }}</p>
                 </div>
-                <div class="row">
-                    <div class="col col-md-4">
-                        <p class="mb-0 font-weight-bold">Order Number</p>
-                    </div>
-                    <div class="col col-md-8 text-right">
-                        <p class="mb-0">{{ order.order_number }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p class="mb-0 font-weight-bold">Order Date</p>
-                    </div>
-                    <div class="col-md-8 text-right">
-                        <p class="mb-0">{{ order.date }}</p>
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col">
-                        <p class="text-muted  mb-1">Order Details:</p>
-                    </div>
-                </div>
-                {% for item in order.lineitems.all %}
-                <div class="row mb-2">
-                    <div class="col">
-                        <p class="mb-0"><span class="font-weight-bold">{{ item.product.name }}</span><br />
-                            {{ item.product.producer }}</p>
-                        <p class="mb-0 text-muted">
-                            {% if item.product.packaging == 'keg' %}
-                            {{ item.product.volume }} keg
-                            {% else %}
-                            {{ item.product.units_per_order }} x {{ item.product.volume }} {{ item.product.packaging}}s
-                            {% endif %}
-                        </p>
-                    </div>
-                    <div class="col text-right">
-                        <p class="mb-0">{{ item.quantity }} at {{ item.product.cost }} each</p>
-                    </div>
-                </div>
-                {% endfor %}
-
-                <div class="row mt-3">
-                    <div class="col">
-                        <p class="text-muted mb-1">Delivering To:</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p class="mb-0 font-weight-bold">{{ order.company_name }}</p>
-                        <p class="mb-0">{{ order.delivery_address }}</p>
-                        <p class="mb-0">{{ order.postcode }}</p>
-                        <p class="mb-0">{{ order.city }}</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <p class="text-muted">Billing Info:</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p class="mb-0 font-weight-bold">Total</p>
-                    </div>
-                    <div class="col-md-8 text-right">
-                        <p class="mb-0">NOK {{ order.order_total }}</p>
-                    </div>
-                </div>
-
             </div>
+            <div class="row">
+                <div class="col col-lg-6">
+                    <div class="order-confirmation-wrapper p-2">
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-muted mb-1">Order Info:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="mb-0 font-weight-bold">Order Number:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-right">
+                                <p class="mb-0 overflow-hidden">{{ order.order_number }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="mb-0 font-weight-bold">Order Date:</p>
+                            </div>
+                            <div class="col-md-8 text-right">
+                                <p class="mb-0">{{ order.date }}</p>
+                            </div>
+                        </div>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            {% if from_profile %}
-            <a href="{% url 'profile' %}" class="btn btn-gold my-2">
-                <span class="text-uppercase">Return to profile</span>
-            </a>
-            {% else %}
-            <a href="{% url 'products' %}" class="btn btn-gold my-2">
-                <span class="text-uppercase">Return to shop</span>
-            </a>
-            {% endif %}
+                        <div class="row mt-3">
+                            <div class="col">
+                                <p class="text-muted mb-1">Delivering To:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="mb-0 font-weight-bold">{{ order.company_name }}</p>
+                                <p class="mb-0">{{ order.delivery_address }}</p>
+                                <p class="mb-0">{{ order.postcode }}</p>
+                                <p class="mb-0">{{ order.city }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col col-lg-6">
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-muted  mb-1">Order Details:</p>
+                        </div>
+                    </div>
+                    {% for item in order.lineitems.all %}
+                    <div class="row mb-2">
+                        <div class="col">
+                            <p class="mb-0"><span class="font-weight-bold">{{ item.product.name }}</span><br />
+                                {{ item.product.producer }}</p>
+                            <p class="mb-0 text-muted">
+                                {% if item.product.packaging == 'keg' %}
+                                {{ item.product.volume }} keg
+                                {% else %}
+                                {{ item.product.units_per_order }} x {{ item.product.volume }}
+                                {{ item.product.packaging}}s
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col text-right">
+                            <p class="mb-0">{{ item.quantity }} at {{ item.product.cost }} each</p>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="mb-0 font-weight-bold">Total</p>
+                        </div>
+                        <div class="col-md-8 text-right">
+                            <p class="mb-0">NOK {{ order.order_total }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-gold my-2">
+                        <span class="text-uppercase">Return to profile</span>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'products' %}" class="btn btn-gold my-2">
+                        <span class="text-uppercase">Return to shop</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
