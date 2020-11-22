@@ -7,6 +7,7 @@ from django.db.models.functions import Lower
 from .models import Product, Category, Style
 from .forms import ProductForm
 from .untappd_handler import UntappdHandler
+from .search import get_query
 
 
 def all_products(request):
@@ -56,13 +57,14 @@ def all_products(request):
                 packaging = None
 
         if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
+            query_string = request.GET['q']
+
+            if not query_string:
                 messages.error(request, "No search criteria entered.")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(style__friendly_name__icontains=query) | Q(producer__name__icontains=query)
-            products = products.filter(queries)
+            entry_query = get_query(query_string, ['name', 'description', 'style__friendly_name', 'producer__name'])
+            products = products.filter(entry_query)
 
     current_sorting = f'{sort}_{direction}'
 
