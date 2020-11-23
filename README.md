@@ -165,3 +165,5 @@ The creation of an account gives access to the following features:
 -   Icon for "No photo available" image from [Flat Icons](https://www.flaticon.com/authors/flat-icons)
 
 ### Acknowledgements
+
+-   Search functionality from [Julien Phalip](https://www.julienphalip.com/blog/adding-search-to-a-django-site-in-a-snap/)

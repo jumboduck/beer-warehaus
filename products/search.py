@@ -1,5 +1,6 @@
 
 import re
+import unidecode
 from django.db.models import Q
 
 
