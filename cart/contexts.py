@@ -3,7 +3,9 @@ from products.models import Product
 
 
 def cart_contents(request):
-
+    """
+    # The following displays the contents of the cart
+    """
     cart_items = []
     grand_total = 0
     product_count = 0

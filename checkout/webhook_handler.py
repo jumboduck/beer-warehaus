@@ -12,13 +12,17 @@ import time
 
 
 class StripeWH_Handler():
-    """Handle stripe webhooks"""
+    """
+    # Handle stripe webhooks
+    """
 
     def __init__(self, request):
         self.request = request
 
     def _send_confirmation_email(self, order):
-        """Send the user a confirmation email"""
+        """
+        # Send the user a confirmation email
+        """
         customer_email = order.email
         from_email = settings.DEFAULT_FROM_EMAIL
         subject = render_to_string(
@@ -37,7 +41,9 @@ class StripeWH_Handler():
         )
 
     def _send_order_email(self, order):
-        """Send the user a confirmation email"""
+        """
+        # Send email to Beer WareHaus to prepare the order
+        """
         to_email = settings.DEFAULT_ORDER_EMAIL
         from_email = settings.DEFAULT_FROM_EMAIL
         subject = render_to_string(
@@ -56,14 +62,18 @@ class StripeWH_Handler():
         )
 
     def handle_event(self, event):
-        """Handle a generic/unknown/unexpected webhook event"""
+        """
+        # Handle a generic/unknown/unexpected webhook event
+        """
         return HttpResponse(
             content=f"Unhandled webhook received: {event['type']}",
             status=200,
         )
 
     def handle_payment_intent_succeeded(self, event):
-        """Handle the payment_intent.suceeded webhook from Stripe"""
+        """
+        # Handle the payment_intent.suceeded webhook from Stripe
+        """
         intent = event.data.object
         pid = intent.id
         cart = intent.metadata.cart
@@ -156,7 +166,9 @@ class StripeWH_Handler():
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
-        """Handle the payment_intent.failed webhook from Stripe"""
+        """
+        # Handle the payment_intent.failed webhook from Stripe
+        """
         return HttpResponse(
             content=f"Webhook received: {event['type']}",
             status=200,
