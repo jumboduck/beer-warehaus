@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load products_extra %}
 
 {% block content %}
 
 <div class="container-fluid">
-
-
     <div class="row">
         <div class="col-10 offset-1 product-container">
             <div class="row">
@@ -195,6 +194,31 @@
     </div>
 </div>
 
+<!-- Pagination -->
+
+{% if products.has_other_pages %}
+<ul class="pagination">
+    {% if products.has_previous %}
+    <li><a href="?{% url_replace page=products.previous_page_number %}">&laquo;</a></li>
+    {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in products.paginator.page_range %}
+    {% if products.number == i %}
+    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+    {% else %}
+    <li><a href="?{% url_replace page=i %}">{{ i }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+    <li><a href="?{% url_replace page=products.next_page_number %}">&raquo;</a></li>
+    {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+</ul>
+{% endif %}
+
+<!-- Back to top button -->
 <div class="btt-button rounded-0">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-angle-up mx-auto my-auto"></i>
@@ -210,9 +234,7 @@
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
-</script>
 
-<script type="text/javascript">
     function updateUrl(selector, param) {
         let currentUrl = new URL(window.location);
         let selectedVal = selector.val();

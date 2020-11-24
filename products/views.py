@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Product, Category, Style
 from .forms import ProductForm
@@ -68,8 +69,19 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}'
 
+    # Handle pagination
+    page = request.GET.get('page', 1)
+    paginator = Paginator(products, 12)
+
+    try:
+        product_page = paginator.page(page)
+    except PageNotAnInteger:
+        product_page = paginator.page(1)
+    except EmptyPage:
+        product_page = paginator.page(paginator.num_pages)
+
     context = {
-        'products': products,
+        'products': product_page,
         'search_term': query,
         'category': category,
         'style': style,
