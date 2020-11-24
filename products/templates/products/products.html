@@ -189,34 +189,42 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="row"></div>
+
+            <!-- Pagination -->
+
+            {% if products.has_other_pages %}
+            <div class="row">
+                <div class="col">
+                    <ul class="pagination justify-content-center">
+                        {% if products.has_previous %}
+                        <li><a href="?{% url_replace page=products.previous_page_number %}"><i
+                                    class="fas fa-chevron-left"></i></a></li>
+                        {% else %}
+                        <li class="disabled"><span><i class="fas fa-chevron-left"></i></span></li>
+                        {% endif %}
+                        {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                        <li class="active mx-2 font-weight-bold"><span class="border-bottom border-dark">{{ i }}<span
+                                    class="sr-only">(current)</span></span></li>
+                        {% else %}
+                        <li class="mx-2"><a href="?{% url_replace page=i %}">{{ i }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if products.has_next %}
+                        <li><a href="?{% url_replace page=products.next_page_number %}"><i
+                                    class="fas fa-chevron-right"></i></a></li>
+                        {% else %}
+                        <li class="disabled"><span><i class="fas fa-chevron-right"></i></span></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
 
-<!-- Pagination -->
 
-{% if products.has_other_pages %}
-<ul class="pagination">
-    {% if products.has_previous %}
-    <li><a href="?{% url_replace page=products.previous_page_number %}">&laquo;</a></li>
-    {% else %}
-    <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-    {% for i in products.paginator.page_range %}
-    {% if products.number == i %}
-    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-    {% else %}
-    <li><a href="?{% url_replace page=i %}">{{ i }}</a></li>
-    {% endif %}
-    {% endfor %}
-    {% if users.has_next %}
-    <li><a href="?{% url_replace page=products.next_page_number %}">&raquo;</a></li>
-    {% else %}
-    <li class="disabled"><span>&raquo;</span></li>
-    {% endif %}
-</ul>
-{% endif %}
 
 <!-- Back to top button -->
 <div class="btt-button rounded-0">
