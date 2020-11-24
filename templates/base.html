@@ -96,8 +96,92 @@
     {% endblock %}
 
 
-    <footer class="footer">
-        © Beer WareHaus - 2020
+    <footer class="container-fluid footer">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Contact</h3>
+                <ul class="fa-ul">
+                    <li class="mb-2">
+                        <span class="fa-li d-none d-md-inline">
+                            <i class="fa fa-location-arrow"></i>
+                        </span>
+                        <i class="fa fa-location-arrow d-md-none pr-2"></i>
+                        123 Beer St.
+                        <br>
+                        Oslo, Norway
+                    </li>
+                    <li class="mb-2">
+                        <span class="fa-li d-none d-md-inline">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <i class="fa fa-phone d-md-none pr-2"></i>
+                        <a aria-label="phone number" href="tel:555-123-4567">
+                            555-123-4567
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <span class="fa-li d-none d-md-inline">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <i class="fa fa-envelope d-md-none pr-2"></i>
+                        <a aria-label="email" href="contact@beewarehaus.com">
+                            contact@beewarehaus.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>Products</h3>
+            </div>
+            <div class="col-md-3">
+                <h3>Subscribe</h3>
+                <p>Receive our monthly newsletter to stay on top of our new offerings.</p>
+                <form class="form">
+                    <div class="input-group w-100">
+                        <input class="form-control border-0 rounded-0" type="text" name="q"
+                            placeholder="E-mail address">
+                        <div class="input-group-append">
+                            <button class="form-control form-control h-100 btn btn-gold border-0 rounded-0"
+                                type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 social">
+                <h3>Connect</h3>
+                <ul class="list-inline">
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Facebook" href="https://facebook.com" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Twitter" href="https://twitter.com" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Instagram" href="https://instagram.com" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Untappd" href="https://untappd.com" target="_blank" rel="noopener">
+                            <i class="fab fa-untappd"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col text-center">
+                © Beer WareHaus - 2020
+            </div>
+        </div>
     </footer>
 
     {% block postloadjs %}

@@ -310,16 +310,36 @@ a:hover {
     color: #ffffff;
 }
 
+/* Footer */
+
 .footer {
     background: #1b1b1b;
     color: #fbfbf8;
     font-size: 0.7rem;
-    text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     z-index: 1000;
+    padding: 1rem 10%;
+}
+
+.footer h3 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #fbfbf8;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+}
+
+.footer .social {
+    font-size: 1.4rem;
+}
+
+.footer a {
+    color: #fbfbf8;
+}
+
+.footer a:hover {
+    color: #ffc717;
 }
 
 /* Bootstrap Toasts */
@@ -407,6 +427,12 @@ a:hover {
         z-index: 1000;
     }
     body {
+        margin-top: -35px;
+    }
+
+    .footer {
+        position: relative;
+        top: 35px;
         margin-top: -35px;
     }
 }
