@@ -329,7 +329,6 @@ a:hover {
     color: #fbfbf8;
     font-size: 0.7rem;
     width: 100%;
-    z-index: 1000;
     padding: 1rem 10%;
 }
 
@@ -429,6 +428,12 @@ a:hover {
     .custom-carousel-item {
         height: 600px;
     }
+
+    .footer {
+        position: relative;
+        top: 35px;
+        margin-top: -35px;
+    }
 }
 
 /* Large Screen Sizes*/
@@ -447,12 +452,6 @@ a:hover {
         z-index: 1000;
     }
     body {
-        margin-top: -35px;
-    }
-
-    .footer {
-        position: relative;
-        top: 35px;
         margin-top: -35px;
     }
 

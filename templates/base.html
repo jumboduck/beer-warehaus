@@ -51,7 +51,9 @@
                 <a href="{% url 'home' %}" class="logo nav-link main-logo-link">
                     <h1 class="display-5 my-0">
                         <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus"
-                            class="w-50 w-md-25 w-lg-100">
+                            class="w-lg-100 d-none d-lg-block">
+                        <img src="{{ MEDIA_URL }}beer-warehaus-logo-mobile.png" alt="Beer WareHaus"
+                            class="w-50 w-md-25 d-lg-none">
                     </h1>
                 </a>
             </div>
@@ -98,7 +100,7 @@
 
     <footer class="container-fluid footer">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
                 <h3>Contact</h3>
                 <ul class="fa-ul">
                     <li class="mb-2">
@@ -130,10 +132,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
                 <h3>Products</h3>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3  mb-3">
                 <h3>Subscribe</h3>
                 <p class="mb-1">Receive our monthly newsletter to stay on top of our new offerings.</p>
                 <form class="form">
@@ -151,7 +153,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-3 social">
+            <div class="col-md-3 mb-3 social">
                 <h3>Connect</h3>
                 <ul class="list-inline">
                     <li class="list-inline-item align-middle">
