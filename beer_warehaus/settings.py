@@ -40,7 +40,6 @@ ALLOWED_HOSTS = [
     '9baa0ac6720f.ngrok.io',
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
