@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -69,7 +68,7 @@ def all_products(request):
                 'description',
                 'style__friendly_name',
                 'producer__name'])
-                
+
             products = products.filter(entry_query)
 
     current_sorting = f'{sort}_{direction}'
@@ -257,14 +256,20 @@ def manage_products(request):
     products = Product.objects.all().order_by('producer', 'name')
 
     if request.GET:
+        # If a product has been searched for
         if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
+            query_string = request.GET['q']
+            if not query_string:
                 messages.error(request, "No search criteria entered.")
-                return redirect(reverse('products'))
+                return redirect(reverse('manage_products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(style__friendly_name__icontains=query) | Q(producer__name__icontains=query)
-            products = products.filter(queries)
+            entry_query = get_query(query_string, [
+                'name',
+                'description',
+                'style__friendly_name',
+                'producer__name'])
+
+            products = products.filter(entry_query)
 
     context = {
         'products': products,

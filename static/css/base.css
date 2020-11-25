@@ -9,11 +9,11 @@ body {
 }
 
 a {
-    color: #b4aa99;
+    color: #077f94;
 }
 
 a:hover {
-    color: #4e4637;
+    color: #00d9ff;
 }
 
 /* SITE HEADER */
@@ -119,7 +119,7 @@ a:hover {
     background-color: #fff;
     border: 0;
     border-radius: 0;
-    border-bottom: 1px solid #b4aa99;
+    border-bottom: 1px solid #077f94;
 }
 
 .listing-card .card-footer {
@@ -130,13 +130,14 @@ a:hover {
     max-height: 300px;
     object-fit: cover;
     object-position: top;
+    border-radius: 0;
 }
 
 .new-product::after {
     content: "\2605\2605\2605    NEW   \2605\2605\2605";
     color: #1b1b1b;
     font-size: 0.8rem;
-    background-color: #b4aa99;
+    background-color: #00d9ff;
     padding: 0.2rem 0;
     text-align: center;
     outline: 1px dashed #1b1b1b;

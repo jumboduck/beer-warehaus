@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
 
 from .models import Producer
 from .forms import ProducerForm
 from products.models import Product
 from products.untappd_handler import UntappdHandler
+from products.search import get_query
 
 
 def producer_detail(request, producer_id):
@@ -178,13 +178,17 @@ def manage_producers(request):
 
     if request.GET:
         if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
+            query_string = request.GET['q']
+            if not query_string:
                 messages.error(request, "No search criteria entered.")
                 return redirect(reverse('producers'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(location__icontains=query)
-            producers = producers.filter(queries)
+            entry_query = get_query(query_string, [
+                'name',
+                'description',
+                'location'])
+
+            producers = producers.filter(entry_query)
 
     context = {
         'producers': producers,
