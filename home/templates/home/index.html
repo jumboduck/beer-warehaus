@@ -38,50 +38,116 @@
     <div class="row">
         <div class="col-10 offset-1 product-container">
             <div class="row">
-                <div class="col">
+                <div class="col p-0">
                     <h2 class="h2-page-title">New Products</h2>
                 </div>
             </div>
             <div class="row">
-                {% for product in products %}
-                <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                    <div class="card listing-card h-100 overflow-hidden">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}" class="new-product">
-                            <img class="card-img-top img-fluid custom-card-img" src="{{ product.image.url }}"
-                                alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}" class="new-product">
-                            <img class="card-img-top img-fluid custom-card-img" src="{{ MEDIA_URL }}no-image.png"
-                                alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0">
-                            <p class="mb-0"><strong>{{ product.name }}</strong></p>
-                            <p class="card-text text-muted mb-1">{{ product.producer }}</p>
-                            {% if product.packaging == 'keg' %}
-                            <p class="m-0">{{ product.volume }} keg</p>
+                <div class="row mt-3">
+                    {% for product in products %}
+                    <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                        <div class="card h-100 listing-card overflow-hidden">
+                            {% if product.image %}
+                            <a href="{% url 'product_detail' product.id %}" {% if product.new_product %}
+                                class="new-product" {% endif %}>
+                                <img class="card-img-top img-fluid custom-card-img" src="{{ product.image.url }}"
+                                    alt="{{ product.name }}">
+                            </a>
                             {% else %}
-                            <p class="m-0">
-                                {{ product.volume }} x {{ product.units_per_order }} {{ product.packaging}}s
-                            </p>
+                            <a href="{% url 'product_detail' product.id %}{% if product.new_product %} class="
+                                new-product" {% endif %}">
+                                <img class="card-img-top img-fluid custom-card-img" src="{{ MEDIA_URL }}no-image.png"
+                                    alt="{{ product.name }}">
+                            </a>
                             {% endif %}
-                            {% if product.rating %}
-                            <p class="m-0"><i class="fab fa-untappd"></i> Rating: {{ product.rating }} / 5</p>
-                            {% else %}
-                            <p class="m-0">No Rating</p>
-                            {% endif %}
+                            <div class="card-body pb-0">
+                                <h3 class="mb-0 text-center h4">{{ product.name }}</h3>
+                                <p class="card-text mb-2 text-center">
+                                    <a href="{% url 'producer_detail' product.producer.id %}">
+                                        {{ product.producer }}
+                                    </a>
+                                </p>
+                                <p class="text-center font-weight-bold">
+                                    {% if product.packaging == 'keg' %}
+                                    {{ product.volume }} keg
+                                    {% else %}
+                                    {{ product.volume }} x {{ product.units_per_order }} {{ product.packaging}}s
+                                    {% endif %}
+                                </p>
+                                <p class="mb-0">
+                                    <strong>Style:</strong> <a href="{% url 'products'%}?style={{ product.style }}">
+                                        {{ product.style.friendly_name }}
+                                    </a>
+                                </p>
+                                <p class="m-0"><strong>Abv: </strong>{{ product.abv }}%</p>
+                                {% if product.rating %}
+                                <p class="m-0"><i class="fab fa-untappd"></i> Rating: {{ product.rating }} / 5</p>
+                                {% else %}
+                                <p class="m-0">No Rating</p>
+                                {% endif %}
 
-                        </div>
-                        <div class="card-footer pt-0 border-0">
-                            <p class="lead mb-0 font-weight-bold">
-                                NOK {{ product.cost }}
-                            </p>
+                            </div>
+                            <div class="card-footer pt-0 border-0 bg-white">
+                                {% if product.packaging == 'keg' %}
+                                <p class="text-muted mb-0 mt-2">Price:</p>
+                                {% else %}
+                                <p class="text-muted mb-0 mt-2">Price per unit:</p>
+                                {% endif %}
+                                <p class="lead mb-0 font-weight-bold text-right">
+                                    NOK {{ product.price }}
+                                </p>
+
+                                <!-- Product Management for shop admin -->
+                                {% if request.user.is_superuser %}
+                                <div class="text-right">
+                                    <small>
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                        <a class="text-danger" href="#delete-product-{{ product.id }}"
+                                            data-target="#delete-product-{{ product.id }}"
+                                            data-toggle="modal">Delete</a>
+                                    </small>
+                                </div>
+
+                                <!-- Modal window for product deletion -->
+                                <div class="modal" id="delete-product-{{ product.id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="delete-{{ product.name }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content rounded-0">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title font-weight-bold text-uppercase"
+                                                    id="delete-{{ product.name }}">
+                                                    <i class="fas fa-exclamation-triangle text-danger"></i> You are
+                                                    about to delete a
+                                                    product!</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>"{{ product.name }}" by {{ product.producer }} will be removed from
+                                                    the
+                                                    store. This action
+                                                    cannot be reversed.</p>
+                                                <p class="font-weight-bold">Are you sure you want to do this?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button"
+                                                    class="btn btn-secondary btn-outline-gold rounded-0"
+                                                    data-dismiss="modal">cancel</button>
+                                                <a href="{% url 'delete_product' product.id %}" type="button"
+                                                    class="btn btn-primary btn-danger-custom rounded-0 text-uppercase"><i
+                                                        class="fas fa-trash-alt"></i> delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
             <div class="row text-center mb-2">
                 <a href="{% url 'products' %}" class="btn btn-gold  ml-auto mr-auto">View all products</a>
