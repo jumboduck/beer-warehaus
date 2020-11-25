@@ -19,12 +19,13 @@
 
                 {% for producer in producers %}
                 <div class="col mb-4 text-center">
-                    <img src="{% if producer.image %}{{ producer.image.url }}{% else %}{{ MEDIA_URL }}no-image.png{% endif %}"
-                        class="img-fluid w-75 mb-2" alt="{{ producer.name }} logo">
-                    <p class="card-title">{{ producer.name }}</p>
+                    <a href="{% url 'producer_detail' producer.id %}"><img
+                            src="{% if producer.image %}{{ producer.image.url }}{% else %}{{ MEDIA_URL }}no-image.png{% endif %}"
+                            class="img-fluid w-75 mb-2" alt="{{ producer.name }}"></a>
+                    <p class="font-weight-bold mb-0">
+                        <a href="{% url 'producer_detail' producer.id %}">{{ producer.name }}</a>
+                    </p>
                     <p class="text-muted">{{ producer.location }}</p>
-                    <a href="{% url 'producer_detail' producer.id %}" class="btn btn-gold mx-auto">Learn
-                        More</a>
                 </div>
                 {% endfor %}
 
