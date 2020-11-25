@@ -155,20 +155,23 @@ a:hover {
     position: fixed;
     bottom: 30px;
     right: 15px;
-    border: 0;
-    background: transparent;
+    border: 3px solid #1b1b1b;
+    background-color: #f8f8fb;
+    border-radius: 50%;
+    z-index: 1000;
 }
 
 .btt-link {
     cursor: pointer;
     color: #1b1b1b;
     font-size: 3rem;
+    position: relative;
+    bottom: 7px;
 }
 
 .btt-link:hover {
     text-decoration: none;
     color: #ffc717;
-    transform: scale(1.2);
 }
 
 .update-link,
