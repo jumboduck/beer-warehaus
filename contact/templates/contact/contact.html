@@ -15,33 +15,35 @@
                 <div class="form-group">
                     <label for="company" class="sr-only">Company</label>
                     <input type="text" required class="form-control dark-border" id="company"
-                        placeholder="Company Name *">
+                        placeholder="Company Name *" name="company">
                 </div>
                 <div class="form-group">
                     <label for="contact-person" class="sr-only">Contact Person</label>
                     <input type="text" required class="form-control dark-border" id="company"
-                        placeholder="Contact Person *">
+                        placeholder="Contact Person *" name="contact_person">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="email" required class="sr-only">Email</label>
-                        <input type="email" class="form-control dark-border" id="email" placeholder="Email Address*">
+                        <input name="email" type="email" class="form-control dark-border" id="email"
+                            placeholder="Email Address*">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="phone" class="sr-only">Phone</label>
-                        <input type="tel" class="form-control dark-border" id="phone" placeholder="Phone Number">
+                        <input name="phone" type="tel" class="form-control dark-border" id="phone"
+                            placeholder="Phone Number">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="sr-only" for="message">Your message</label>
                     <textarea class="form-control dark-border" id="message" required rows="6"
-                        placeholder="Your Message..."></textarea>
+                        placeholder="Your Message..." name="message"></textarea>
                 </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-gold">
-                        <i class="fas fa-envelope-open-text mr-2"></i>Send
+                        <i class="fas fa-envelope-open-text mr-2"></i>Send Message
                     </button>
                 </div>
 
