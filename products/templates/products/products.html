@@ -114,21 +114,25 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0"><strong>{{ product.name }}</strong></p>
-                            <p class="card-text text-muted mb-1">{{ product.producer }}</p>
-                            <p>
-                                <a href="{% url 'products'%}?style={{ product.style }}">
+                            <h3 class="mb-0 text-center h4">{{ product.name }}</h3>
+                            <p class="card-text mb-2 text-center">
+                                <a href="{% url 'producer_detail' product.producer.id %}">
+                                    {{ product.producer }}
+                                </a>
+                            </p>
+                            <p class="text-center font-weight-bold">
+                                {% if product.packaging == 'keg' %}
+                                {{ product.volume }} keg
+                                {% else %}
+                                {{ product.volume }} x {{ product.units_per_order }} {{ product.packaging}}s
+                                {% endif %}
+                            </p>
+                            <p class="mb-0">
+                                <strong>Style:</strong> <a href="{% url 'products'%}?style={{ product.style }}">
                                     {{ product.style.friendly_name }}
                                 </a>
                             </p>
-                            <p><strong>Abv: </strong>{{ product.abv }}%</p>
-                            {% if product.packaging == 'keg' %}
-                            <p class="m-0">{{ product.volume }} keg</p>
-                            {% else %}
-                            <p class="m-0">
-                                {{ product.volume }} x {{ product.units_per_order }} {{ product.packaging}}s
-                            </p>
-                            {% endif %}
+                            <p class="m-0"><strong>Abv: </strong>{{ product.abv }}%</p>
                             {% if product.rating %}
                             <p class="m-0"><i class="fab fa-untappd"></i> Rating: {{ product.rating }} / 5</p>
                             {% else %}
@@ -142,8 +146,9 @@
                             {% else %}
                             <p class="text-muted mb-0 mt-2">Price per unit:</p>
                             {% endif %}
-                            <p class="lead mb-0 font-weight-bold">
-                                NOK {{ product.price }}</p>
+                            <p class="lead mb-0 font-weight-bold text-right">
+                                NOK {{ product.price }}
+                            </p>
 
                             <!-- Product Management for shop admin -->
                             {% if request.user.is_superuser %}
