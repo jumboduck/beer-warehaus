@@ -9,7 +9,7 @@ def contact(request):
 
     if request.POST:
         to_email = settings.DEFAULT_ORDER_EMAIL
-        from_email = request.POST['email']
+        contact_email = request.POST['email']
         phone = request.POST['phone']
         company = request.POST['company']
         contact_person = request.POST['contact_person']
@@ -20,6 +20,7 @@ def contact(request):
             'phone': phone,
             'contact_person': contact_person,
             'message': message,
+            'email': contact_email,
         }
 
         subject = render_to_string(
@@ -33,7 +34,7 @@ def contact(request):
         send_mail(
             subject,
             body,
-            from_email,
+            settings.DEFAULT_FROM_EMAIL,
             [to_email],
         )
 
