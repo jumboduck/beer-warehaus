@@ -103,12 +103,13 @@
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}" {% if product.new_product %} class="new-product"
                             {% endif %}>
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid custom-card-img" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}{% if product.new_product %} class=" new-product"
                             {% endif %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image.png"
+                            <img class="card-img-top img-fluid custom-card-img" src="{{ MEDIA_URL }}no-image.png"
                                 alt="{{ product.name }}">
                         </a>
                         {% endif %}

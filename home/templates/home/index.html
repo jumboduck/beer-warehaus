@@ -6,13 +6,13 @@
 <!-- Homepage slideshow -->
 
 <div class="container-fluid w-100 p-0">
-    <div id="home-carousel" class="carousel slide carousel-fade" data-interval="6000" data-ride="carousel"
+    <div id="home-carousel" class="carousel slide carousel-fade" data-interval="false" data-ride="carousel"
         data-touch="true">
         <div class="carousel-inner w-100">
 
             {% for slide in slides %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{{ slide.image.url }}" class="d-block w-100" alt="{{ slide.title }}">
+            <div class="carousel-item custom-carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ slide.image.url }}" class="slide-img" alt="{{ slide.title }}">
                 <div class="carousel-caption slide-caption">
                     <h2 class="slideshow-title">{{ slide.title }}</h2>
                     <p class="w-50 ml-auto d-none d-sm-block">{{ slide.description }}</p>
@@ -48,11 +48,12 @@
                     <div class="card h-100 border-0 overflow-hidden">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}" class="new-product">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid custom-card-img" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}" class="new-product">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-image.png"
+                            <img class="card-img-top img-fluid custom-card-img" src="{{ MEDIA_URL }}no-image.png"
                                 alt="{{ product.name }}">
                         </a>
                         {% endif %}
