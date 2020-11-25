@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto+Slab:wght@300;400&display=swap");
 
 body {
-    background-color: #fbfbf8;
+    background-color: #f8f8fb;
     color: #1b1b1b;
     font-family: "Lato", sans-serif;
     height: 100%;
@@ -9,11 +9,11 @@ body {
 }
 
 a {
-    color: #ffc717;
+    color: #ff8c00;
 }
 
 a:hover {
-    color: #e0ac00;
+    color: #ff7316;
 }
 
 /* SITE HEADER */
@@ -116,8 +116,14 @@ a:hover {
 /* Product Listings */
 
 .listing-card {
-    background-color: transparent;
+    background-color: #fff;
     border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #ff8c00 ;
+}
+
+.listing-card .card-footer {
+    background-color: #fff;
 }
 
 .custom-card-img {

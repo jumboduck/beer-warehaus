@@ -99,7 +99,7 @@
             <div class="row mt-3">
                 {% for product in products %}
                 <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                    <div class="card h-100 border-0 overflow-hidden">
+                    <div class="card h-100 listing-card overflow-hidden">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}" {% if product.new_product %} class="new-product"
                             {% endif %}>
@@ -117,10 +117,11 @@
                             <p class="mb-0"><strong>{{ product.name }}</strong></p>
                             <p class="card-text text-muted mb-1">{{ product.producer }}</p>
                             <p>
-                                <a
-                                    href="{% url 'products'%}?style={{ product.style }}">{{ product.style.friendly_name }}</a>
+                                <a href="{% url 'products'%}?style={{ product.style }}">
+                                    {{ product.style.friendly_name }}
+                                </a>
                             </p>
-                            <p><strong>Abv:</strong>{{ product.abv }}%</p>
+                            <p><strong>Abv: </strong>{{ product.abv }}%</p>
                             {% if product.packaging == 'keg' %}
                             <p class="m-0">{{ product.volume }} keg</p>
                             {% else %}
@@ -146,10 +147,12 @@
 
                             <!-- Product Management for shop admin -->
                             {% if request.user.is_superuser %}
-                            <div class="ml-3">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                                <a class="text-danger" href="#delete-product-{{ product.id }}"
-                                    data-target="#delete-product-{{ product.id }}" data-toggle="modal">Delete</a>
+                            <div class="text-right">
+                                <small>
+                                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                    <a class="text-danger" href="#delete-product-{{ product.id }}"
+                                        data-target="#delete-product-{{ product.id }}" data-toggle="modal">Delete</a>
+                                </small>
                             </div>
 
                             <!-- Modal window for product deletion -->
