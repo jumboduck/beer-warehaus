@@ -449,6 +449,10 @@ a:hover {
         top: 35px;
         margin-top: -35px;
     }
+
+    .custom-card-img {
+        max-height: 300px;
+    }
 }
 
 /* Large Screen Sizes*/
