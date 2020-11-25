@@ -16,7 +16,7 @@ def all_products(request):
     # This view displays products and the logic to sort and order them.
     """
     products = Product.objects.all().order_by('name')
-    query = None
+    query_string = None
     category = None
     style = None
     sort = None
@@ -64,7 +64,12 @@ def all_products(request):
                 messages.error(request, "No search criteria entered.")
                 return redirect(reverse('products'))
 
-            entry_query = get_query(query_string, ['name', 'description', 'style__friendly_name', 'producer__name'])
+            entry_query = get_query(query_string, [
+                'name',
+                'description',
+                'style__friendly_name',
+                'producer__name'])
+                
             products = products.filter(entry_query)
 
     current_sorting = f'{sort}_{direction}'
@@ -82,7 +87,7 @@ def all_products(request):
 
     context = {
         'products': product_page,
-        'search_term': query,
+        'search_term': query_string,
         'category': category,
         'style': style,
         'current_sorting': current_sorting,

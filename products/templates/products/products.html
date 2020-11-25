@@ -90,7 +90,7 @@
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
                         <a href="{% url 'products' %}">All Products</a> |
                         {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for
+                        {{ products.paginator.count }} Products{% if search_term %} found for
                         <strong>"{{ search_term }}"</strong>{% endif %}
                     </p>
                 </div>
