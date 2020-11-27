@@ -373,7 +373,7 @@ a:hover {
 
 .message-container {
     position: fixed;
-    bottom: 30px;
+    top: 140px;
     right: 15px;
     z-index: 5000;
 }
@@ -384,6 +384,14 @@ a:hover {
 
 .toast-capper {
     height: 2px;
+}
+
+.toast-body {
+    padding-left: 0px 15px;
+}
+
+.toast-icon {
+    font-size: 2rem;
 }
 
 /* Allauth form styling */
