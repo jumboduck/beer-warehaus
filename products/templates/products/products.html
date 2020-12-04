@@ -100,7 +100,13 @@
                 {% for product in products %}
                 <div class="col-sm-6 col-lg-4 col-xl-3 mb-3">
                     <div class="card h-100 listing-card overflow-hidden">
-                        {% if product.image %}
+                        {% if product.image_url %}
+                        <a href="{% url 'product_detail' product.id %}" {% if product.new_product %} class="new-product"
+                            {% endif %}>
+                            <img class="card-img-top img-fluid custom-card-img" src="{{ product.image_url }}"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% elif product.image %}
                         <a href="{% url 'product_detail' product.id %}" {% if product.new_product %} class="new-product"
                             {% endif %}>
                             <img class="card-img-top img-fluid custom-card-img" src="{{ product.image.url }}"

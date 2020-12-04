@@ -10,13 +10,21 @@
 
             <div class="row">
                 <div class="col mt-4">
-                    {% if producer.image %}
+                    {% if producer.image_url %}
+                    <a href="{{ producer.image_url }}" target="_blank">
+                        <img class="mx-auto d-block mb-2 img-fluid" src="{{ producer.image.url }}"
+                            alt="{{ producer.name }}">
+                    </a>
+                    {% elif producer.image %}
                     <a href="{{ producer.image.url }}" target="_blank">
                         <img class="mx-auto d-block mb-2 img-fluid" src="{{ producer.image.url }}"
                             alt="{{ producer.name }}">
                     </a>
                     {% else %}
-                    <img class="mx-auto d-block" src="{{ MEDIA_URL }}no-image.png" alt="{{ producer.name }}">
+                    <a href="{{ producer.image_url }}" target="_blank">
+                        <img class="mx-auto d-block mb-2 img-fluid" src="{{ MEDIA_URL }}no-image.png"
+                            alt="{{ producer.name }}">
+                    </a>
                     {% endif %}
                 </div>
             </div>

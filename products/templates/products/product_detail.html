@@ -15,7 +15,11 @@
     <div class="row mt-5">
         <div class="col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container">
-                {% if product.image %}
+                {% if product.image_url %}
+                <a href="{{ product.image_url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% elif product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>

@@ -18,9 +18,15 @@
 
                 {% for producer in producers %}
                 <div class="col mb-4 text-center">
-                    <a href="{% url 'producer_detail' producer.id %}"><img
-                            src="{% if producer.image %}{{ producer.image.url }}{% else %}{{ MEDIA_URL }}no-image.png{% endif %}"
-                            class="img-fluid w-75 mb-2" alt="{{ producer.name }}"></a>
+                    <a href="{% url 'producer_detail' producer.id %}">
+                        {% if producer.image_url %}
+                        <img src="{{ producer.image_url }}" class="img-fluid w-75 mb-2" alt="{{ producer.name }}">
+                        {% elif producer.image %}
+                        <img src="{{ producer.image.url }}" class="img-fluid w-75 mb-2" alt="{{ producer.name }}">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}no-image.png" class="img-fluid w-75 mb-2" alt="{{ producer.name }}">
+                        {% endif %}
+                    </a>
                     <p class="font-weight-bold mb-0">
                         <a href="{% url 'producer_detail' producer.id %}">{{ producer.name }}</a>
                     </p>

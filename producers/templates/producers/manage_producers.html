@@ -43,7 +43,13 @@
             {% for producer in producers %}
             <div class="row">
                 <div class="col-3">
+                    {% if producer.image_url %}
+                    <img src="{{ producer.image_url }}" class="img-fluid" alt="{{ producer.name }}">
+                    {% elif producer.image %}
                     <img src="{{ producer.image.url }}" class="img-fluid" alt="{{ producer.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}no-image.png" class="img-fluid" alt="{{ producer.name }}">
+                    {% endif %}
                 </div>
                 <div class="col-4">
                     <p class="h5 mb-1">{{ producer.name }}</p>
