@@ -135,7 +135,25 @@
             </div>
             <div class="col-md-3 mb-3">
                 <h3>Products</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'products'%}?category=hoppy">Hoppy Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=dark">Dark Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=sour">Sour Beers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'products'%}?category=belgian">Belgian Style Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=light">Light Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=other">Other</a></li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
+
             <div class="col-md-3  mb-3">
                 <h3>Subscribe</h3>
                 <p class="mb-1">Receive our monthly newsletter to stay on top of our new offerings.</p>
