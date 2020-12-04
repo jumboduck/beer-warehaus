@@ -122,7 +122,7 @@ SITE_ID = 1
 DEFAULT_ORDER_EMAIL = os.environ.get('DEFAULT_ORDER_EMAIL')
 
 # Email Management
-if DEBUG:
+if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'contact@beerwarehaus.com'
 else:
