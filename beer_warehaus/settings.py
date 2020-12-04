@@ -125,6 +125,7 @@ DEFAULT_ORDER_EMAIL = os.environ.get('DEFAULT_ORDER_EMAIL')
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'contact@beerwarehaus.com'
+
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
