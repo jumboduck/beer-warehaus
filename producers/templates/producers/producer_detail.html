@@ -85,7 +85,13 @@
                     {% for product in products %}
                     <div class="row">
                         <div class="col-3">
+                            {% if product.image_url %}
+                            <img class="img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
+                            {% elif product.image %}
                             <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                            <img class="img-fluid" src="{{ MEDIA_URL }}no-image.png" alt="{{ product.name }}">
+                            {% endif %}
                         </div>
                         <div class="col-9">
                             <h4>{{ product.name }}</h4>
