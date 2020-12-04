@@ -45,35 +45,36 @@
 </head>
 
 <body class="d-flex flex-column">
-    <div id="page-content">
-        <header class="container-fluid site-header">
-            <div class="row">
-                <!-- Logo -->
-                <div class="col-12 col-lg-2 my-auto py-1 py-md-0 text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="logo nav-link main-logo-link">
-                        <h1 class="display-5 my-0">
-                            <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus"
-                                class="w-lg-100 d-none d-lg-block">
-                            <img src="{{ MEDIA_URL }}beer-warehaus-logo-mobile.png" alt="Beer WareHaus"
-                                class="w-50 w-md-25 d-lg-none">
-                        </h1>
-                    </a>
-                </div>
 
-                <!--Navigation -->
-                <div class="col-12 col-lg-10 full-nav">
-                    <nav class="navbar navbar-expand-lg w-100 align-items-end">
-                        <button class="navbar-toggler align-self-center" type="button" data-toggle="collapse"
-                            data-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-bars"><i class="fas fa-bars fa-lg"></i></span>
-                        </button>
-                        {% include 'includes/mobile-top-header.html' %}
-                        {% include 'includes/main-nav.html' %}
-                    </nav>
-                </div>
+    <header class="container-fluid site-header">
+        <div class="row">
+            <!-- Logo -->
+            <div class="col-12 col-lg-2 my-auto py-1 py-md-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="logo nav-link main-logo-link">
+                    <h1 class="display-5 my-0">
+                        <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus"
+                            class="w-lg-100 d-none d-lg-block">
+                        <img src="{{ MEDIA_URL }}beer-warehaus-logo-mobile.png" alt="Beer WareHaus"
+                            class="w-50 w-md-25 d-lg-none">
+                    </h1>
+                </a>
             </div>
-        </header>
+
+            <!--Navigation -->
+            <div class="col-12 col-lg-10 full-nav">
+                <nav class="navbar navbar-expand-lg w-100 align-items-end">
+                    <button class="navbar-toggler align-self-center" type="button" data-toggle="collapse"
+                        data-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-bars"><i class="fas fa-bars fa-lg"></i></span>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="page-content">
         {% if messages %}
         <div class="message-container">
             {% for message in messages %}
@@ -99,120 +100,120 @@
         {% block content %}
         {% endblock %}
 
-
-        <footer class="container-fluid footer" id="sticky-footer">
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <h3>Contact</h3>
-                    <ul class="fa-ul">
-                        <li class="mb-2">
-                            <span class="fa-li d-none d-md-inline">
-                                <i class="fa fa-location-arrow"></i>
-                            </span>
-                            <i class="fa fa-location-arrow d-md-none pr-2"></i>
-                            123 Beer St.
-                            <br>
-                            Oslo, Norway
-                        </li>
-                        <li class="mb-2">
-                            <span class="fa-li d-none d-md-inline">
-                                <i class="fa fa-phone"></i>
-                            </span>
-                            <i class="fa fa-phone d-md-none pr-2"></i>
-                            <a aria-label="phone number" href="tel:555-123-4567">
-                                555-123-4567
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <span class="fa-li d-none d-md-inline">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                            <i class="fa fa-envelope d-md-none pr-2"></i>
-                            <a aria-label="email" href="contact@beewarehaus.com">
-                                contact@beewarehaus.com
-                            </a>
-                        </li>
-                    </ul>
+    </div>
+    <footer class="container-fluid footer" id="sticky-footer">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <h3>Contact</h3>
+                <ul class="fa-ul">
+                    <li class="mb-2">
+                        <span class="fa-li d-none d-md-inline">
+                            <i class="fa fa-location-arrow"></i>
+                        </span>
+                        <i class="fa fa-location-arrow d-md-none pr-2"></i>
+                        123 Beer St.
+                        <br>
+                        Oslo, Norway
+                    </li>
+                    <li class="mb-2">
+                        <span class="fa-li d-none d-md-inline">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <i class="fa fa-phone d-md-none pr-2"></i>
+                        <a aria-label="phone number" href="tel:555-123-4567">
+                            555-123-4567
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <span class="fa-li d-none d-md-inline">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <i class="fa fa-envelope d-md-none pr-2"></i>
+                        <a aria-label="email" href="contact@beewarehaus.com">
+                            contact@beewarehaus.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h3>Products</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'products'%}?category=hoppy">Hoppy Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=dark">Dark Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=sour">Sour Beers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'products'%}?category=belgian">Belgian Style Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=light">Light Beers</a></li>
+                            <li><a href="{% url 'products'%}?category=other">Other</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-3 mb-3">
-                    <h3>Products</h3>
-                    <div class="row">
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li><a href="{% url 'products'%}?category=hoppy">Hoppy Beers</a></li>
-                                <li><a href="{% url 'products'%}?category=dark">Dark Beers</a></li>
-                                <li><a href="{% url 'products'%}?category=sour">Sour Beers</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li><a href="{% url 'products'%}?category=belgian">Belgian Style Beers</a></li>
-                                <li><a href="{% url 'products'%}?category=light">Light Beers</a></li>
-                                <li><a href="{% url 'products'%}?category=other">Other</a></li>
-                            </ul>
+
+            </div>
+
+            <div class="col-md-3  mb-3">
+                <h3>Subscribe</h3>
+                <p class="mb-1">Receive our monthly newsletter to stay on top of our new offerings.</p>
+                <form class="form">
+                    <div class="input-group w-100">
+                        <input class="form-control border-0 rounded-0" type="email" name="email-subscribe"
+                            placeholder="E-mail address">
+                        <div class="input-group-append">
+                            <button class="form-control form-control h-100 btn btn-gold border-0 rounded-0"
+                                type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                </span>
+                            </button>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="col-md-3  mb-3">
-                    <h3>Subscribe</h3>
-                    <p class="mb-1">Receive our monthly newsletter to stay on top of our new offerings.</p>
-                    <form class="form">
-                        <div class="input-group w-100">
-                            <input class="form-control border-0 rounded-0" type="email" name="email-subscribe"
-                                placeholder="E-mail address">
-                            <div class="input-group-append">
-                                <button class="form-control form-control h-100 btn btn-gold border-0 rounded-0"
-                                    type="submit">
-                                    <span class="icon">
-                                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-3 mb-3 social">
-                    <h3>Connect</h3>
-                    <ul class="list-inline">
-                        <li class="list-inline-item align-middle">
-                            <a aria-label="Go to Facebook" href="https://facebook.com" target="_blank" rel="noopener">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item align-middle">
-                            <a aria-label="Go to Twitter" href="https://twitter.com" target="_blank" rel="noopener">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item align-middle">
-                            <a aria-label="Go to Instagram" href="https://instagram.com" target="_blank" rel="noopener">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item align-middle">
-                            <a aria-label="Go to Untappd" href="https://untappd.com" target="_blank" rel="noopener">
-                                <i class="fab fa-untappd"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                </form>
             </div>
-            <div class="row mt-2">
-                <div class="col text-center border-top border-light pt-2 mx-3">
-                    © Beer WareHaus - 2020
-                </div>
+            <div class="col-md-3 mb-3 social">
+                <h3>Connect</h3>
+                <ul class="list-inline">
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Facebook" href="https://facebook.com" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Twitter" href="https://twitter.com" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Instagram" href="https://instagram.com" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item align-middle">
+                        <a aria-label="Go to Untappd" href="https://untappd.com" target="_blank" rel="noopener">
+                            <i class="fab fa-untappd"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </footer>
+        </div>
+        <div class="row mt-2">
+            <div class="col text-center border-top border-light pt-2 mx-3">
+                © Beer WareHaus - 2020
+            </div>
+        </div>
+    </footer>
 
-        {% block postloadjs %}
-        <script type="text/javascript">
-            $('.toast').toast('show');
-        </script>
-        {% endblock %}
+    {% block postloadjs %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
+    {% endblock %}
 
-    </div>
+
 </body>
 
 </html>
