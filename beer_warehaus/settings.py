@@ -37,8 +37,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     'localhost',
-    '1dd85a0d4352.ngrok.io',
-    '9baa0ac6720f.ngrok.io',
+    'beer-warehaus.herokuapp.com',
 ]
 
 # Application definition
@@ -149,15 +148,22 @@ WSGI_APPLICATION = 'beer_warehaus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'beerwarehaus',
-        'USER': os.environ.get('DATABASE_USER'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'beerwarehaus',
+            'USER': os.environ.get('DATABASE_USER'),
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

@@ -7,6 +7,7 @@ dj-database-url==0.5.0
 Django==3.1.2
 django-allauth==0.42.0
 django-crispy-forms==1.9.2
+gunicorn==20.0.4
 idna==2.10
 isort==5.6.2
 lazy-object-proxy==1.4.3
