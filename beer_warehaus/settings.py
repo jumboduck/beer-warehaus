@@ -36,8 +36,8 @@ UNTAPPD_SECRET = os.environ.get('UNTAPPD_SECRET', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    'localhost',
     'beer-warehaus.herokuapp.com',
+    'localhost',
 ]
 
 # Application definition
@@ -160,9 +160,6 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'beerwarehaus',
-            'USER': os.environ.get('DATABASE_USER'),
-            'HOST': 'localhost',
-            'PORT': '5432',
         }
     }
 
