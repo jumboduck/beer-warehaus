@@ -1,0 +1,10 @@
+<p class="my-0"><strong>{{ item.product.name }}</strong></p>
+<p class="my-0 text-muted">{{ item.product.producer }}</p>
+<p class="my-0 text-muted">
+    {% if item.product.packaging == 'keg' %}
+    {{ item.product.volume }} keg
+    {% else %}
+    {{ item.product.units_per_order }} x {{item.product.volume}}
+    {{ item.product.packaging }}s
+    {% endif %}</p>
+<p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
