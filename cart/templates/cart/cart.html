@@ -15,8 +15,8 @@
             <div class="row">
                 <div class="col">
                     {% if cart_items %}
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless">
+                    <div class="table-responsive d-md-block">
+                        <table class="table table-sm table-hover table-borderless">
                             <thead>
                                 <tr>
                                     <th scope="col">Product Info</th>
@@ -28,11 +28,11 @@
                             </thead>
 
                             {% for item in cart_items %}
-                            <tr>
+                            <tr class="border-bottom">
                                 <td class="p-3  w-25">
                                     {% if item.product.image_url %}
                                     <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}"
-                                        class="img-fluid">
+                                        class="img-fluid mx-0">
                                     {% elif item.product.image %}
                                     <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
                                         class="img-fluid">
