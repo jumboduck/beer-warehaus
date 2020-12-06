@@ -26,7 +26,15 @@
                                 <p class="text-muted mb-5">A summary of your cart's content is below.</p>
                             </div>
                         </div>
-                        {% for item in cart_items %}
+
+                        <!-- Display Kegs in cart -->
+                        {% if cart_kegs %}
+                        <div class="row">
+                            <div class="col">
+                                <h3>Kegs:</h3>
+                            </div>
+                        </div>
+                        {% for item in cart_kegs %}
                         <div class="row">
                             <div class="col-12 col-sm-6 mb-2">
                                 {% include 'cart/product_image.html' %}
@@ -50,54 +58,134 @@
                             </div>
                         </div>
                         {% endfor %}
+                        {% endif %}
 
+                        <!-- Display bottles in cart -->
+                        {% if cart_bottles %}
+                        <div class="row">
+                            <div class="col">
+                                <h3>Bottles and Cans:</h3>
+                            </div>
+                        </div>
+                        {% for item in cart_bottles %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include 'cart/product_image.html' %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include 'cart/product_info.html' %}
+                            </div>
+                            <div class="col-12 col-sm-6 order-sm-last">
+                                <p class="my-0"><span class="font-weight-bold">Price:</span> NOK {{ item.product.cost }}
+                                </p>
+                                <p class="my-0"><span class="font-weight-bold">Subtotal:</span>NOK
+                                    {{ item.product.cost | calc_subtotal:item.quantity }}</p>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {% include 'cart/quantity_form.html' %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                     </div>
 
                     <!-- Desktop views -->
-                    <div class="table-responsive d-none d-md-block">
-                        <table class="table table-sm table-borderless">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Subtotal</th>
+
+                    <div class="d-none d-md-block">
+
+                        <!-- Kegs in cart -->
+                        <div class="table-responsive">
+                            <table class="table table-sm table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h4>Kegs:</h4>
+                                        </th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Subtotal</th>
+                                    </tr>
+                                </thead>
+
+                                {% for item in cart_kegs %}
+                                <tr class="border-bottom">
+                                    <td class="p-3  w-25">
+                                        {% include 'cart/product_image.html' %}
+                                    </td>
+                                    <td class="py-3">
+                                        {% include 'cart/product_info.html' %}
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">NOK {{ item.product.cost }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        {% include 'cart/quantity_form.html' %}
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">NOK {{ item.product.cost | calc_subtotal:item.quantity }}</p>
+                                    </td>
                                 </tr>
-                            </thead>
+                                {% endfor %}
 
-                            {% for item in cart_items %}
-                            <tr class="border-bottom">
-                                <td class="p-3  w-25">
-                                    {% include 'cart/product_image.html' %}
-                                </td>
-                                <td class="py-3">
-                                    {% include 'cart/product_info.html' %}
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">NOK {{ item.product.cost }}</p>
-                                </td>
-                                <td class="py-3 w-25">
-                                    {% include 'cart/quantity_form.html' %}
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">NOK {{ item.product.cost | calc_subtotal:item.quantity }}</p>
-                                </td>
-                            </tr>
-                            {% endfor %}
+                            </table>
+                        </div>
 
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    {% include 'cart/cart_total.html' %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    {% include 'cart/checkout_buttons.html' %}
-                                </td>
-                            </tr>
+                        <!-- Bottles and Cans in cart -->
+                        <div class="table-responsive">
+                            <table class="table table-sm table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h4>Bottles and Cans:</h4>
+                                        </th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Subtotal</th>
+                                    </tr>
+                                </thead>
 
-                        </table>
+                                {% for item in cart_bottles %}
+                                <tr class="border-bottom">
+                                    <td class="p-3  w-25">
+                                        {% include 'cart/product_image.html' %}
+                                    </td>
+                                    <td class="py-3">
+                                        {% include 'cart/product_info.html' %}
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">NOK {{ item.product.cost }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        {% include 'cart/quantity_form.html' %}
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">NOK {{ item.product.cost | calc_subtotal:item.quantity }}</p>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <td colspan="5" class="pt-5 text-right">
+                                        {% include 'cart/cart_total.html' %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-right">
+                                        {% include 'cart/checkout_buttons.html' %}
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+
                     </div>
                     {% else %}
                     <p class="lead mb-5">Your cart is empty</p>

@@ -7,6 +7,8 @@ def cart_contents(request):
     # The following displays the contents of the cart
     """
     cart_items = []
+    cart_kegs = []
+    cart_bottles = []
     grand_total = 0
     product_count = 0
     cart = request.session.get('cart', {})
@@ -20,9 +22,23 @@ def cart_contents(request):
             'quantity': quantity,
             'product': product,
         })
+        if product.packaging == 'keg':
+            cart_kegs.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+            })
+        if product.packaging != 'keg':
+            cart_bottles.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+            })
 
     context = {
         'cart_items': cart_items,
+        'cart_kegs': cart_kegs,
+        'cart_bottles': cart_bottles,
         'grand_total': grand_total,
         'product_count': product_count,
     }
