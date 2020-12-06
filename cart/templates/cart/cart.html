@@ -99,6 +99,7 @@
                     <div class="d-none d-md-block">
 
                         <!-- Kegs in cart -->
+                        {% if cart_kegs %}
                         <div class="table-responsive">
                             <table class="table table-sm table-borderless">
                                 <thead>
@@ -135,8 +136,10 @@
 
                             </table>
                         </div>
+                        {% endif %}
 
                         <!-- Bottles and Cans in cart -->
+                        {% if cart_bottles %}
                         <div class="table-responsive">
                             <table class="table table-sm table-borderless">
                                 <thead>
@@ -171,18 +174,20 @@
                                 </tr>
                                 {% endfor %}
 
-                                <tr>
-                                    <td colspan="5" class="pt-5 text-right">
-                                        {% include 'cart/cart_total.html' %}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" class="text-right">
-                                        {% include 'cart/checkout_buttons.html' %}
-                                    </td>
-                                </tr>
+
 
                             </table>
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col pt-5 text-right">
+                                {% include 'cart/cart_total.html' %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-right">
+                                {% include 'cart/checkout_buttons.html' %}
+                            </div>
                         </div>
 
 
