@@ -107,7 +107,7 @@
     </div>
 </div>
 
-<div class="btt-button rounded-0">
+<div class="btt-button">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-angle-up mx-auto my-auto"></i>
     </a>
@@ -117,4 +117,9 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 {% endblock %}
