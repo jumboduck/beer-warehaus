@@ -21,7 +21,21 @@
                         {% if field.name != 'image' %}
                         {{ field | as_crispy_field }}
                         {% else %}
+                        {% if product.image_url %}
+                        <p>Current Image:</p>
+                        <a href="{{ product.image_url}}">
+                            <img class="w-50" id="widget-image" src="{{ product.image_url }}">
+                        </a>
                         {{ field }}
+                        {% elif product.image %}
+                        <p>Current Image:</p>
+                        <a href="{{ product.image.url}}">
+                            <img class="w-50" id="widget-image" src="{{ product.image.url }}">
+                        </a>
+                        {{ field }}
+                        {% else %}
+                        {{ field }}
+                        {% endif %}
                         {% endif %}
                         {% endfor %}
                         <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-gold"><i
