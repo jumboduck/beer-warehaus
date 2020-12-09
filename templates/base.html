@@ -52,6 +52,7 @@
             <div class="col-12 col-lg-2 my-auto py-1 py-md-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="logo nav-link main-logo-link">
                     <h1 class="display-5 my-0">
+                        <span class="sr-only">Beer WareHaus</span>
                         <img src="{{ MEDIA_URL }}beer-warehaus-logo.png" alt="Beer WareHaus"
                             class="w-lg-100 d-none d-lg-block">
                         <img src="{{ MEDIA_URL }}beer-warehaus-logo-mobile.png" alt="Beer WareHaus"
@@ -161,8 +162,9 @@
                 <p class="mb-1">Receive our monthly newsletter to stay on top of our new offerings.</p>
                 <form class="form">
                     <div class="input-group w-100">
+                        <label for="email-subscribe" class="sr-only">Email</label>
                         <input class="form-control border-0 rounded-0" type="email" name="email-subscribe"
-                            placeholder="E-mail address">
+                            placeholder="E-mail address" id="email-subscribe">
                         <div class="input-group-append">
                             <button class="form-control form-control h-100 btn btn-gold border-0 rounded-0"
                                 type="submit">
