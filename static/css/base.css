@@ -36,6 +36,11 @@ a:hover {
     color: #ffc717;
 }
 
+.navbar-nav .nav-item,
+.dropdown-menu .dropdown-item {
+    text-align: center;
+}
+
 .navbar-bars {
     color: #fbfbf8;
 }
@@ -434,6 +439,12 @@ body {
     .custom-carousel-item {
         height: 300px;
     }
+
+    .btn-gold,
+    .btn-outline-gold {
+        width: 100%;
+        margin-bottom: 0.2rem;
+    }
 }
 
 /* Medium Screen Sizes */
@@ -475,6 +486,12 @@ body {
         bottom: 0px;
         right: 0px;
     }
+
+    .navbar-nav .nav-item,
+    .dropdown-menu .dropdown-item {
+        text-align: left;
+    }
+
     .main-logo-link {
         position: relative;
         top: 35px;
