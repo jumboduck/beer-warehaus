@@ -10,6 +10,8 @@
             <h2 class="h2-page-title">Contact Us!</h2>
             <p>Whether you are a restaurant, a bar, or a producer, we would love to hear from you. Please fill the
                 following form to get in touch.</p>
+
+            <!-- Contact Form -->
             <form action="{% url 'contact' %}" method="POST">
                 {% csrf_token %}
                 <div class="form-group">

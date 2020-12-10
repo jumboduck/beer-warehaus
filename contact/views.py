@@ -6,6 +6,9 @@ from django.conf import settings
 
 
 def contact(request):
+    """
+    # This view handles the contact form
+    """
 
     if request.POST:
         to_email = settings.DEFAULT_ORDER_EMAIL
@@ -27,6 +30,7 @@ def contact(request):
             'contact/contact_emails/contact_email_subject.txt',
             {'company': company}
         )
+
         body = render_to_string(
             'contact/contact_emails/contact_email_body.txt', email_context
         )

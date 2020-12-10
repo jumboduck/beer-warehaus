@@ -5,6 +5,9 @@ from products.widgets import CustomClearableFileInput
 
 
 class ProducerForm(forms.ModelForm):
+    """
+    # This form handles editing existing producers and adding new producers
+    """
 
     class Meta:
         model = Producer

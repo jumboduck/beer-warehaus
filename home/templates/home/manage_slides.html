@@ -10,13 +10,13 @@
                 <div class="col">
                     <h2 class="h2-page-title d-inline-block">
                         Slideshow Management
-
                     </h2>
                     <a href="{% url 'add_slide' %}" class="ml-3 btn btn-gold">
                         <i class="fas fa-plus-circle mr-2"></i> New slide
                     </a>
                 </div>
             </div>
+            <!-- Homepage slides -->
             {% for slide in slides %}
             <div class="row">
                 <div class="col-3">

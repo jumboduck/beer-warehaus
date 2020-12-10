@@ -15,7 +15,7 @@
                 <div class="col-12 col-md-6 order-2 order-md-1">
                     <form action=" {% url 'edit_producer' producer.id %}" method="POST" id="edit-producer-form"
                         class="form mb-2" enctype="multipart/form-data">
-                        <!-- The following form edits the currently selected product -->
+                        <!-- The following form edits the currently selected producer -->
                         {% csrf_token %}
                         {% for field in form %}
                         {% if field.name != 'image' %}

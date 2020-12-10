@@ -18,6 +18,8 @@
             </div>
             <div class="row mb-4 mt-3">
                 <div class="col">
+
+                    <!-- Producer search form -->
                     <form class="form" method="GET" action="{% url 'manage_producers' %}">
                         <div class="input-group search-border w-75">
                             <input class="form-control dark-border" id="producer-search" type="text" name="q"
@@ -40,6 +42,7 @@
                 </div>
             </div>
 
+            <!-- Search results -->
             {% for producer in producers %}
             <div class="row">
                 <div class="col-3">

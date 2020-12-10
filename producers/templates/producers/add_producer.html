@@ -14,6 +14,7 @@
 
             <div class="row">
                 <div class="col-12 col-md-6 order-2 order-md-1">
+                    <!-- New Producer Form -->
                     <form action=" {% url 'add_producer' %}" method="POST" id="add-producer-form" class="form mb-2"
                         enctype="multipart/form-data">
                         {% csrf_token %}
@@ -39,6 +40,8 @@
                                 class="fas fa-beer ml-1"></i></button>
                     </form>
                 </div>
+
+                <!-- Untappd Search -->
                 <div class="col-12 col-md-6 order-1 order-md-2 mb-3">
                     <form class="form" method="POST" action="{% url 'add_producer' %}">
                         {% csrf_token %}
