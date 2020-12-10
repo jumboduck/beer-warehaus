@@ -14,6 +14,7 @@
 <div class="container-fluid mb-3">
     <div class="row mt-5">
         <div class="col-md-6 col-lg-4 offset-lg-2">
+            <!-- Product Image -->
             <div class="image-container">
                 {% if product.image_url %}
                 <a href="{{ product.image_url }}" target="_blank">
@@ -28,6 +29,8 @@
                 {% endif %}
             </div>
         </div>
+
+        <!-- Product details -->
         <div class="col-md-6 col-lg-4 pt-3">
             <h2 class="mb-0"><strong>{{ product.name }}</strong></h2>
             <p class="text-muted mb-2">
@@ -77,6 +80,7 @@
                         data-target="#delete-product-{{ product.id }}" data-toggle="modal">Delete</a>
                 </small>
             </div>
+
             <!-- Modal window to confirm deletion of product -->
             <div class="modal" id="delete-product-{{ product.id }}" tabindex="-1" role="dialog"
                 aria-labelledby="delete-{{ product.name }}" aria-hidden="true">

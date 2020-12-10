@@ -4,6 +4,10 @@ from .models import Product, Style
 
 
 class ProductForm(forms.ModelForm):
+    """
+    # This form is used for adding a new product to the store
+    # or editing an existing product.
+    """
 
     class Meta:
         model = Product

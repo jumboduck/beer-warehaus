@@ -1,10 +1,12 @@
 from django.conf import settings
-from django.contrib import messages
 
 import requests
 
 
 class UntappdHandler:
+    """
+    # This class handles searching and retrieving information from the untappd API.
+    """
 
     def __init__(self, request):
         self.request = request

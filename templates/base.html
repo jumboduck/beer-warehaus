@@ -77,6 +77,8 @@
     </header>
     <div id="page-content">
         {% if messages %}
+
+        <!-- If django sends any messages, display here -->
         <div class="message-container">
             {% for message in messages %}
             {% with message.level as level %}
@@ -94,14 +96,13 @@
         </div>
         {% endif %}
 
-        {% block page_header %}
-        {% endblock %}
-
-
+        <!-- Main page content -->
         {% block content %}
         {% endblock %}
 
     </div>
+
+    <!-- Page Footer -->
     <footer class="container-fluid footer" id="sticky-footer">
         <div class="row">
             <div class="col-md-3 mb-3">
@@ -211,6 +212,7 @@
 
     {% block postloadjs %}
     <script type="text/javascript">
+        // Display messages from django
         $('.toast').toast('show');
     </script>
     {% endblock %}

@@ -9,7 +9,9 @@ from checkout.models import Order
 
 @login_required
 def profile(request):
-    """Display the user profile"""
+    """
+    # Display the user profile
+    """
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -35,6 +37,9 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """
+    # Display information for a past order
+    """
     order = get_object_or_404(Order, order_number=order_number)
     messages.info(request, f'This is a past confirmation for order number {order_number}')
 

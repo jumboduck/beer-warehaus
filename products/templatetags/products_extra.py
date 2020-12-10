@@ -12,5 +12,4 @@ def url_replace(context, **kwargs):
     """
     query = context['request'].GET.copy()
     query.update(kwargs)
-    print(query.urlencode())
     return query.urlencode()

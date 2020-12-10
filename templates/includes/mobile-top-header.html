@@ -1,4 +1,5 @@
 <div class="d-inline-block">
+    <!-- Search link opens search input -->
     <a class="nav-link d-block d-lg-none px-0" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
@@ -6,6 +7,7 @@
             <p class="my-0 top-nav-text">Search</p>
         </div>
     </a>
+    <!-- Search form -->
     <div class="dropdown-menu border-0 w-100 p-3 d-lg-none rounded-0 my-0 search-bar" aria-labelledby="mobile-search">
         <form class="form" method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
@@ -22,6 +24,7 @@
     </div>
 </div>
 <div class="d-inline-block dropdown">
+    <!-- Profile link and dropdown links -->
     <a class="nav-link d-block d-lg-none px-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
@@ -45,6 +48,7 @@
     </div>
 </div>
 <div class="d-inline-block">
+    <!-- Cart -->
     <a class="nav-link d-block d-lg-none px-0" href="{% url 'cart' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-cart fa-lg"></i></div>

@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     """
-    User Profile model which holds order history and saved delivery information
+    # User Profile model which holds order history and saved delivery information
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_company_name = models.CharField(max_length=50, null=True, blank=True)
@@ -22,7 +22,9 @@ class UserProfile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-    """Create or update the user profile"""
+    """
+    # Create or update the user profile
+    """
     if created:
         UserProfile.objects.create(user=instance)
     # Existing users, just save the profile
