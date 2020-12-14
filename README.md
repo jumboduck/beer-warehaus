@@ -279,6 +279,8 @@ To deploy Beer WareHaus to Heroku, use the following steps:
 -   Balsamiq
 -   Heroku
 -   Adobe Photoshop
+-   [Google Fonts](https://fonts.google.com/)
+-   [Font Awesome](https://fontawesome.com/)
 -   [TinyJPG](https://tinyjpg.com/) used to compress all images
 
 ## Credits
@@ -290,4 +292,8 @@ To deploy Beer WareHaus to Heroku, use the following steps:
 
 ### Acknowledgements
 
+-   This site is meant for educational use.
 -   Search functionality from [Julien Phalip](https://www.julienphalip.com/blog/adding-search-to-a-django-site-in-a-snap/)
+-   [Felipe Alarcon](https://github.com/fandressouza) for his helpful feedback and advice, and constant availability as a mentor
+-   Many thanks to the team at the Code Institute for their help throughout the development process.
+-   I am endebted to all friends and family who have helped test the application and returned valuable feedback
