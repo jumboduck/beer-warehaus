@@ -33,6 +33,8 @@
   - [Media](#media)
   - [Acknowledgements](#acknowledgements)
 
+---
+
 Beer WareHaus is an online shop for a hypothetical beer import and distribution company in Norway. The purpose of the site is to provide a simple intuitive ways for managers of bars and restaurants to browse and purchase products they wish to serve.
 Additionally the site provides a number of tools allowing the shop owner to easily manage the products in the shop.
 
