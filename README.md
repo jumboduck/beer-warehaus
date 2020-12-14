@@ -173,6 +173,9 @@ The creation of an account gives access to the following features:
 
 ### Features Left to implement
 
+-   The subscription form in the footer should be connected to a marketing mailing application, such as [Mailchimp](https://mailchimp.com) for example.
+-   For authenticated users, the option should be added to renew an order.
+
 ## Testing
 
 ## Deployment
