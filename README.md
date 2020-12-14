@@ -72,11 +72,11 @@ Fonts and colors were carefully chosen to give the application a distinctive bra
 
 Two fonts from [Google Fonts](https://fonts.google.com/) were used throughout the site:
 
-1. _Roboto Slab_ was used for the logo and the navigation of the site.
+1. **Roboto Slab** was used for the logo and the navigation of the site.
 
 ![Roboto Slab Font](readme-files/roboto-slab.png)
 
-2. _Lato_ was used for all the titles and contents of the site.
+1. **Lato** was used for all the titles and contents of the site.
 
 ![Lato Font](readme-files/lato.png)
 
@@ -235,6 +235,34 @@ These are the steps to deploy Beer WareHaus locally.
 
 ### Deployment to Heroku
 
+To deploy Beer WareHaus to Heroku, use the following steps:
+
+1. In Heroku create a new application.
+2. From the heroku dashboard of your application, click on "Deploy", then "Deployment method" and select GitHub to connect the application to your github repository
+3. In the Heroku Resources tab, navigate to the Add-Ons section and search for Heroku Postgres. The hobby level can be selected for this application.
+4. Click on the "settings" tab and on the button labelled "Reveal Config Vars". The Postgres addon will have created a link to the Postgres database.
+5. Add the following configuration variables to the application:
+
+    | **VARIABLE**          | **VALUE**                                                          |
+    | --------------------- | ------------------------------------------------------------------ |
+    | AWS_ACCESS_KEY_ID     | The key provided by AWS                                            |
+    | AWS_SECRET_ACCESS_KEY | The secret key provided by AWS                                     |
+    | DATABASE_URL          | Postgres Database url provided by the addon                        |
+    | DEFAULT_ORDER_EMAIL   | The email address orders will go to                                |
+    | EMAIL_HOST            | The smtp host for the email                                        |
+    | EMAIL_HOST_PASSWORD   | The password associated with the address that will send out emails |
+    | EMAIL_HOST_USER       | The address that will send out emails                              |
+    | SECRET_KEY            | Your Django secret key                                             |
+    | STRIPE_PUBLIC_KEY     | The public key provided by Stripe                                  |
+    | STRIPE_SECRET_KEY     | The secret key provided by Stripe                                  |
+    | STRIPE_WH_SECRET      | The webhook secret provided by Stripe                              |
+    | UNTAPPD_CLIENT_ID     | The client ID provided by Untappd                                  |
+    | UNTAPPD_SECRET        | The secret provided by Untappd                                     |
+    | USE_AWS               | True                                                               |
+
+6. In the Heroku dashboard, deploy the application.
+7. To view the site, click "View App"
+
 ## Technologies
 
 -   HTML
@@ -263,11 +291,3 @@ These are the steps to deploy Beer WareHaus locally.
 ### Acknowledgements
 
 -   Search functionality from [Julien Phalip](https://www.julienphalip.com/blog/adding-search-to-a-django-site-in-a-snap/)
-
-```
-
-```
-
-```
-
-```
