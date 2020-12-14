@@ -1,6 +1,37 @@
 ![Beer WareHaus Logo](readme-files/beer-warehaus-readme-logo.png)
 
-# Beer WareHaus
+# Beer WareHaus <!-- omit in toc -->
+
+- [UX](#ux)
+  - [Project Goal](#project-goal)
+  - [User Stories](#user-stories)
+    - [User Stories for Customers](#user-stories-for-customers)
+    - [User Stories for Shop Administrators](#user-stories-for-shop-administrators)
+  - [Wireframes](#wireframes)
+  - [Data Structure](#data-structure)
+  - [Design](#design)
+    - [Typography](#typography)
+    - [Colors](#colors)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+    - [Home Page](#home-page)
+    - [Product Listing](#product-listing)
+    - [Product View](#product-view)
+    - [Producers Page](#producers-page)
+    - [User Account](#user-account)
+    - [Shopping Cart](#shopping-cart)
+    - [Payment](#payment)
+    - [Administrator features](#administrator-features)
+  - [Features Left to implement](#features-left-to-implement)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [Local Deployment](#local-deployment)
+  - [Deployment to Heroku](#deployment-to-heroku)
+- [Technologies](#technologies)
+- [Tools Used](#tools-used)
+- [Credits](#credits)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
 Beer WareHaus is an online shop for a hypothetical beer import and distribution company in Norway. The purpose of the site is to provide a simple intuitive ways for managers of bars and restaurants to browse and purchase products they wish to serve.
 Additionally the site provides a number of tools allowing the shop owner to easily manage the products in the shop.
@@ -133,7 +164,7 @@ The shop offers a number of solutions to make specific products easier to list a
     -   Volume
     -   Number of units per order (for example, a box of 12 bottles)
     -   Product rating on untappd (if existing)
--   If registered and logged in, users can choose a quantity and add it to their cart
+-   Users can choose a quantity and add it to their cart
 
 #### Producers Page
 
