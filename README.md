@@ -57,7 +57,50 @@ Following these user stories, wireframes were drawn to provide a starting point 
 
 ### Data Structure
 
+Before starting the development of the application, its models and their relationships were delineated:
+
+![Beer WareHaus Models](readme-files/beer-warehaus-models.png)
+
 ### Design
+
+The application was built using bootstrap and its responsive grid system.
+Fonts and colors were carefully chosen to give the application a distinctive brand and feel.
+
+#### Typography
+
+Two fonts from [Google Fonts](https://fonts.google.com/) were used throughout the site:
+
+1. _Roboto Slab_ was used for the logo and the navigation of the site.
+
+![Roboto Slab Font](readme-files/roboto-slab.png)
+
+2. _Lato_ was used for all the titles and contents of the site.
+
+![Lato Font](readme-files/lato.png)
+
+#### Colors
+
+A simple color scheme was used to accentuate readability and usability.
+
+-   ![#1b1b1b](https://placehold.it/15/1b1b1b/000000?text=+) `#1b1b1b - dark grey, primary color`
+
+This color is used in the header's background and for fonts throughout the site. It was chosen for its simplicity and for providing contrast with other colors.
+
+-   ![#f8f8fb](https://placehold.it/15/f8f8fb/000000?text=+) `#f8f8fb - off white, background-color`
+
+This off white was chosen for the background color for the site as it provides good contrast with the other chosen colors, while being easier on the eyes than white.
+
+-   ![#ffc717](https://placehold.it/15/ffc717/000000?text=+) `#ffc717 - gold, highlight color #1`
+
+This yellow was used to highlight specific elements of the site to provide users with a visual aid on actions that can be performed, for example on buttons. It is also echoed in the site's logo, providing brand consistency.
+
+-   ![#077f94](https://placehold.it/15/077f94/000000?text=+) `#077f94 - blue, highlight color #2`
+
+This blue is used as a secondary highlight, meant to contrast with and compliment the gold buttons. They are used for links, and to help highlight product cards in listings.
+
+-   ![#00d9ff](https://placehold.it/15/00d9ff/000000?text=+) `#00d9ff - blue, highlight color #2 alternative alternative`
+
+This lighter shade of blue was used as an alternative to the previously described blue and was used to highlight new products in listings.
 
 ## Features
 
