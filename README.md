@@ -52,6 +52,8 @@ This project is my fourth and final Milestone Project in the Code Institute's Fu
 
 Following these user stories, wireframes were drawn to provide a starting point and guidance throughout the development process.
 
+![Beer WareHaus Wireframes](readme-files/wireframe.png)
+
 -   The full desktop wireframes can be found [here](readme-files/beer-warehaus-desktop.pdf)
 -   The mobile wireframes can be found [here](readme-files/beer-warehaus-mobile.pdf)
 
@@ -98,7 +100,7 @@ This yellow was used to highlight specific elements of the site to provide users
 
 This blue is used as a secondary highlight, meant to contrast with and compliment the gold buttons. They are used for links, and to help highlight product cards in listings.
 
--   ![#00d9ff](https://placehold.it/15/00d9ff/000000?text=+) `#00d9ff - blue, highlight color #2 alternative alternative`
+-   ![#00d9ff](https://placehold.it/15/00d9ff/000000?text=+) `#00d9ff - blue, highlight color #2 alternative`
 
 This lighter shade of blue was used as an alternative to the previously described blue and was used to highlight new products in listings.
 
@@ -171,6 +173,68 @@ The creation of an account gives access to the following features:
 
 ### Features Left to implement
 
+## Testing
+
+## Deployment
+
+Before deploying the application, ensure the following are installed:
+
+-   Python 3
+-   PIP
+-   Git
+-   Heroku CLI
+
+The application relies on the following services, and accounts will have to be created for them:
+
+-   [Untappd API](https://untappd.com/api/docs)
+-   [Amazon AWS](https://aws.amazon.com/)
+-   [Stripe](https://stripe.com/)
+-   An email account, [GMail](https://mail.google.com/) is ideal as it is reliable and easy to set up.
+
+### Local Deployment
+
+These are the steps to deploy Beer WareHaus locally.
+
+1.  From the application's [repository](https://github.com/jumboduck/beer-warehaus), click the "code" button and download the zip of the repository.
+
+    Alternatively, you can clone the repository using the following line in your terminal:
+
+        git clone https://github.com/jumboduck/beer-warehaus.git
+
+2.  Access the folder in your terminal window and install the application's required modules using the following command:
+
+        python -m pip -r requirements.txt
+
+3.  Create a file containing your environmental variables called `env.py` at the root level of the application. It will need to contain the following lines and variables:
+
+    ```
+    import os
+
+    os.environ["SECRET_KEY"] = "YOUR_DJANGO_SECRET_KEY"
+
+    os.environ["UNTAPPD_CLIENT_ID"] = "YOUR_UNTAPPD_CLIEND_ID"
+    os.environ["UNTAPPD_SECRET"] = "YOUR_UNTAPPD_SECRET"
+
+    os.environ["STRIPE_PUBLIC_KEY"] = "YOUR_STRIPE_PUBLIC_KEY"
+    os.environ["STRIPE_SECRET_KEY"] = "YOUR_STRIPE_SECRET_KEY"
+    os.environ["STRIPE_WH_SECRET"] = "YOUR_STRIPE_WEBHOOK_SECRET"
+
+    os.environ["DEVELOPMENT"] = "True"
+
+    os.environ['EMAIL_HOST_USER'] = 'YOUR_EMAIL_USER'
+    os.environ['EMAIL_HOST_PASSWORD'] = 'YOUR_EMAIL_PASSWORD'
+    os.environ['EMAIL_HOST'] = 'smtp.google.com' # for gmail
+    os.environ['DEFAULT_ORDER_EMAIL'] = 'DEFAULT_EMAIL'
+    ```
+
+    Please note that you will need to update the `SECRET_KEY` with your own secret key, as well as the Untappd and strip keys and secret variables with those provided by those applications.
+
+    If you plan on pushing this application to a public repository, ensure that `env.py` is added to your `.gitignore` file to protect your secrets.
+
+4.  The application can now be run locally. In your terminal, type the command `python3 manage.py runserver`. The application will be available in your browser at the address `http://localhost:8000`.
+
+### Deployment to Heroku
+
 ## Technologies
 
 -   HTML
@@ -189,14 +253,6 @@ The creation of an account gives access to the following features:
 -   Adobe Photoshop
 -   [TinyJPG](https://tinyjpg.com/) used to compress all images
 
-## Testing
-
-## Deployment
-
-### Local Deployment
-
-### Deployment to Heroku
-
 ## Credits
 
 ### Media
@@ -207,3 +263,11 @@ The creation of an account gives access to the following features:
 ### Acknowledgements
 
 -   Search functionality from [Julien Phalip](https://www.julienphalip.com/blog/adding-search-to-a-django-site-in-a-snap/)
+
+```
+
+```
+
+```
+
+```
