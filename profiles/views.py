@@ -14,6 +14,10 @@ def profile(request):
     """
 
     profile = get_object_or_404(UserProfile, user=request.user)
+    edit_info = False
+
+    if 'edit_info' in request.GET:
+        edit_info = True
 
     if request.method == "POST":
         form = UserProfileForm(request.POST, instance=profile)
@@ -31,6 +35,7 @@ def profile(request):
         'form': form,
         'profile': profile,
         'orders': orders,
+        'edit_info': edit_info,
     }
 
     return render(request, template, context)
