@@ -31,7 +31,7 @@
                         {% if cart_kegs %}
                         <div class="row">
                             <div class="col">
-                                <h3>Kegs:</h3>
+                                <span class="h3">Kegs:</span>
                             </div>
                         </div>
                         {% for item in cart_kegs %}
@@ -64,7 +64,7 @@
                         {% if cart_bottles %}
                         <div class="row">
                             <div class="col">
-                                <h3>Bottles and Cans:</h3>
+                                <span class="h3">Bottles and Cans:</span>
                             </div>
                         </div>
                         {% for item in cart_bottles %}
@@ -105,7 +105,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">
-                                            <h4>Kegs:</h4>
+                                            <span class="h4">Kegs:</span>
                                         </th>
                                         <th scope="col"></th>
                                         <th scope="col">Price</th>
@@ -145,7 +145,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">
-                                            <h4>Bottles and Cans:</h4>
+                                            <span class="h4">Bottles and Cans:</span>
                                         </th>
                                         <th scope="col"></th>
                                         <th scope="col">Price</th>
@@ -221,7 +221,7 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
+<script>
     // Back to Top button
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
