@@ -21,10 +21,12 @@
                         {% if field.name != 'image' %}
                         {{ field | as_crispy_field }}
                         {% else %}
+
                         {% if producer.image_url %}
                         <p>Current Image:</p>
                         <a href="{{ producer.image_url}}">
-                            <img class="w-50" id="widget-image" src="{{ producer.image_url }}">
+                            <img class="w-50" id="widget-image" src="{{ producer.image_url }}"
+                                alt="{{ producer.name }}">
                         </a>
                         {{ field }}
                         {% elif producer.image %}
@@ -33,6 +35,7 @@
                             <img class="w-50" id="widget-image" src="{{ producer.image.url }}">
                         </a>
                         {{ field }}
+
                         {% else %}
                         {{ field }}
                         {% endif %}
@@ -53,9 +56,9 @@
 <!-- The following ensures the functionality of the image selector -->
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    $('#new-image').change(function () {
-        let file = $('#new-image')[0].files[0];
+<script>
+    $('#id_image').change(function () {
+        let file = $('#id_image')[0].files[0];
         $('#filename').text(`Image will be set to ${file.name}`);
     })
 </script>

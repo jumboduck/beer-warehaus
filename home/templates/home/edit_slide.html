@@ -21,6 +21,10 @@
                         {% if field.name != 'image' %}
                         {{ field | as_crispy_field }}
                         {% else %}
+                        <p>Current Image:</p>
+                        <a href="{{ slide.image.url}}">
+                            <img class="w-50" id="widget-image" src="{{ slide.image.url }}" alt="{{ slide.name }}">
+                        </a>
                         {{ field }}
                         {% endif %}
                         {% endfor %}
@@ -41,9 +45,9 @@
 <!-- The following ensures the functionality of the image selector -->
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    $('#new-image').change(function () {
-        let file = $('#new-image')[0].files[0];
+<script>
+    $('#id_image').change(function () {
+        let file = $('#id_image')[0].files[0];
         $('#filename').text(`Image will be set to ${file.name}`);
     })
 </script>

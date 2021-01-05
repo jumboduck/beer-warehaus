@@ -42,11 +42,12 @@
 
                 <!-- Modal window for slide deletion -->
                 <div class="modal" id="delete-slide-{{ slide.id }}" tabindex="-1" role="dialog"
-                    aria-labelledby="delete-{{ slide.title }}" aria-hidden="true">
+                    aria-labelledby="delete-{{ slide.id }}-title" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered text-left" role="document">
                         <div class="modal-content rounded-0">
                             <div class="modal-header">
-                                <h5 class="modal-title font-weight-bold text-uppercase" id="delete-{{ producer.name }}">
+                                <h5 class="modal-title font-weight-bold text-uppercase"
+                                    id="delete-{{ slide.id }}-title">
                                     <i class="fas fa-exclamation-triangle text-danger"></i> You are about to delete
                                     a slide!
                                 </h5>
@@ -62,7 +63,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btn-outline-gold rounded-0"
                                     data-dismiss="modal">cancel</button>
-                                <a href="{% url 'delete_slide' slide.id %}" type="button"
+                                <a href="{% url 'delete_slide' slide.id %}"
                                     class="btn btn-primary btn-danger-custom rounded-0 text-uppercase"><i
                                         class="fas fa-trash-alt"></i> delete</a>
                             </div>

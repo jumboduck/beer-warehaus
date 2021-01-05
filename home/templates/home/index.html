@@ -116,12 +116,12 @@
 
                                 <!-- Modal window for product deletion -->
                                 <div class="modal" id="delete-product-{{ product.id }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="delete-{{ product.name }}" aria-hidden="true">
+                                    aria-labelledby="delete-{{ product.id }}-title" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content rounded-0">
                                             <div class="modal-header">
                                                 <h5 class="modal-title font-weight-bold text-uppercase"
-                                                    id="delete-{{ product.name }}">
+                                                    id="delete-{{ product.id }}-title">
                                                     <i class="fas fa-exclamation-triangle text-danger"></i> You are
                                                     about to delete a
                                                     product!</h5>
@@ -141,7 +141,7 @@
                                                 <button type="button"
                                                     class="btn btn-secondary btn-outline-gold rounded-0"
                                                     data-dismiss="modal">cancel</button>
-                                                <a href="{% url 'delete_product' product.id %}" type="button"
+                                                <a href="{% url 'delete_product' product.id %}"
                                                     class="btn btn-primary btn-danger-custom rounded-0 text-uppercase"><i
                                                         class="fas fa-trash-alt"></i> delete</a>
                                             </div>
