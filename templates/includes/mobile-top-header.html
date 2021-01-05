@@ -25,14 +25,14 @@
 </div>
 <div class="d-inline-block dropdown">
     <!-- Profile link and dropdown links -->
-    <a class="nav-link d-block d-lg-none px-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
+    <a class="nav-link d-block d-lg-none px-0" href="#" id="user-options-mobile" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-user fa-lg"></i></div>
             <p class="my-0 top-nav-text">Profile</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+    <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
         {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
         <a href="{% url 'manage_slides' %}" class="dropdown-item">Manage Home Carousel</a>
