@@ -14,17 +14,17 @@
 
 -   The carousel functions as intended, displaying an image, a title, a description and a link to a specified page, with the ability to change the displayed slide
 -   The links to specific pages work as intended
--   Images of different sizes can be uploaded without breaking the layout of the elements of the page.
 
 ### New Products
 
--   The "New Products" section of the homepage shows all products marked as "new" by the site's administrator. The information displayed is correct. Products no longer display here if the flag is removed.
+-   The "New Products" section of the homepage shows all products marked as "new" by the site's administrator. The information displayed is correct.
 -   The "new" overlay is present on all new products.
 
 ## Product Listing
 
 -   The pages listing products display the correct information, for each product and the number of products.
 -   The "back to top" button works as expected.
+-   Products flagged as "new" display the "new product" overlay.
 
 ### Search
 
@@ -82,17 +82,54 @@
 -   All required fields must be filled for the form to send.
 -   Email field must contain a string formatted as an email.
 
-## Account Management
-
 ## Administrative Tools
+
+Links to adminsitrative tools in the navigation can only be seen if a user is logged in as an administrator.
 
 ### Homepage
 
+-   Adding or removing carousel items works as intended.
+-   Images of different sizes can be uploaded without breaking the layout of the elements of the page.
+-   Products flagged as "new" are displayed on the homepage.
+-   When the flag is removed, they are no longer displayed.
+
 ### Product Management
+
+#### Adding a Product
+
+-   Adding a new product works as intended.
+-   All required fields must be filled to add a new product.
+-   Searching the untappd API for a product returns results as intended.
+-   Selecting a result from the untappd API correctly fills the "new product" form.
+-   If no image is selected from the API or by the administrator, a default image is chosen.
+
+#### Editing/Deleting a Product
+
+-   Deleting a product from a product page or from the product management page works as intended.
+-   A modal window appears and requires confirmation when deleting a product.
+-   Searching for a specific product on the product management page works as intended.
+-   Accessing a product's edit page can be done through the product's page or the management page successfully.
+-   When editing a product, its information populates the fields of the form.
+-   A product can be updated successfully if all required fields are filled.
+-   The "back to top" button functions as intended.
+
+#### Adding a Producer
+
+-   Adding a new producer works as intended.
+-   All required fields must be filled to add a new producer.
+-   Searching the untappd API for a producer returns results as intended.
+-   Selecting a result from the untappd API correctly fills the "new producer" form.
+-   If no image is selected from the API or by the administrator, a default image is chosen.
 
 ### Producer Management
 
-## Untappd API
+-   Deleting a producer from a producer page or from the producer management page works as intended.
+-   A modal window appears and requires confirmation when deleting a producer.
+-   Searching for a specific producer on the producer management page works as intended.
+-   Accessing a producer's edit page can be done through the producer's page or the management page successfully.
+-   When editing a producer, its information populates the fields of the form.
+-   A producer can be updated successfully if all required fields are filled.
+-   The "back to top" button functions as intended.
 
 ## Responsiveness
 
