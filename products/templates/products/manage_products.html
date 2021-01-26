@@ -53,7 +53,16 @@
                         <i class="fas fa-trash-alt mr-2"></i> Delete
                     </a>
                 </div>
-                <div class="col-2"><img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}"></div>
+                <div class="col-2">
+                    {% if product.image_url %}
+                    <img src="{{ product.image_url }}" class="img-fluid" alt="{{ product.name }}">
+                    {% elif product.image %}
+                    <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}no-image.png" class="img-fluid" alt="{{ product.name }}">
+                    {% endif %}
+
+                </div>
                 <div class="col-3">
                     <p class="h5 mb-1">{{ product.name }}</p>
                     <p class="text-muted mb-0">{{ product.producer }}</p>

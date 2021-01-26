@@ -67,6 +67,7 @@
 -   The correct total and subtotals are displayed.
 -   Checkout nformation can be saved to profile when checkbox is selected.
 -   Stripe payment works correctly, webhooks have been tested and received.
+-   An unsuccessful payment returns the reason for the failure.
 
 ## Profile
 
