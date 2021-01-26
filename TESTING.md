@@ -133,4 +133,14 @@ Links to adminsitrative tools in the navigation can only be seen if a user is lo
 
 ## Responsiveness
 
-## Bugs Encountered
+This application was tested for responsiveness across a variety of devices to ensure content remained readable and editable on various screen sizes.
+
+The navigation, layout and various functionalities (login, logout, add, view, delete and update reviews) were tested across various screen sizes with chrome developer tools and with the [Responsive Viewer Chrome extension](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb).
+
+These tests were performed on the following devices and browsers:
+
+-   Chrome, Safari and Firefox on Mac OS
+-   Chrome and Safari on iPhone XR
+-   Chrome and Safari on iPad with Retina display
+-   Chrome on Xiaomi Redmi 4A
+-   Firefox on Xiaomi Redmi Note 5

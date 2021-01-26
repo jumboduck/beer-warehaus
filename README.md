@@ -341,5 +341,6 @@ To deploy Beer WareHaus to Heroku, use the following steps:
 -   This site is meant for educational use.
 -   Search functionality from [Julien Phalip](https://www.julienphalip.com/blog/adding-search-to-a-django-site-in-a-snap/)
 -   [Felipe Alarcon](https://github.com/fandressouza) for his helpful feedback and advice, and constant availability as a mentor
+-   [Krisztina Szabo](https://github.com/krisztinatxt) for letting me bounce ideas by her and being a fun rubberduck, over and over again.
 -   Many thanks to the team at the Code Institute for their help throughout the development process.
 -   I am endebted to all friends and family who have helped test the application and returned valuable feedback
