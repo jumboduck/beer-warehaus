@@ -145,3 +145,7 @@ These tests were performed on the following devices and browsers:
 -   Chrome and Safari on iPad with Retina display
 -   Chrome on Xiaomi Redmi 4A
 -   Firefox on Xiaomi Redmi Note 5
+
+## Bugs Found
+
+-   An issue was found where filters would not carry through other pagination links. This was fixed in the template by using the "url_replace" tag in the jinja template to update only the pagination get variable in the link's url.
