@@ -149,3 +149,5 @@ These tests were performed on the following devices and browsers:
 ## Bugs Found
 
 -   An issue was found where filters would not carry through other pagination links. This was fixed in the template by using the "url_replace" tag in the jinja template to update only the pagination get variable in the link's url.
+
+-   An issue was found where images would not display in the product management template. It was found that it was trying to access the image field of the model instead of the image_url field, which holds the url provided by the Untappd API.
