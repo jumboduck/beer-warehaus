@@ -1,0 +1,11 @@
+{
+    "owner": "jumboduck",
+    "name": "beer-warehaus",
+    "description": "Pipeline Controls for Merkely",
+    "visibility": "public",
+    "template": [
+        "artifact",
+        "unit_test",
+        "coverage"
+    ]
+}
