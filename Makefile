@@ -183,6 +183,7 @@ merkely_log_artifact:
         --env MERKELY_DRY_RUN=${MERKELY_DRY_RUN} \
         --env-file ${CI_ENV_FILE} \
         --rm \
+		--volume=${PWD}:${PWD} \
         --volume=/var/run/docker.sock:/var/run/docker.sock \
         ${LATEST}
 
