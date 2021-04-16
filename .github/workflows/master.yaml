@@ -1,0 +1,44 @@
+name: Master
+
+on:
+  pull_request:
+    branches-ignore:
+      - '**'
+  push:
+    branches:
+      - '**'
+      - '!latest'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+
+    - name: Set long sha env-var
+      run: echo "LONG_SHA=$(git log -1 --pretty=%H)" >> ${GITHUB_ENV}
+    - name: Set short sha env-var
+      run: echo "SHORT_SHA=${LONG_SHA:0:7}" >> ${GITHUB_ENV}
+    - name: Set tagged-image sha env-var
+      run: echo "ARTIFACT=README.md" >> ${GITHUB_ENV}
+    - name: Set merkely-fingerprint env-var
+      run: echo "MERKELY_FINGERPRINT=file://${ARTIFACT}" >> ${GITHUB_ENV}
+
+
+    # - name: Declare Merkely pipeline
+    #   env:
+    #     MERKELY_API_TOKEN: ${{ secrets.MERKELY_API_TOKEN }}
+    #   run: |
+    #     make merkely_declare_pipeline
+
+
+    - name: Log Docker image to Merkely
+      env:
+        MERKELY_IS_COMPLIANT: 'TRUE'
+        MERKELY_API_TOKEN: ${{ secrets.MERKELY_API_TOKEN }}
+      run: |
+        make merkely_log_artifact
+
