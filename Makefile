@@ -166,7 +166,7 @@ merkely_declare_pipeline:
 		--env-file ${CI_ENV_FILE} \
 		--rm \
 		--volume ${PWD}/${MERKELYPIPE}:/data/Merkelypipe.json \
-		${IMAGE}
+		${LATEST}
 
 
 merkely_log_artifact:
@@ -184,7 +184,7 @@ merkely_log_artifact:
         --env-file ${CI_ENV_FILE} \
         --rm \
         --volume=/var/run/docker.sock:/var/run/docker.sock \
-        ${IMAGE}
+        ${LATEST}
 
 
 merkely_log_evidence:
