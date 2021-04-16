@@ -25,7 +25,7 @@ jobs:
     - name: Set tagged-image sha env-var
       run: echo "ARTIFACT=README.md" >> ${GITHUB_ENV}
     - name: Set merkely-fingerprint env-var
-      run: echo "MERKELY_FINGERPRINT=file://${ARTIFACT}" >> ${GITHUB_ENV}
+      run: echo "MERKELY_FINGERPRINT=file://${PWD}/${ARTIFACT}" >> ${GITHUB_ENV}
 
 
     # - name: Declare Merkely pipeline
