@@ -40,5 +40,7 @@ jobs:
         MERKELY_IS_COMPLIANT: 'TRUE'
         MERKELY_API_TOKEN: ${{ secrets.MERKELY_API_TOKEN }}
       run: |
+        pwd
+        ls -al
         make merkely_log_artifact
 
